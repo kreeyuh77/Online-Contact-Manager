@@ -16,7 +16,7 @@
 		exit();
 	}
 
-	mysqli_stmt_bind_param($stmt, "i", $FirstName);
+	mysqli_stmt_bind_param($stmt, "s", $FirstName);
 	mysqli_stmt_execute($stmt);
 
 	$result_data = mysqli_stmt_get_result($stmt);
