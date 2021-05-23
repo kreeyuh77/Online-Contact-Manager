@@ -4,12 +4,12 @@
 	require_once 'functions.php';
 
 	$data = json_decode(file_get_contents('php://input'),true);
-    $returnData = "";
-    $numItems = 0;
-	
+   	 $returnData = "";
+    	$numItems = 0;
+
 	$FirstName = $data["FirstName"];
 
-    $sql = "SELECT LastName FROM Users WHERE FirstName = ?;";
+    	$sql = "SELECT LastName FROM Users WHERE FirstName = ?;";
 	$stmt = mysqli_stmt_init($conn);
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
 		echo"sql stmt did not prepare";
@@ -22,7 +22,7 @@
 	$result_data = mysqli_stmt_get_result($stmt);
 
     
-    while ($row = mysqli_fetch_assoc($result_data)) {
+    	while ($row = mysqli_fetch_assoc($result_data)) {
         if($numItems > 0){
             $returnData .= ", ";
         }
@@ -31,10 +31,10 @@
         
 	}
 
-    if($numItems < 1){
-        returnWithError("No Users");
-        exit();
-    }else{
-        $return  = '{"result":[ '. $returnData . ' ]}';
-        sendResultInfoAsJson( $return ); 
-    }
+    	if($numItems < 1){
+        	returnWithError("No Users");
+        	exit();
+    	}else{
+        	$return  = '{"result":[ '. $returnData . ' ]}';
+        	sendResultInfoAsJson( $return ); 
+    	}
