@@ -23,7 +23,7 @@
 	else
 	{
 		# insert into Contacts (FirstName,LastName,StreetAddress,City,State,ZipCode,PhoneNumber,Email) VALUES ('Jessica', 'Jones','112 house avenue','',3);
-		$stmt = $conn->prepare("INSERT into Cards (FirstName,LastName,StreetAddress,City,State,ZipCode,PhoneNumber,Email) VALUES(?,?,?,?,?,?,?,?)");
+		$stmt = $conn->prepare("INSERT into Contacts (FirstName,LastName,StreetAddress,City,State,ZipCode,PhoneNumber,Email) VALUES(?,?,?,?,?,?,?,?)");
 		$stmt->bind_param("ssssssss", $FirstName, $LastName, $StreetAddress, $City, $State, $ZipCode, $PhoneNumber, $Email);
 		$stmt->execute();
 		$stmt->close();
