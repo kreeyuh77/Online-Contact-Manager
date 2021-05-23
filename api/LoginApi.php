@@ -2,7 +2,7 @@
 
 	$inData = getRequestInfo();
 
-	$id = 0;
+	$ID = 0;
 	$FirstName = "";
 	$LastName = "";
 
