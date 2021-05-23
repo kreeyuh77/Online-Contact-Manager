@@ -2,9 +2,9 @@
 
 	$inData = getRequestInfo();
 
-	$id = 0;
-	$firstName = "";
-	$lastName = "";
+	$ID = 0;
+	$FirstName = "";
+	$LastName = "";
 
 	$serverName = "192.3.62.202";
 	$dBUsername = "API";
