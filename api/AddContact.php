@@ -15,7 +15,7 @@
 	$PhoneNumber= $inData["PhoneNumber"];
 	$Email = $inData["Email"];
 
-	$conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
+	$conn = new mysqli('localhost', $dBUsername, $dBPassword, $dBName);
 	if ($conn->connect_error)
 	{
 		returnWithError( $conn->connect_error );
