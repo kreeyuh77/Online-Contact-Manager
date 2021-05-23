@@ -3,8 +3,8 @@
 	$inData = getRequestInfo();
 
 	$id = 0;
-	$firstName = "";
-	$lastName = "";
+	$FirstName = "";
+	$LastName = "";
 
 	$conn = new mysqli("%", "API", "I4m4robot!", "cop4331_database");
 	if( $conn->connect_error )
