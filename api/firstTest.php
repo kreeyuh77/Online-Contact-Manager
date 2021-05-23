@@ -1,6 +1,7 @@
 <?php
 
-	require_once 'dbh-inc.php';
+	require_once 'DBH.php';
+	require_once 'functions.php';
 
 	$data = json_decode(file_get_contents('php://input'),true);
     $returnData = "";
