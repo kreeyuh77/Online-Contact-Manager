@@ -1,6 +1,11 @@
 <?php
 	$inData = getRequestInfo();
 
+	$serverName = "192.3.62.202";
+	$dBUsername = "API";
+	$dBPassword = "I4m4robot!";
+	$dBName = "cop4331_database";
+
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
 	$StreetAddress = $inData["StreetAddress"];
@@ -10,7 +15,7 @@
 	$PhoneNumber= $inData["PhoneNumber"];
 	$Email = $inData["Email"];
 
-	$conn = new mysqli("localhost", "API", "I4m4robot!", "cop4331_database");
+	$conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 	if ($conn->connect_error)
 	{
 		returnWithError( $conn->connect_error );
