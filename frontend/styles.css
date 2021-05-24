@@ -113,6 +113,7 @@ span.psw {
 	margin: auto;
 	background-color: white;
   height: 200px;
+	width: 500px;
   position: relative;
   border: 3px solid #d687b3;
 }
@@ -175,4 +176,6 @@ h2 {text-align: center;}
   .cancelbtn {
      width: 100%;
   }
+
+
 }
