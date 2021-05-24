@@ -18,12 +18,7 @@ if ($conn->connect_error)
 }
 else
 {
-    $stmt = $conn->prepare("DELETE FROM 'Contacts' WHERE ID =? AND ContactID =?");
-    $stmt->bind_param("ii, $ID, $ContactID");
-    $stmt->execute();
-    $stmt->close();
-    $conn->close();
-    returnWithError("");
+    $sql = ("DELETE FROM Contacts WHERE ID ='4' AND ContactID ='2'");
 }
 
 function getRequestInfo()
