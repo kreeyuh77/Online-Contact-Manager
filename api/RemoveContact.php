@@ -21,7 +21,7 @@ if ($conn->connect_error)
 else
 {
     # Swap out values for user-inputted values.
-    $sql = ("DELETE FROM Contacts WHERE ID =4 AND ContactID =3");
+    $sql = ("DELETE FROM Contacts WHERE ID =4 AND ContactID =4");
     if ($conn->query($sql) === TRUE) {
         returnWithError("");
     } else {
