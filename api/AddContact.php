@@ -1,8 +1,6 @@
 
 <?php
 
-require "LoginApi.php";
-
 $inData = getRequestInfo();
 
 $serverName = "192.3.62.202";
@@ -10,6 +8,7 @@ $dBUsername = "API";
 $dBPassword = "I4m4robot!";
 $dBName = "cop4331_database";
 
+$ID = $inData["ID"];
 $FirstName = $inData["FirstName"];
 $LastName = $inData["LastName"];
 $StreetAddress = $inData["StreetAddress"];
@@ -19,7 +18,7 @@ $ZipCode = $inData["ZipCode"];
 $PhoneNumber= $inData["PhoneNumber"];
 $Email = $inData["Email"];
 
-$conn = new mysqli('localhost', $dBUsername, $dBPassword, $dBName);
+$conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 if ($conn->connect_error)
 {
 	returnWithError( $conn->connect_error );
