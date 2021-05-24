@@ -1,11 +1,20 @@
 
 <?php
+
+require "Login.php";
+
+function acheckReturner($ID) {
+			echo   " ?" .  $ID;
+}
+	acheckReturner($ID);
+
 $inData = getRequestInfo();
 
 $serverName = "192.3.62.202";
 $dBUsername = "API";
 $dBPassword = "I4m4robot!";
 $dBName = "cop4331_database";
+
 
 $ID = $inData["ID"];
 $FirstName = $inData["FirstName"];
