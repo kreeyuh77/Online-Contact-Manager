@@ -1,7 +1,7 @@
 
 <?php
 
-require "Login.php";
+require "LoginApi.php";
 
 function acheckReturner($ID) {
 			echo   " ?" .  $ID;
@@ -14,7 +14,6 @@ $serverName = "192.3.62.202";
 $dBUsername = "API";
 $dBPassword = "I4m4robot!";
 $dBName = "cop4331_database";
-
 
 $ID = $inData["ID"];
 $FirstName = $inData["FirstName"];
