@@ -19,6 +19,11 @@ if ($conn->connect_error)
 else
 {
     $sql = ("DELETE FROM Contacts WHERE ID =4 AND ContactID =2");
+    if ($conn->query($sql) === TRUE) {
+        returnWithError("");
+    } else {
+        returnWithError($conn->error);
+    }
 }
 
 function getRequestInfo()
