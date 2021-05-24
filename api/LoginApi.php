@@ -1,4 +1,5 @@
 <?php
+	require 'DBH.php';
 	require 'functions.php';
 	
 	$inData = getRequestInfo();
@@ -6,11 +7,6 @@
 	$ID = 0;
 	$FirstName = "";
 	$LastName = "";
-
-	$serverName = "192.3.62.202";
-	$dBUsername = "API";
-	$dBPassword = "I4m4robot!";
-	$dBName = "cop4331_database";
 
 	$conn = new mysqli("$serverName", $dBUsername, $dBPassword, $dBName);
 	if( $conn->connect_error )
