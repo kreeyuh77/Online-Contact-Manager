@@ -18,7 +18,7 @@ if ($conn->connect_error)
 }
 else
 {
-    $stmt = $conn->prepare("DELETE ID, FirstName, LastName FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?");
+    $stmt = $conn->prepare("DELETE ID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?");
     $stmt->bind_param("iss", $ID, $FirstName, $LastName);
     $stmt->execute();
     $stmt->close();
