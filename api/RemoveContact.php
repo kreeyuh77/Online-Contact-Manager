@@ -8,8 +8,8 @@ $dBPassword = "I4m4robot!";
 $dBName = "cop4331_database";
 
 $ID = $inData["ID"];
-$FirstName = $inData["FirstName"];
-$LastName = $inData["LastName"];
+$ContactID = $inData["ContactID"];
+
 
 $conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 if ($conn->connect_error)
@@ -18,8 +18,8 @@ if ($conn->connect_error)
 }
 else
 {
-    $stmt = $conn->prepare("DELETE ID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?");
-    $stmt->bind_param("iss", $ID, $FirstName, $LastName);
+    $stmt = $conn->prepare("DELETE FROM 'Contacts' WHERE ID =? AND ContactID =?");
+    $stmt->bind_param("ii, $ID, $ContactID);
     $stmt->execute();
     $stmt->close();
     $conn->close();
