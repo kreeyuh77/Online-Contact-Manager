@@ -20,7 +20,7 @@ else
 {
     # insert into Contacts (FirstName,LastName,StreetAddress,City,State,ZipCode,PhoneNumber,Email) VALUES ('Jessica', 'Jones','112 house avenue','',3);
     $stmt = $conn->prepare("DELETE FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?");
-    $stmt->bind_param("sss", $ID, $FirstName, $LastName);
+    $stmt->bind_param("iss", $ID, $FirstName, $LastName);
     $stmt->execute();
     $stmt->close();
     $conn->close();
