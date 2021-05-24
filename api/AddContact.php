@@ -3,11 +3,6 @@
 
 require "LoginApi.php";
 
-function acheckReturner($ID) {
-			echo   " ?" .  $ID;
-}
-	acheckReturner($ID);
-
 $inData = getRequestInfo();
 
 $serverName = "192.3.62.202";
@@ -15,7 +10,6 @@ $dBUsername = "API";
 $dBPassword = "I4m4robot!";
 $dBName = "cop4331_database";
 
-$ID = $inData["ID"];
 $FirstName = $inData["FirstName"];
 $LastName = $inData["LastName"];
 $StreetAddress = $inData["StreetAddress"];
@@ -33,8 +27,8 @@ if ($conn->connect_error)
 else
 {
 	# insert into Contacts (FirstName,LastName,StreetAddress,City,State,ZipCode,PhoneNumber,Email) VALUES ('Jessica', 'Jones','112 house avenue','',3);
-	$stmt = $conn->prepare("INSERT into Contacts (FirstName,LastName,StreetAddress,City,State,ZipCode,PhoneNumber,Email) VALUES(?,?,?,?,?,?,?,?,?)");
-	$stmt->bind_param("ssssssss", $FirstName, $LastName, $StreetAddress, $City, $State, $ZipCode, $PhoneNumber, $Email);
+	$stmt = $conn->prepare("INSERT into Contacts (ID,FirstName,LastName,StreetAddress,City,State,ZipCode,PhoneNumber,Email) VALUES(?,?,?,?,?,?,?,?,?)");
+	$stmt->bind_param("issssssss", $ID, $FirstName, $LastName, $StreetAddress, $City, $State, $ZipCode, $PhoneNumber, $Email);
 	$stmt->execute();
 	$stmt->close();
 	$conn->close();
