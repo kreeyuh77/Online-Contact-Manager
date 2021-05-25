@@ -33,18 +33,19 @@ input[type=text]:focus {
 </style>
 <body>
 <!--this is the box with the title and two buttions-->
-<div class="box">
-  <h2>Your Contact Book</h2>
-	<div class="center">
-		  <input type="text" id="search" placeholder="Search..." name="search" onkeydown='checkSearch();'>
-    	<button type = "button" onclick="document.getElementById('addContact').style.display='block'" >Add Contact</button>
-			<button type = "button" onclick="document.getElementById('deleteContact').style.display='block'" >Delete Contact</button>
-			<button type = "button" onclick="doLogout()" >Logout</button>
+<div class="center">
+	<div class="box">
+	  <h2>Your Contact Book</h2>
+		<div class="center">
+			  <input type="text" id="search" placeholder="Search..." name="search" onkeydown='checkSearch();'>
+	    	<button type = "button" onclick="document.getElementById('addContact').style.display='block'" >Add Contact</button>
+				<button type = "button" onclick="document.getElementById('deleteContact').style.display='block'" >Delete Contact</button>
+				<button type = "button" onclick="doLogout()" >Logout</button>
 
-			<!--message displays here-->
-			<div id="displayItems"></div>
-
-		</div>
+				<!--message displays here-->
+				<div id="displayItems"></div>
+			</div>
+	</div>
 </div>
 
 <!--add box-->
@@ -83,14 +84,9 @@ input[type=text]:focus {
 			<label for="email"><b>Email</b></label>
 			<input type="text" id="email" placeholder="Enter Email" name="email">
 
-
-
-
-
 			<button type="submit" id="addContactButton" onclick="doAdd();">Add Contact</button>
 
 		</div>
-
 		 <!--close button-->
 		<div class="container" style="background-color:#f1f1f1">
 			<button type="button" onclick="document.getElementById('addContact').style.display='none'" class="cancelbtn">Cancel</button>
@@ -160,8 +156,5 @@ function checkDeleteSearch() {
 	});
 }
 
-
-
 </script>
-
 </body>
