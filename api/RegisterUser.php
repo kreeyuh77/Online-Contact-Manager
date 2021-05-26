@@ -4,7 +4,7 @@
 
 	$inData = getRequestInfo();
 
-	$Date = date(Y/m/d);
+	$Date = date("Y/m/d");
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
 	$Login = $inData["Login"];
