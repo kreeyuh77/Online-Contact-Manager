@@ -4,6 +4,7 @@
 
 	$inData = getRequestInfo();
 
+	$Date = date(Y/m/d);
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
 	$Login = $inData["Login"];
@@ -16,7 +17,7 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("INSERT INTO Users (FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?)");
+		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES ($Date, ?, ?, ?, ?)");
 		$stmt->bind_param("ssss", $FirstName, $LastName, $Login, $Password);
 		$stmt->execute();
 		$stmt->close();
