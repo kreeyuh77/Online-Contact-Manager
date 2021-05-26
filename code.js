@@ -1,4 +1,4 @@
-var urlBase = 'http://wownice.club/api';
+var urlBase = 'http://wownice.club';
 var extension = 'php';
 
 var userId = 0;
@@ -25,7 +25,7 @@ function doLogin()
 
 //	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
-	var url = urlBase + '/LoginApi.' + extension;
+	var url = urlBase + '/Login.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
