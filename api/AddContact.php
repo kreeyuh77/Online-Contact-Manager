@@ -5,6 +5,7 @@ require_once 'functions.php';
 
 $inData = getRequestInfo();
 
+# The json varaible is a placeholder for the value of ID stored on a cookie.
 $ID = json_decode($json);
 $FirstName = $inData["FirstName"];
 $LastName = $inData["LastName"];
