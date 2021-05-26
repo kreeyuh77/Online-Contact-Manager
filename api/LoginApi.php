@@ -1,6 +1,8 @@
 <?php
 	require_once 'DBH.php';
 	require_once 'functions.php';
+	
+	$inData = getRequestInfo();
 
 	$ID = 0;
 	$FirstName = "";
