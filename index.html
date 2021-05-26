@@ -1,8 +1,7 @@
 <html>
 <head>
 	<title>Small Project Log In</title>
-	<script type="text/javascript" src="js/md5.js"></script>
-	<script type="text/javascript" src="js/code.js"></script>
+	<script type="text/javascript" src="/code.js"></script>
 	<link rel="stylesheet" href="styles.css">
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +21,7 @@
 <!--log in box-->
 <div id="login" class="modal">
 		<!--this is the close X in the corner-->
-	<form class="modal-content animate" action="/action_page.php" method="post">
+	<form class="modal-content animate"  action="api/LoginApi.php" method="post">
 		<div class="imgcontainer">
 			<span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
 		</div>
@@ -40,6 +39,8 @@
 			<input type="checkbox" onclick="pswdToggle()">Show Password
 
 			<button type="submit" id="loginButton" onclick="doLogin();">Login</button>
+
+			<span id="loginResult"></span>
 
 		</div>
 
