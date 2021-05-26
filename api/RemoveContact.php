@@ -20,6 +20,7 @@ else
     $stmt1->bind_param("iss", $ID, $inData["FirstName"], $inData["LastName"]);
     $stmt1->execute();
     $ContactID = $stmt1->get_result();
+    echo $ContactID;
     $stmt1->close();
     
     $stmt2 = $conn->prepare("DELETE FROM Contacts WHERE ID =? AND ContactID =?");
