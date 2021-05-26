@@ -3,6 +3,8 @@
 require_once 'DBH.php';
 require_once 'functions.php';
 
+$inData = getRequestInfo();
+
 $ID = $inData["ID"];
 $FirstName = $inData["FirstName"];
 $LastName = $inData["LastName"];
