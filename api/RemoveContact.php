@@ -1,9 +1,7 @@
 <?php
 
-require 'DBH.php';
-require 'functions.php';
-
-$inData = getRequestInfo();
+require_once 'DBH.php';
+require_once 'functions.php';
 
 $ID = $inData["ID"];
 $ContactID = $inData["ContactID"];
@@ -16,12 +14,12 @@ if ($conn->connect_error)
 else
 {
     # Swap out values for user-inputted values.
-    $sql = ("DELETE FROM Contacts WHERE ID =3 AND ContactID =1");
-    if ($conn->query($sql) === TRUE) {
-        returnWithError("");
-    } else {
-        returnWithError($conn->error);
-    }
+    $stmt = $conn->prepare("DELETE FROM Contacts WHERE ID =? AND ContactID =?");
+    $stmt->bind_param("ii", $ID, $ContactID);
+    $stmt->execute();
+	$stmt->close();
+	$conn->close();
+    returnWithError("");
 }
 
 ?>
