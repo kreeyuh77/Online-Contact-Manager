@@ -2,11 +2,6 @@
 	require_once 'DBH.php';
 	require_once 'functions.php';
 
-	$FirstName = $inData["FirstName"];
-	$LastName = $inData["LastName"];
-	$Login = $inData["Login"];
-	$Password = $inData["Password"];
-
 	$conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 	if( $conn->connect_error )
 	{
