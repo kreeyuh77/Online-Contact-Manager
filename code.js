@@ -1,4 +1,4 @@
-var urlBase = 'http://wownice.club';
+var urlBase = 'http://wownice.club/api';
 var extension = 'php';
 
 var userId = 0;
@@ -50,7 +50,7 @@ function doLogin()
 
 				saveCookie();
 
-				window.location.href = "main.html";
+				window.location.href = "frontend/main.html";
 
 			}
 		};
