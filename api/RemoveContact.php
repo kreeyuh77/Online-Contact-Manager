@@ -16,24 +16,10 @@ if ($conn->connect_error)
 }
 else
 {
-    $stmt1 = $conn->prepare("SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?");
-    $stmt1->bind_param("iss", $ID, $inData["FirstName"], $inData["LastName"]);
-    $stmt1->execute();
-    $result = $stmt1->get_result();
-    if ($row = $result->fetch_assoc())
-    {
-        $ContactID = $row['ContactID'];
-    }
-    else
-    {
-        returnWithError("No record found.")
-    }
-    $stmt1->close();
-    
-    $stmt2 = $conn->prepare("DELETE FROM Contacts WHERE ID =? AND ContactID =?");
-    $stmt2->bind_param("ii", $ID, $ContactID);
-    $stmt2->execute();
-    $stmt2->close();
+    $stmt = $conn->prepare("DELETE FROM Contacts WHERE ID =? AND ContactID =?");
+    $stmt->bind_param("ii", $ID, $ContactID);
+    $stmt->execute();
+    $stmt->close();
     
     $conn->close();
     returnWithError("");
