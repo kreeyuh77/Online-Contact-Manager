@@ -6,7 +6,7 @@ require_once 'functions.php';
 $inData = getRequestInfo();
 
 # The json varaible is a placeholder for the value of ID stored on a cookie.
-$ID = $inData["ID"]; # Replace with json_decode($json);
+$ID = $inData["ID"]; # Replace with json_decode($json)
 $ContactID = $inData["ContactID"]; # also temp
 
 $conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
