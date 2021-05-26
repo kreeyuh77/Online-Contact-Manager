@@ -7,7 +7,7 @@ $inData = getRequestInfo();
 
 # The json varaible is a placeholder for the value of ID stored on a cookie.
 $ID = $inData["ID"]; # Replace with json_decode($json);
-$ContactID = 0;
+$ContactID = $inData["ContactID"]; # also temp
 
 $conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 if ($conn->connect_error)
