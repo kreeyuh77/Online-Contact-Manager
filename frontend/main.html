@@ -7,20 +7,6 @@
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  /* for search bar*/
-  input[type=text] {
-  box-sizing: 200px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 20px;
-}
-
-input[type=text]:focus {
-  width: 100%;
-}
 
 .box {
   height: 450px;
@@ -35,7 +21,7 @@ input[type=text]:focus {
 	<div class="box">
 	  <h2>Your Contact Book</h2>
 		<div class="center">
-			  <input type="text" id="search" placeholder="Search..." name="search" onkeydown='checkSearch();'>
+			  <button type = "button" onclick="document.getElementById('search').style.display='block'" >Search</button>
 	    	<button type = "button" onclick="document.getElementById('addContact').style.display='block'" >Add Contact</button>
 				<button type = "button" onclick="document.getElementById('deleteContact').style.display='block'" >Delete Contact</button>
 				<button type = "button" onclick="doLogout()" >Logout</button>
@@ -44,6 +30,46 @@ input[type=text]:focus {
 				<div id="displayItems"></div>
 			</div>
 	</div>
+</div>
+
+<!--search box-->
+<div id="search" class="modal">
+		<!--this is the close X in the corner-->
+	<form class="modal-content animate" action="/action_page.php" method="post">
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('search').style.display='none'" class="close" title="Close Modal">&times;</span>
+		</div>
+
+		 <!--input fields -->
+		<div class="container">
+			<h1>Search Contact</h1>
+			<p>Search for a contact to delete</p>
+      <hr>
+			<label for="searchType"><b>Search by</b></label>
+			<select name="searchType" id="searchType" class= "dropBox" required>
+				<option disabled selected value>Select</option>
+    		<option value="firstName">First Name</option>
+    		<option value="lastName">Last Name</option>
+    		<option value="address">Address</option>
+    		<option value="city">City</option>
+				<option value="state">State</option>
+				<option value="zipcode">Zip Code</option>
+				<option value="phonenumber">Phone Number</option>
+				<option value="email">Email</option>
+  		</select>
+
+			 <input type="text" id="search" placeholder="Search..." name="search" required>
+			 <button type="submit" id="searchButton" onclick="doSearch();">Search</button>
+
+			 <!--searched items displays here-->
+			 <div id="displaySearchedItems"></div>
+		</div>
+
+		 <!--close button-->
+		<div class="container" style="background-color:#f1f1f1">
+			<button type="button" onclick="document.getElementById('search').style.display='none'" class="cancelbtn">Cancel</button>
+		</div>
+	</form>
 </div>
 
 <!--add box-->
@@ -105,8 +131,21 @@ input[type=text]:focus {
 			<h1>Delete Contact</h1>
 			<p>Search for a contact to delete</p>
       <hr>
-			 <input type="text" id="deleteSearch" placeholder="Search..." name="deleteSearch" onkeydown='checkDeleteSearch();' required>
-			 <!--message displays here-->
+			<label for="deletesearchType"><b>Search by</b></label>
+			<select name="deletesearchType" id="deletesearchType" class= "dropBox" required>
+				<option disabled selected value>Select</option>
+    		<option value="firstName">First Name</option>
+    		<option value="lastName">Last Name</option>
+    		<option value="address">Address</option>
+    		<option value="city">City</option>
+				<option value="state">State</option>
+				<option value="zipcode">Zip Code</option>
+				<option value="phonenumber">Phone Number</option>
+				<option value="email">Email</option>
+  		</select>
+
+			 <input type="text" id="deleteSearch" placeholder="Search..." name="deleteSearch" required>
+			 <!--searched items displays here-->
 			 <div id="displayDeleteItems"></div>
 			<button type="submit" id="deleteContactButton" onclick="doDelete();">Delete Contact</button>
 		</div>
@@ -123,6 +162,7 @@ input[type=text]:focus {
 // Get the modal
 var modal = document.getElementById('addContact');
 var modal2 = document.getElementById('deleteContact');
+var modal3 = document.getElementById('search');
 
 
 // When the user clicks anywhere outside of the modal, close it
@@ -133,26 +173,11 @@ window.onclick = function(event) {
 		if (event.target == modal2) {
         modal2.style.display = "none";
     }
+		if (event.target == modal3) {
+        modal3.style.display = "none";
+    }
 }
 
-// when the user presser enter in the search boxes, a search is preformed
-function checkSearch() {
-	var input = document.getElementById("search");
-	input.addEventListener("keydown", function(event) {
-	    if (event.keyCode === 13) {
-	        doSearch();
-	    }
-	});
-}
-
-function checkDeleteSearch() {
-	var input = document.getElementById("deleteSearch");
-	input.addEventListener("keydown", function(event) {
-	    if (event.keyCode === 13) {
-	        doDeleteSearch();
-	    }
-	});
-}
 
 </script>
 </body>

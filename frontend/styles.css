@@ -118,6 +118,45 @@ span.psw {
   border: 3px solid #d687b3;
 	border-radius: 4px;
 }
+/* for input texts/passwords bars*/
+input[type=text] {
+box-sizing: 200px;
+border: 2px solid #ccc;
+border-radius: 4px;
+font-size: 16px;
+background-color: white;
+background-repeat: no-repeat;
+padding: 12px 20px 12px 20px;
+}
+
+input[type=text]:focus {
+width: 100%;
+}
+
+input[type=password] {
+box-sizing: 200px;
+border: 2px solid #ccc;
+border-radius: 4px;
+font-size: 16px;
+background-color: white;
+background-repeat: no-repeat;
+padding: 12px 20px 12px 20px;
+}
+
+input[type=password]:focus {
+width: 100%;
+}
+
+/* for dropdown bar*/
+.dropBox {
+	box-sizing: 200px;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	background-color: white;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 20px;
+}
 
 /*These are the styles for the pswd verification parts*/
 /* The message box is shown when the user clicks on the password field */
