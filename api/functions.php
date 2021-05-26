@@ -1,5 +1,7 @@
 <?php
 
+$inData = getRequestInfo();
+
 function returnWithError( $err ) {
    		$retValue = '{"error":"' . $err . '"}';
    		sendResultInfoAsJson( $retValue );
@@ -14,4 +16,5 @@ function getRequestInfo()
 	{
 		return json_decode(file_get_contents('php://input'), true);
 	}
+
 ?>
