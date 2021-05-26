@@ -1,7 +1,6 @@
 <?php
 	require_once 'DBH.php';
 	require_once 'functions.php';
-	require_once 'LoginApi.php'
 
 	$inData = getRequestInfo();
 
