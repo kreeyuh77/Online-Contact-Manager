@@ -1,9 +1,15 @@
-var urlBase = 'http://wownice.club/LoginApi';
+var urlBase = 'http://wownice.club';
 var extension = 'php';
 
 var userId = 0;
 var firstName = "";
 var lastName = "";
+var address = "";
+var city = ""; 
+var state = "";
+var zipCode = 0;
+var phoneNumber = 0;
+var email = "";
 
 function doLogin()
 {
@@ -19,7 +25,7 @@ function doLogin()
 
 //	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
-	var url = urlBase + '/Login.' + extension;
+	var url = urlBase + '/LoginApi.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -71,11 +77,13 @@ function doSignup()
 
 //	var hash = md5( password );
 	
-	document.getElementById("loginResult").innerHTML = "";
+	document.getElementById("signupResult").innerHTML = "";
 
 //	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
-	var url = urlBase + '/Login.' + extension;
+
+	//Need to edit the url based on the php files given to us
+	var url = urlBase + '/Signup.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -91,7 +99,7 @@ function doSignup()
 		
 				if(checkPswds(false))
 				{		
-					document.getElementById("loginResult").innerHTML = "Passwords do not match.";
+					document.getElementById("signupResult").innerHTML = "Passwords do not match.";
 					return;
 				}
 		
@@ -108,9 +116,218 @@ function doSignup()
 	}
 	catch(err)
 	{
+		document.getElementById("signupResult").innerHTML = err.message;
+	}
+
+}
+
+function doSearch()
+{
+
+	document.getElementById("searchResult").innerHTML = "";
+
+	var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "address" : "' + address + '", "city" : "' + city + '", "state" : "' + state + '", "zipCode" : "' + zipCode + '", "phoneNumber" : "' + phoneNumber + '", "email" : "' + email + '"}';
+
+	//Need to edit the url based on the php files given to us
+	var url = urlBase + '/SearchContact.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				var jsonObject = JSON.parse( xhr.responseText );
+				userId = jsonObject.id;
+		
+				if( userId < 1 )
+				{		
+					document.getElementById("searchResult").innerHTML = "No user found in the database.";
+					return;
+				}
+		
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
+				address = jsonObject.address;
+				city = jsonObject.city;
+				state = jsonObject.state;
+				zipCode = jsonObject.zipCode;
+				phoneNumber = jsonObject.phoneNumber;
+				email = jsonObject.email;
+
+				saveCookie();
+	
+				window.location.href = "color.html";
+				
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("searchResult").innerHTML = err.message;
+	}
+}
+
+function doDelete()
+{
+	document.getElementById("deleteResult").innerHTML = "";
+
+	var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "address" : "' + address + '", "city" : "' + city + '", "state" : "' + state + '", "zipCode" : "' + zipCode + '", "phoneNumber" : "' + phoneNumber + '", "email" : "' + email + '"}';
+
+	//Need to edit the url based on the php files given to us
+	var url = urlBase + '/RemoveContact.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("DELETE", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				var jsonObject = JSON.parse( xhr.responseText );
+				userId = jsonObject.id;
+		
+				if( userId < 1 )
+				{		
+					document.getElementById("deleteResult").innerHTML = "User was not found. Unable to delete.";
+					return;
+				}
+		
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
+				address = jsonObject.address;
+				city = jsonObject.city;
+				state = jsonObject.state;
+				zipCode = jsonObject.zipCode;
+				phoneNumber = jsonObject.phoneNumber;
+				email = jsonObject.email;
+
+				saveCookie();
+	
+				window.location.href = "color.html";
+				
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("deleteResult").innerHTML = err.message;
+	}
+}
+
+function doDeleteSearch()
+{
+	document.getElementById("deleteResult").innerHTML = "";
+	document.getElementById("searchResult").innerHTML = "";
+
+	var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "address" : "' + address + '", "city" : "' + city + '", "state" : "' + state + '", "zipCode" : "' + zipCode + '", "phoneNumber" : "' + phoneNumber + '", "email" : "' + email + '"}';
+
+	//Need to edit the url based on the php files given to us
+	var url = urlBase + '/SearchContact.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				var jsonObject = JSON.parse( xhr.responseText );
+				userId = jsonObject.id;
+		
+				if( userId < 1 )
+				{		
+					document.getElementById("searchResult").innerHTML = "No user found in the database.";
+					return;
+				}
+		
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
+				address = jsonObject.address;
+				city = jsonObject.city;
+				state = jsonObject.state;
+				zipCode = jsonObject.zipCode;
+				phoneNumber = jsonObject.phoneNumber;
+				email = jsonObject.email;
+
+				saveCookie();
+	
+				window.location.href = "color.html";
+				
+			}
+		};
+		xhr.send(jsonPayload);
+		var xhr = new XMLHttpRequest();
+		xhr.open("DELETE", url, true);
+		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+		url = urlBase + '/RemoveContact.' + extension;
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
+}
+
+function doAdd()
+{
+
+	document.getElementById("addResult").innerHTML = "";
+
+	var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "address" : "' + address + '", "city" : "' + city + '", "state" : "' + state + '", "zipCode" : "' + zipCode + '", "phoneNumber" : "' + phoneNumber + '", "email" : "' + email + '"}';
+
+	//Need to edit the url based on the php files given to us
+	var url = urlBase + '/AddContact.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				var jsonObject = JSON.parse( xhr.responseText );
+				userId = jsonObject.id;
+		
+/* 				if( userId < 1 )
+				{		
+					document.getElementById("loginResult").innerHTML = "Unable to add user";
+					return;
+				} */
+		
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
+				address = jsonObject.address;
+				city = jsonObject.city;
+				state = jsonObject.state;
+				zipCode = jsonObject.zipCode;
+				phoneNumber = jsonObject.phoneNumber;
+				email = jsonObject.email;
+
+				saveCookie();
+	
+				window.location.href = "color.html";
+				
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("addResult").innerHTML = err.message;
+	}
 }
 
 function saveCookie()
