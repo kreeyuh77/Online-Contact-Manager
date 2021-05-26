@@ -3,6 +3,9 @@
 require 'DBH.php';
 require 'functions.php';
 
+$inData = getRequestInfo();
+
+
 $edit = $inData["edit"];
 $ID = $inData["ID"];
 $ContactID = $inData["ContactID"];
