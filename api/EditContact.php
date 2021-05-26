@@ -5,7 +5,7 @@ require 'functions.php';
 
 $inData = getRequestInfo();
 
-$Edit = $inData["edit"];
+$Edit = $inData["Edit"];
 $ID = $inData["ID"];
 $ContactID = $inData["ContactID"];
 $FirstName = "";
