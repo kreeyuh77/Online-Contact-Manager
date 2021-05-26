@@ -1,6 +1,6 @@
 <?php
-	require_once 'DBH.php';
-	require_once 'functions.php';
+	require 'DBH.php';
+	require 'functions.php';
 	
 	$inData = getRequestInfo();
 
