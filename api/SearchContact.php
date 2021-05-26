@@ -20,12 +20,12 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT FirstName,LastName,StreetAddress,City,State,ZipCode,PhoneNumber,Email FROM Contacts WHERE ID=? AND ContactID=?");
+		$query = "SELECT FirstName,LastName,StreetAddress,City,State,ZipCode,PhoneNumber,Email FROM Contacts WHERE ID=? AND ContactID=?";
+		$stmt = $conn->prepare($query);
 		$stmt->bind_param("ii", $ID, $ContactID);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
-		$query = "SELECT FirstName,LastName,StreetAddress,City,State,ZipCode,PhoneNumber,Email FROM Contacts WHERE ID=? AND ContactID=?";
 
 		if(isset($FirstName)){
 			$query .= " AND FirstName LIKE '%$FirstName%'";
