@@ -17,7 +17,11 @@
 	}
 	else
 	{
+<<<<<<< Updated upstream
 		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES (date("Y/m/d"), ?, ?, ?, ?)");
+=======
+		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?, ?)");
+>>>>>>> Stashed changes
 		$stmt->bind_param("ssss", $FirstName, $LastName, $Login, $Password);
 		$stmt->execute();
 		$stmt->close();
