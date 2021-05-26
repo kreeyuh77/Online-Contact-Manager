@@ -15,7 +15,7 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES (Date, ?, ?, ?, ?)");
+		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES ($Date, ?, ?, ?, ?)");
 		$stmt->bind_param("ssss", $FirstName, $LastName, $Login, $Password);
 		$stmt->execute();
 		$stmt->close();
