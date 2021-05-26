@@ -2,7 +2,6 @@
 	require_once 'DBH.php';
 	require_once 'functions.php';
 
-	$Date = date("m/d/Y");
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
 	$Login = $inData["Login"];
@@ -15,7 +14,7 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES ($Date, ?, ?, ?, ?)");
+		$stmt = $conn->prepare("INSERT INTO Users (FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?)");
 		$stmt->bind_param("ssss", $FirstName, $LastName, $Login, $Password);
 		$stmt->execute();
 		$stmt->close();
