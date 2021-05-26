@@ -16,8 +16,7 @@ if ($conn->connect_error)
 }
 else
 {
-    $stmt = $conn->prepare("DELETE FROM Contacts WHERE ID =? AND ContactID =?");
-    $stmt->bind_param("ii", $ID, $ContactID);
+    $stmt = $conn->prepare("DELETE FROM Contacts WHERE ID=$ID AND ContactID=$ContactID");
     $stmt->execute();
     $stmt->close();
     $conn->close();
