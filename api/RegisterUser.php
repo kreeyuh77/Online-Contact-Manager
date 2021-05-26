@@ -2,6 +2,8 @@
 	require_once 'DBH.php';
 	require_once 'functions.php';
 
+	$inData = getRequestInfo();
+
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
 	$Login = $inData["Login"];
