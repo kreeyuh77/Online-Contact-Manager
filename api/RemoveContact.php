@@ -19,7 +19,6 @@ else
     $stmt1 = $conn->prepare("SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?");
     $stmt1->bind_param("iss", $ID, $inData["FirstName"], $inData["LastName"]);
     $stmt1->execute();
-    echo $ContactID;
     $result = $stmt1->get_result();
     if ($row = $result->fetch_assoc())
     {
