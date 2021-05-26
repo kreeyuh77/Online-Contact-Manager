@@ -20,7 +20,6 @@ else
     $stmt->bind_param("ii", $ID, $ContactID);
     $stmt->execute();
     $stmt->close();
-    
     $conn->close();
     returnWithError("");
 }
