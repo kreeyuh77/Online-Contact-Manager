@@ -42,7 +42,7 @@
 
 	function returnWithInfo($FirstName,$LastName,$StreetAddress,$City,$State,$ZipCode,$PhoneNumber,$Email)
 	{
-		$retValue = '{"FirstName":"'.$FirstName.'","LastName":"'.$LastName.'","StreetAddress":"'.$StreetAddress.'","City":"'.$City.'","State":"'.$State.'","ZipCode":"'.$ZipCode.'","PhoneNumber":"'.$PhoneNumber.'","Email":"'.$Email.'","error":""}';
+		$retValue = '{"FirstName":'.$FirstName.',"LastName":'.$LastName.',"StreetAddress":'.$StreetAddress.',"City":'.$City.',"State":'.$State.',"ZipCode":'.$ZipCode.',"PhoneNumber":'.$PhoneNumber.',"Email":'.$Email.',"error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 ?>
