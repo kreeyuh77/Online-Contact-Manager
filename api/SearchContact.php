@@ -24,7 +24,7 @@
 	{
 		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =? AND FirstName =? AND LastName =?)";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("iiss", $ID, $ContactID, $FirstName, $LastName);
+		$stmt->bind_param("iiss", $ID, $ContactID, $FirstName, $LastName");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		if($row = $result->fetch_assoc())
