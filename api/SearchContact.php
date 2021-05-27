@@ -25,16 +25,16 @@
 		$stmt1 = $conn->prepare($query);
 		$stmt1->bind_param("iss", $ID, $FirstName, $LastName);
 		$stmt1->execute();
-		$result1 = $stmt1->get_result();
-		$ContactID = $result1->fetch_assoc();
+		$result = $stmt1->get_result();
+		$ContactID = $result->fetch_assoc();
 		$stmt1->close();
 		
 		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =?";
 		$stmt2 = $conn->prepare($query);
 		$stmt2->bind_param("iiss", $ID, $ContactID);
 		$stmt2->execute();
-		$result2 = $stmt2->get_result();
-		if($row = $result2->fetch_assoc())
+		$result = $stmt2->get_result();
+		if($row = $result->fetch_assoc())
 		{
 			returnWithInfo($row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email'],);
 		}
