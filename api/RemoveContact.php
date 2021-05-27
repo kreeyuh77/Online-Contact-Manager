@@ -17,13 +17,13 @@ if ($conn->connect_error)
 }
 else
 {
-	$stmt = $conn->prepare("SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?");
-	$stmt->bind_param("iss", $ID, $FirstName, $LastName);
-	$stmt->execute();
-	$result = $stmt->get_result();
-	$row = $result->fetch_assoc();
-	$ContactID = $row["ContactID"];
-	$stmt->close();
+    $stmt = $conn->prepare("SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?");
+    $stmt->bind_param("iss", $ID, $FirstName, $LastName);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $ContactID = $row["ContactID"];
+    $stmt->close();
     
     $stmt = $conn->prepare("DELETE FROM Contacts WHERE ContactID =?");
     $stmt->bind_param("i", $ContactID);
