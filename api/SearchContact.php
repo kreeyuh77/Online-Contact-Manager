@@ -26,37 +26,7 @@
 		$query = "SELECT * FROM Contacts WHERE ID = ? AND ContactID = ?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("ii", $ID, $ContactID);
-		if(isset($FirstName)){
-			$query .= " AND FirstName LIKE '%$FirstName%'";
-		}
-
-		if(isset($LastName)){
-			$query .= " AND LastName LIKE '%$LastName%'";
-		}
-
-		if(isset($StreetAddress)){
-			$query .= " AND StreetAddress LIKE '%$StreetAddress%'";
-		}
-
-		if(isset($City)){
-			$query .= " AND City LIKE '%$City%'";
-		}
-
-		if(isset($State)){
-			$query .= " AND State LIKE '%$State%'";
-		}
-
-		if(isset($ZipCode)){
-			$query .= " AND ZipCode LIKE '%$ZipCode%'";
-		}
-
-		if(isset($PhoneNumber)){
-			$query .= " AND PhoneNumber LIKE '%$PhoneNumber%'";
-		}
-
-		if(isset($Email)){
-			$query .= " AND Email LIKE '%$Email%'";
-		}
+		
 		$stmt->execute();
 		$result = $stmt->get_result();
 
