@@ -6,8 +6,9 @@
 
 	$ID = $inData["ID"];
 	$ContactID = $inData["ContactID"];
-	$FirstName = "";
-	$LastName = "";
+	$Name = $inData["Name"];
+	$FirstName = $inData["FirstName"];
+	$LastName = $inData["LastName"];
 	$StreetAddress = "";
 	$City = "";
 	$State = "";
@@ -22,9 +23,9 @@
 	}
 	else
 	{
-		$query = "SELECT * FROM Contacts WHERE ID = ? AND ContactID = ?";
+		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =? AND (FirstName =? OR LastName =?");
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("ii", $ID, $ContactID);
+		$stmt->bind_param("iis", $ID, $ContactID, $Name);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		if( $row = $result->fetch_assoc()  )
