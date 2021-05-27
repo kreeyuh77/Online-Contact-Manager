@@ -23,7 +23,7 @@
 	}
 	else
 	{
-		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =? AND (FirstName like ? OR LastName like ?");
+		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =? AND (FirstName like ? OR LastName like ?)";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("iis", $ID, $ContactID, $Name);
 		$stmt->execute();
