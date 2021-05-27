@@ -5,7 +5,6 @@
 	$inData = getRequestInfo();
 
 	$ID = $inData["ID"];
-	$ContactID = $inData["ContactID"];
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
 	$StreetAddress = "";
@@ -22,12 +21,20 @@
 	}
 	else
 	{
-		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =? AND FirstName =? AND LastName =?";
-		$stmt = $conn->prepare($query);
-		$stmt->bind_param("iiss", $ID, $ContactID, $FirstName, $LastName);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		if($row = $result->fetch_assoc())
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?";
+		$stmt1 = $conn->prepare($query);
+		$stmt1->bind_param("iss", $ID, $FirstName, $LastName);
+		$stmt1->execute();
+		$result1 = $stmt1->get_result();
+		$ContactID = $result1->fetch_assoc();
+		$stmt1->close();
+		
+		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =?";
+		$stmt2 = $conn->prepare($query);
+		$stmt2->bind_param("iiss", $ID, $ContactID);
+		$stmt2->execute();
+		$result2 = $stmt2->get_result();
+		if($row = $result2->fetch_assoc())
 		{
 			returnWithInfo($row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email'],);
 		}
@@ -35,7 +42,7 @@
 		{
 			returnWithError("No Records Found");
 		}
-		$stmt->close();
+		$stmt2->close();
 		$conn->close();
 	}
 
@@ -44,3 +51,4 @@
 		$retValue = '{"FirstName":"'.$FirstName.'","LastName":"'.$LastName.'","StreetAddress":"'.$StreetAddress.'","City":"'.$City.'","State":"'.$State.'","ZipCode":"'.$ZipCode.'","PhoneNumber":"'.$PhoneNumber.'","Email":"'.$Email.'","error":""}';
 		sendResultInfoAsJson($retValue);
 	}
+?>
