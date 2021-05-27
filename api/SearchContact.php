@@ -6,7 +6,7 @@
 
 	$ID = $inData["ID"];
 	$ContactID = $inData["ContactID"];
-	$Name = $inData["Name"];
+	$Name = "%".$inData["Name"]."%";
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
 	$StreetAddress = "";
@@ -23,7 +23,7 @@
 	}
 	else
 	{
-		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =? AND (FirstName =? OR LastName =?");
+		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =? AND (FirstName like ? OR LastName like ?");
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("iis", $ID, $ContactID, $Name);
 		$stmt->execute();
