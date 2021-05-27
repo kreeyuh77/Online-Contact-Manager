@@ -5,9 +5,8 @@
 	$inData = getRequestInfo();
 
 	$ID = $inData["ID"];
-	$Name = "%".$inData["Name"]."%";
-	$FirstName = "";
-	$LastName = "";
+	$FirstName = $inData["FirstName"];
+	$LastName = $inData["LastName"];
 	$StreetAddress = "";
 	$City = "";
 	$State = "";
@@ -22,15 +21,15 @@
 	}
 	else
 	{
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND (FirstName like ? or LastName like ?)";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $Name);
+		$stmt->bind_param("iss", $ID, $FirstName, $LastName);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
 		$ContactID = $row["ContactID"];
 		$stmt->close();
-		
+
 		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("ii", $ID, $ContactID);
