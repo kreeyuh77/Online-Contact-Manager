@@ -26,7 +26,7 @@
 		$stmt->bind_param("iss", $ID, $FirstName, $LastName);
 		$stmt->execute();
 		$result = $stmt->get_result();
-		$ContactID = mysql_fetch_assoc($result);
+		$ContactID = $result->fetch_assoc();
 		$stmt->close();
 		
 		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =?";
