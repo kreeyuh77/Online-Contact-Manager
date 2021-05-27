@@ -7,13 +7,13 @@
 	$ID = $inData["ID"];
 	$ContactID = $inData["ContactID"];
 	$FirstName = "";
-	$LastName = $inData["LastName"];
-	$StreetAddress = $inData["StreetAddress"];
-	$City = $inData["City"];
-	$State = $inData["State"];
-	$ZipCode = $inData["ZipCode"];
-	$PhoneNumber = $inData["PhoneNumber"];
-	$Email = $inData["Email"];
+	$LastName = "";
+	$StreetAddress = "";
+	$City = "";
+	$State = "";
+	$ZipCode = "";
+	$PhoneNumber = "";
+	$Email = "";
 
 	$conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 	if( $conn->connect_error )
