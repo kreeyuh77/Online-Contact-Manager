@@ -4,10 +4,9 @@
 
 	$inData = getRequestInfo();
 
-
 	$ID = $inData["ID"];
 	$ContactID = $inData["ContactID"];
-	$FirstName = $inData["FirstName"];
+	$FirstName = "";
 	$LastName = $inData["LastName"];
 	$StreetAddress = $inData["StreetAddress"];
 	$City = $inData["City"];
@@ -26,12 +25,8 @@
 		$query = "SELECT * FROM Contacts WHERE ID = ? AND ContactID = ?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("ii", $ID, $ContactID);
-		
 		$stmt->execute();
 		$result = $stmt->get_result();
-
-
-
 		if( $row = $result->fetch_assoc()  )
 		{
 			returnWithInfo($row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email'],);
@@ -41,7 +36,6 @@
 		{
 			returnWithError("No Records Found");
 		}
-
 		$stmt->close();
 		$conn->close();
 	}
