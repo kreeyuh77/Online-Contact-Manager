@@ -6,14 +6,14 @@
 
 	$ID = $inData["ID"];
 	$ContactID = $inData["ContactID"];
-	$FirstName = '';
-	$LastName = '';
-	$StreetAddress = '';
-	$City = '';
-	$State = '';
-	$ZipCode = '';
-	$PhoneNumber = '';
-	$Email = '';
+	$FirstName = "";
+	$LastName = "";
+	$StreetAddress = "";
+	$City = "";
+	$State = "";
+	$ZipCode = "";
+	$PhoneNumber = "";
+	$Email = "";
 
 	$conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 	if( $conn->connect_error )
