@@ -22,18 +22,18 @@
 	else
 	{
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?";
-		$stmt1 = $conn->prepare($query);
-		$stmt1->bind_param("iss", $ID, $FirstName, $LastName);
-		$stmt1->execute();
-		$result = $stmt1->get_result();
+		$stmt = $conn->prepare($query);
+		$stmt->bind_param("iss", $ID, $FirstName, $LastName);
+		$stmt->execute();
+		$result = $stmt->get_result();
 		$ContactID = $result->fetch_array();
-		$stmt1->close();
+		$stmt->close();
 		
 		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =?";
-		$stmt2 = $conn->prepare($query);
-		$stmt2->bind_param("iiss", $ID, $ContactID);
-		$stmt2->execute();
-		$result = $stmt2->get_result();
+		$stmt = $conn->prepare($query);
+		$stmt->bind_param("iiss", $ID, $ContactID);
+		$stmt->execute();
+		$result = $stmt->get_result();
 		if($row = $result->fetch_assoc())
 		{
 			returnWithInfo($row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email'],);
@@ -42,7 +42,7 @@
 		{
 			returnWithError("No Records Found");
 		}
-		$stmt2->close();
+		$stmt->close();
 		$conn->close();
 	}
 
