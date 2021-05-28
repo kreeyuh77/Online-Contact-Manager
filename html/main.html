@@ -1,1 +1,182 @@
+<html>
+<head>
+	<title>Small Project Main Page</title>
+	<script type="text/javascript" src="javascript/md5.js"></script>
+	<script type="text/javascript" src="javascript/code.js"></script>
+	<link rel="stylesheet" href="../css/styles.css">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
 
+.box {
+  height: 450px;
+}
+
+</style>
+
+<body>
+<!--this is the box with the title and two buttions-->
+<div class="center">
+	<div class="box">
+	  <h2>Your Contact Book</h2>
+		<div class="center">
+			  <button type = "button" onclick="document.getElementById('search').style.display='block'" >View/Search</button>
+	    	<button type = "button" onclick="document.getElementById('addContact').style.display='block'" >Add Contact</button>
+				<button type = "button" onclick="document.getElementById('deleteContact').style.display='block'" >Delete Contact</button>
+				<button type = "button" onclick="doLogout()" >Logout</button>
+
+				<!--message displays here-->
+				<div id="displayItems"></div>
+			</div>
+	</div>
+</div>
+
+<!--search box-->
+<div id="search" class="modal">
+		<!--this is the close X in the corner-->
+	<form class="modal-content animate">
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('search').style.display='none'" class="close" title="Close Modal">&times;</span>
+		</div>
+
+		 <!--input fields -->
+		<div class="container">
+			<h1>Search Contact</h1>
+			<p>Search for a contact to delete</p>
+      <hr>
+			<label for="searchType"><b>Search by</b></label>
+			<select name="searchType" id="searchType" class= "dropBox" required>
+				<option disabled selected value>Select</option>
+    		<option value="firstName">First Name</option>
+    		<option value="lastName">Last Name</option>
+    		<option value="address">Address</option>
+    		<option value="city">City</option>
+				<option value="state">State</option>
+				<option value="zipcode">Zip Code</option>
+				<option value="phonenumber">Phone Number</option>
+				<option value="email">Email</option>
+  		</select>
+
+			 <input type="text" id="search" placeholder="Search..." name="search" required>
+			 <button type="submit" id="searchButton" onclick="doSearch();">Search</button>
+
+			 <!--searched items displays here-->
+			 <div id="displaySearchedItems"></div>
+		</div>
+
+		 <!--close button-->
+		<div class="container" style="background-color:#f1f1f1">
+			<button type="button" onclick="document.getElementById('search').style.display='none'" class="cancelbtn">Cancel</button>
+		</div>
+	</form>
+</div>
+
+<!--add box-->
+<div id="addContact" class="modal">
+		<!--this is the close X in the corner-->
+	<form class="modal-content animate">
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('addContact').style.display='none'" class="close" title="Close Modal">&times;</span>
+		</div>
+
+		 <!--input fields-->
+		<div class="container">
+			<h1>Add a Contact</h1>
+      <hr>
+			<label for="fname"><b>First Name</b></label>
+			<input type="text" id="firstName" placeholder="Enter First Name" name="fname" required>
+
+			<label for="lname"><b>Last Name</b></label>
+			<input type="text" id="lastName" placeholder="Enter Last Name" name="lname" required>
+
+			<label for="address"><b>Address</b></label>
+			<input type="text" id="adress" placeholder="Enter Address" name="adress">
+
+			<label for="city"><b>City</b></label>
+			<input type="text" id="city" placeholder="Enter City" name="city">
+
+			<label for="state"><b>State</b></label>
+			<input type="text" id="state" placeholder="Enter State" name="state">
+
+			<label for="zipcode"><b>Zip Code</b></label>
+			<input type="text" id="zipcode" placeholder="Enter Zip Code" name="zipcode">
+
+			<label for="phonenumber"><b>Phone Number</b></label>
+			<input type="text" id="phonenumber" placeholder="EnterPhone Number" name="phonenumber">
+
+			<label for="email"><b>Email</b></label>
+			<input type="text" id="email" placeholder="Enter Email" name="email">
+
+			<button type="submit" id="addContactButton" onclick="doAdd();">Add Contact</button>
+
+		</div>
+		 <!--close button-->
+		<div class="container" style="background-color:#f1f1f1">
+			<button type="button" onclick="document.getElementById('addContact').style.display='none'" class="cancelbtn">Cancel</button>
+		</div>
+	</form>
+</div>
+
+<!--delete box-->
+<div id="deleteContact" class="modal">
+		<!--this is the close X in the corner-->
+	<form class="modal-content animate">
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('deleteContact').style.display='none'" class="close" title="Close Modal">&times;</span>
+		</div>
+
+		 <!--input fields -->
+		<div class="container">
+			<h1>Delete Contact</h1>
+			<p>Search for a contact to delete</p>
+      <hr>
+			<label for="deletesearchType"><b>Search by</b></label>
+			<select name="deletesearchType" id="deletesearchType" class= "dropBox" required>
+				<option disabled selected value>Select</option>
+    		<option value="firstName">First Name</option>
+    		<option value="lastName">Last Name</option>
+    		<option value="address">Address</option>
+    		<option value="city">City</option>
+				<option value="state">State</option>
+				<option value="zipcode">Zip Code</option>
+				<option value="phonenumber">Phone Number</option>
+				<option value="email">Email</option>
+  		</select>
+
+			 <input type="text" id="deleteSearch" placeholder="Search..." name="deleteSearch" required>
+			 <!--searched items displays here-->
+			 <div id="displayDeleteItems"></div>
+			<button type="submit" id="deleteContactButton" onclick="doDelete();">Delete Contact</button>
+		</div>
+
+		 <!--close button-->
+		<div class="container" style="background-color:#f1f1f1">
+			<button type="button" onclick="document.getElementById('deleteContact').style.display='none'" class="cancelbtn">Cancel</button>
+		</div>
+	</form>
+</div>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('addContact');
+var modal2 = document.getElementById('deleteContact');
+var modal3 = document.getElementById('search');
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+		if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+		if (event.target == modal3) {
+        modal3.style.display = "none";
+    }
+}
+
+
+</script>
+</body>
