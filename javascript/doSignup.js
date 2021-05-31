@@ -4,8 +4,8 @@
 function doSignup()
 {
 	var firstName = document.getElementById("firstName").value;
-	var lastNamedocument.getElementById("lastName").value;
-	var login = docnt.getElementById("signupUsername").value;
+	var lastName = document.getElementById("lastName").value;
+	var login = document.getElementById("signupUsername").value;
 	var password = document.getElementById("signupPassword").value;
 	
 	var signupResult = document.getElementById("signupResult");
