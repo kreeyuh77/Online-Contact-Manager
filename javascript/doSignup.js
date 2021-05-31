@@ -13,9 +13,6 @@ function doSignup()
 	
 	document.getElementById("signupResult").innerHTML = "";
 
-//	var jsonPayload = '{"FirstName" : " + firstName + ", "LastName" : " + lastName + ", "Login" : " + login + ", "Password" : " + hash + "}';
-	var jsonPayload = '{"FirstName" : " + firstName + ", "LastName" : " + lastName + ", "Login" : " + login + ", "Password" : " + password + "}';
-
 	//Need to edit the url based on the php files given to us
 	var url = urlBase + '/RegisterUser.' + extension;
 
@@ -46,6 +43,9 @@ function doSignup()
 				
 			}
 		};
+		
+	//	var jsonPayload = '{"FirstName" : " + firstName + ", "LastName" : " + lastName + ", "Login" : " + login + ", "Password" : " + hash + "}';
+		var jsonPayload = '{"FirstName" : " + firstName + ", "LastName" : " + lastName + ", "Login" : " + login + ", "Password" : " + password + "}';
 		xhr.send(jsonPayload);
 
 	}
