@@ -8,7 +8,7 @@ function doSignup()
 	var login = document.getElementById("signupUsername").value;
 	var password = document.getElementById("signupPassword").value;
 
-	var hash = md5( password );
+	//var hash = md5( password );
 	let xhr = new XMLHttpRequest();
 
 	//Need to edit the url based on the php files given to us
@@ -18,6 +18,6 @@ function doSignup()
 	xhr.setRequestHeader("Content-Type", "application/json");
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : password});
-	var jsonPayload = '{"FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "Login" : "' + login + '", "Password" : "' + hash + '"}';
+	var jsonPayload = '{"FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "Login" : "' + login + '", "Password" : "' + password + '"}';
 	xhr.send(jsonPayload);
 }
