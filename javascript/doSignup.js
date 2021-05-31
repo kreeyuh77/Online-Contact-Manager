@@ -42,7 +42,7 @@ function doSignup()
 	}
 	catch(err)
 	{
-		document.getElementById("signupResult").innerHTML = err.message;
+		//document.getElementById("signupResult").innerHTML = err.message;
 	}
 
 }
