@@ -10,11 +10,10 @@ function doSignup()
 	let password = document.getElementById("signupPassword").value;
 
 //	var hash = md5( password );
-
+	let xhr = new XMLHttpRequest();
+	
 	//Need to edit the url based on the php files given to us
 	let url = urlBase + 'RegisterUser' + extension;
-
-	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	//xhr.setRequestHeader("Content-type", "application/json");
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
