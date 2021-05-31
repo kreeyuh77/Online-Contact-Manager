@@ -23,7 +23,7 @@
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
-		returnWithError("");
+		returnWithError("(FirstName, LastName, Login, Password)");
 	}
 
 ?>
