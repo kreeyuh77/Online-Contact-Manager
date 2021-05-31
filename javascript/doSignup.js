@@ -12,7 +12,7 @@ function doSignup()
 //	var hash = md5( password );
 
 	//Need to edit the url based on the php files given to us
-	var url = urlBase + '/RegisterUser.' + extension;
+	var url = urlBase + 'RegisterUser.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -35,7 +35,8 @@ function doSignup()
 		};
 		
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
-		var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : password});
+	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : password});
+		var jsonPayload = '{"FirstName" : "' + firstName + '", "LastName" : ' + lastName + ', "Login" : "' + login + '", "Password" : "' + password + '"}';
 		xhr.send(jsonPayload);
 
 	}
