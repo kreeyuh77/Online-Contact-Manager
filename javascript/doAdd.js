@@ -30,30 +30,10 @@ function doAdd()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				var jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.id;
-		
-/* 				if( userId < 1 )
-				{		
-					document.getElementById("loginResult").innerHTML = "Unable to add user";
-					return;
-				} */
-		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
-				address = jsonObject.address;
-				city = jsonObject.city;
-				state = jsonObject.state;
-				zipCode = jsonObject.zipCode;
-				phoneNumber = jsonObject.phoneNumber;
-				email = jsonObject.email;
-
-				saveCookie();
-	
+				document.getElementById("addContactButton").innerHTML = "User has been added!";
 				window.location.href = "main.html";
-				
-			}
-		};
+			} 			
+		}		
 		xhr.send(jsonPayload);
 	}
 	catch(err)
