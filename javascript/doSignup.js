@@ -15,7 +15,7 @@ function doSignup()
 	//Need to edit the url based on the php files given to us
 	let url = urlBase + 'RegisterUser' + extension;
 	xhr.open("POST", url, true);
-	//xhr.setRequestHeader("Content-type", "application/json");
+	xhr.setRequestHeader("Content-type", "application/json");
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : password});
 		var jsonPayload = '{"FirstName" : "' + firstName + '", "LastName" : ' + lastName + ', "Login" : "' + login + '", "Password" : "' + password + '"}';
