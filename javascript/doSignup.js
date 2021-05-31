@@ -1,34 +1,20 @@
 var urlBase = 'http://wownice.club/api';
 var extension = 'php';
 
-var userId = 0;
-var firstName = "";
-var lastName = "";
-var address = "";
-var city = ""; 
-var state = "";
-var zipCode = 0;
-var phoneNumber = 0;
-var email = "";
-
 function doSignup()
 {
 
-
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	
-	var login = document.getElementById("signupName").value;
+	var firstName = document.getElementById("firstName").value;
+	var lastName = document.getElementById("lastName").value;
+	var login = document.getElementById("signupUsername").value;
 	var password = document.getElementById("signupPassword").value;
-
 
 //	var hash = md5( password );
 	
 	document.getElementById("signupResult").innerHTML = "";
 
-//	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
+//	var jsonPayload = '{"FirstName" : " + firstName + ", "LastName" : " + lastName + ", "Login" : " + login + ", "Password" : " + hash + "}';
+	var jsonPayload = '{"FirstName" : " + firstName + ", "LastName" : " + lastName + ", "Login" : " + login + ", "Password" : " + password + "}';
 
 	//Need to edit the url based on the php files given to us
 	var url = urlBase + '/Signup.' + extension;
