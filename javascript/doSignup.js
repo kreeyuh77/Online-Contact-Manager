@@ -1,7 +1,7 @@
 //var urlBase = 'https://wownice.club/api';
 //var extension = 'php';
 
-function doSignup
+function doSignup()
 {
 	var firstName = document.getElementById("firstName").value;
 	var lastNamedocument.getElementById("lastName").value;
