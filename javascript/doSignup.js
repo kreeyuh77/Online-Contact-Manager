@@ -21,7 +21,7 @@ function doSignup()
 	{
 		xhr.onreadystatechange = function() 
 		{
-			if (this.readyState == 4 && this.status == 200) 
+			if (xhr.readyState == 4 && xhr.status == 200) 
 			{
 		
 				if(checkPswds(false))
