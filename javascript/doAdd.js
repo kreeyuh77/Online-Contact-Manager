@@ -5,12 +5,11 @@ var userId = 0;
 var firstName = "";
 var lastName = "";
 var address = "";
-var city = "";
+var city = ""; 
 var state = "";
 var zipCode = 0;
 var phoneNumber = 0;
 var email = "";
-
 
 function doAdd()
 {
@@ -27,19 +26,19 @@ function doAdd()
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
-		xhr.onreadystatechange = function()
+		xhr.onreadystatechange = function() 
 		{
-			if (this.readyState == 4 && this.status == 200)
+			if (this.readyState == 4 && this.status == 200) 
 			{
 				var jsonObject = JSON.parse( xhr.responseText );
 				userId = jsonObject.id;
-
+		
 /* 				if( userId < 1 )
-				{
+				{		
 					document.getElementById("loginResult").innerHTML = "Unable to add user";
 					return;
 				} */
-
+		
 				firstName = jsonObject.firstName;
 				lastName = jsonObject.lastName;
 				address = jsonObject.address;
@@ -50,9 +49,9 @@ function doAdd()
 				email = jsonObject.email;
 
 				saveCookie();
-
+	
 				window.location.href = "main.html";
-
+				
 			}
 		};
 		xhr.send(jsonPayload);
