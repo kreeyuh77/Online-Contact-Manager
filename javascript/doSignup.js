@@ -12,9 +12,9 @@ function doSignup()
 //	var hash = md5( password );
 
 	//Need to edit the url based on the php files given to us
-	var url = urlBase + 'RegisterUser' + extension;
+	let url = urlBase + 'RegisterUser' + extension;
 
-	var xhr = new XMLHttpRequest();
+	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json");
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
