@@ -1,13 +1,15 @@
-var urlBase = 'https://wownice.club/api';
-var extension = 'php';
+let urlBase = 'https://wownice.club/api';
+let extension = 'php';
 
 function doSignup()
 {
 
-	let firstName = document.getElementById("firstName").value;
-	let lastName = document.getElementById("lastName").value;
-	let login = document.getElementById("signupUsername").value;
-	let password = document.getElementById("signupPassword").value;
+	let firstName = document.getElementById("firstName")[0].value;
+	let lastName = document.getElementById("lastName")[0].value;
+	let login = document.getElementById("signupUsername")[0].value;
+	let password = document.getElementById("signupPassword")[0].value;
+	
+	var signupResult = document.getElementById("signupResult");
 
 //	var hash = md5( password );
 	let xhr = new XMLHttpRequest();
