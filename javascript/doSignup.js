@@ -44,8 +44,8 @@ function doSignup()
 			}
 		};
 		
-	//	var jsonPayload = '{"FirstName" : " + firstName + ", "LastName" : " + lastName + ", "Login" : " + login + ", "Password" : " + hash + "}';
-		var jsonPayload = '{"FirstName" : " + firstName + ", "LastName" : " + lastName + ", "Login" : " + login + ", "Password" : " + password + "}';
+	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
+		var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : password});
 		xhr.send(jsonPayload);
 
 	}
