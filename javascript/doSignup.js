@@ -31,9 +31,6 @@ function doSignup()
 				}
 				
 				document.getElementById("signupResult").innerHTML = "";
-	
-				window.location.href = "login.html";
-				
 			}
 		};
 		
