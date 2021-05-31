@@ -10,8 +10,6 @@ function doSignup()
 	var password = document.getElementById("signupPassword").value;
 
 //	var hash = md5( password );
-	
-	document.getElementById("signupResult").innerHTML = "";
 
 	//Need to edit the url based on the php files given to us
 	var url = urlBase + '/RegisterUser.' + extension;
@@ -25,19 +23,14 @@ function doSignup()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				var jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.id;
 		
 				if(checkPswds(false))
 				{		
 					document.getElementById("signupResult").innerHTML = "Passwords do not match.";
 					return;
 				}
-		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
-
-				saveCookie();
+				
+				document.getElementById("signupResult").innerHTML = "";
 	
 				window.location.href = "login.html";
 				
