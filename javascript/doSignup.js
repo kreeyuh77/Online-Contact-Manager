@@ -13,7 +13,7 @@ function doSignup()
 	let xhr = new XMLHttpRequest();
 	
 	//Need to edit the url based on the php files given to us
-	let url = new URL(urlBase + 'RegisterUser' + extension);
+	let url = urlBase + 'RegisterUser' + extension;
 	
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json");
