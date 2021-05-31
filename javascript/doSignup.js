@@ -26,11 +26,11 @@ function doSignup()
 		
 				if(checkPswds(false))
 				{		
-					document.getElementById("signupResult").innerHTML = "Passwords do not match.";
+					//document.getElementById("signupResult").innerHTML = "Passwords do not match.";
 					return;
 				}
 				
-				document.getElementById("signupResult").innerHTML = "";
+				//document.getElementById("signupResult").innerHTML = "";
 			}
 		};
 		
