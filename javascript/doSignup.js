@@ -4,10 +4,10 @@ var extension = '.php';
 function doSignup()
 {
 
-	var firstName = document.getElementById("firstName").value;
-	var lastName = document.getElementById("lastName").value;
-	var login = document.getElementById("signupUsername").value;
-	var password = document.getElementById("signupPassword").value;
+	let firstName = document.getElementById("firstName").value;
+	let lastName = document.getElementById("lastName").value;
+	let login = document.getElementById("signupUsername").value;
+	let password = document.getElementById("signupPassword").value;
 
 //	var hash = md5( password );
 
@@ -25,7 +25,7 @@ function doSignup()
 	{
 		xhr.send(jsonPayload);
 		
-		var jsonObject = JSON.parse( xhr.responseText );
+		let jsonObject = JSON.parse( xhr.responseText );
 	}
 	catch (err)
 	{
