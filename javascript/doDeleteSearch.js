@@ -1,3 +1,16 @@
+var urlBase = 'http://wownice.club/api';
+var extension = 'php';
+
+var userId = 0;
+var firstName = "";
+var lastName = "";
+var address = "";
+var city = "";
+var state = "";
+var zipCode = 0;
+var phoneNumber = 0;
+var email = "";
+
 function doDeleteSearch()
 {
 	document.getElementById("deleteResult").innerHTML = "";
