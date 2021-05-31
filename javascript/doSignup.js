@@ -1,5 +1,5 @@
-var urlBase = 'https://wownice.club/api';
-var extension = 'php';
+let urlBase = 'https://wownice.club/api';
+let extension = 'php';
 
 function doSignup()
 {
