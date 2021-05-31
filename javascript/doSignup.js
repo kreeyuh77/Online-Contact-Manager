@@ -17,32 +17,9 @@ function doSignup()
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json");
-	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (xhr.readyState === 4 && xhr.status === 200) 
-			{
-		
-				if(checkPswds(false))
-				{		
-					//document.getElementById("signupResult").innerHTML = "Passwords do not match.";
-					return;
-				}
-				
-				//document.getElementById("signupResult").innerHTML = "";
-			}
-		};
-		
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : password});
 		var jsonPayload = '{"FirstName" : "' + firstName + '", "LastName" : ' + lastName + ', "Login" : "' + login + '", "Password" : "' + password + '"}';
 		xhr.send(jsonPayload);
-
-	}
-	catch(err)
-	{
-		//document.getElementById("signupResult").innerHTML = err.message;
-	}
 
 }
