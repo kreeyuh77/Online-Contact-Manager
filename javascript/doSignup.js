@@ -14,7 +14,7 @@ function doSignup()
 	let xhr = new XMLHttpRequest();
 	
 	//Need to edit the url based on the php files given to us
-	let url = 'RegisterUser.php';
+	let url = 'api/RegisterUser.php';
 	
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json");
