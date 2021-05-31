@@ -15,7 +15,7 @@ function doSignup()
 	let url = 'api/RegisterUser.php';
 	
 	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json");
+	xhr.setRequestHeader("Content-Type", "application/json");
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : password});
 	var jsonPayload = '{"FirstName" : "' + firstName + '", "LastName" : ' + lastName + ', "Login" : "' + login + '", "Password" : "' + password + '"}';
