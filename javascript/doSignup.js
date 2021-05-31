@@ -17,7 +17,7 @@ function doSignup()
 	var jsonPayload = '{"FirstName" : " + firstName + ", "LastName" : " + lastName + ", "Login" : " + login + ", "Password" : " + password + "}';
 
 	//Need to edit the url based on the php files given to us
-	var url = urlBase + '/Signup.' + extension;
+	var url = urlBase + '/RegisterUser.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
