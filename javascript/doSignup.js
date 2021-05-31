@@ -7,8 +7,6 @@ function doSignup()
 	var lastName = document.getElementById("lastName").value;
 	var login = document.getElementById("signupUsername").value;
 	var password = document.getElementById("signupPassword").value;
-	
-	var signupResult = document.getElementById("signupResult");
 
 //	var hash = md5( password );
 	let xhr = new XMLHttpRequest();
@@ -21,16 +19,5 @@ function doSignup()
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
 	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : password});
 		var jsonPayload = '{"FirstName" : "' + firstName + '", "LastName" : ' + lastName + ', "Login" : "' + login + '", "Password" : "' + password + '"}';
-		
-	try
-	{
 		xhr.send(jsonPayload);
-		
-		let jsonObject = JSON.parse( xhr.responseText );
-	}
-	catch (err)
-	{
-		document.getElementById("signupResult").innerHTML = err.message;
-	}
-
 }
