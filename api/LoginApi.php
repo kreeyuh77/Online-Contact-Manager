@@ -17,9 +17,10 @@
 		returnWithError( $conn->connect_error );
 	}
 
+	# Load the SQL query into a variable and append the corresponding parameters
+	# and return information if Login is valid based on returned row or else return an error
 	else
 	{
-	
 		$stmt = $conn->prepare("SELECT ID,FirstName,LastName FROM Users WHERE Login=? AND Password =?");
 		$stmt->bind_param("ss", $inData["Login"], $inData["Password"]);
 		$stmt->execute();
@@ -38,6 +39,8 @@
 		$conn->close();
 	}
 
+	# obtain the login information based on the input parameters and send information
+	# as JSON element.
 	function returnWithInfo( $FirstName, $LastName, $ID )
 	{
 		$retValue = '{"ID":' . $ID . ',"FirstName":"' . $FirstName . '","LastName":"' . $LastName . '","error":""}';
