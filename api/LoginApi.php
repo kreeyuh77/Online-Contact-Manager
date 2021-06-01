@@ -4,17 +4,22 @@
 
 	$inData = getRequestInfo();
 
+	# Contact Book login information stored as variables
 	$ID = 0;
 	$FirstName = "";
 	$LastName = "";
 
+	# establish connection to MySQL server to access database and handle failed
+	# connection error case
 	$conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 	if( $conn->connect_error )
 	{
 		returnWithError( $conn->connect_error );
 	}
+
 	else
 	{
+	
 		$stmt = $conn->prepare("SELECT ID,FirstName,LastName FROM Users WHERE Login=? AND Password =?");
 		$stmt->bind_param("ss", $inData["Login"], $inData["Password"]);
 		$stmt->execute();
