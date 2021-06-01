@@ -5,11 +5,14 @@ require_once 'functions.php';
 
 $inData = getRequestInfo();
 
-$ID = $inData["ID"]; 
+# Contact Book User registration information stored as variables.
+$ID = $inData["ID"];
 $ContactID = 0;
 $FirstName = $inData["FirstName"];
 $LastName = $inData["LastName"];
 
+# establish connection to MySQL server to access database and handle failed
+# connection error case
 $conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 if ($conn->connect_error)
 {
@@ -24,7 +27,7 @@ else
     $row = $result->fetch_assoc();
     $ContactID = $row["ContactID"];
     $stmt->close();
-    
+
     $stmt = $conn->prepare("DELETE FROM Contacts WHERE ContactID =?");
     $stmt->bind_param("i", $ContactID);
     $stmt->execute();
