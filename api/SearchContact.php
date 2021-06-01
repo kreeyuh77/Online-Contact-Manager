@@ -4,6 +4,7 @@
 
 	$inData = getRequestInfo();
 
+	# contact information stored as variables
 	$ID = $inData["ID"];
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
