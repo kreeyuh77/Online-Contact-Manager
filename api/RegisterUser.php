@@ -4,7 +4,7 @@
 
 	$inData = getRequestInfo();
 
-	# Conact Book User registration information stored as variables.
+	# Contact Book User registration information stored as variables.
 	$DateCreated = date("Y/m/d");
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
