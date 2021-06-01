@@ -5,6 +5,7 @@ require 'functions.php';
 
 $inData = getRequestInfo();
 
+# contact information stored as variables
 $edit = $inData["edit"];
 $ID = $inData["ID"];
 $ContactID = $inData["ContactID"];
@@ -17,6 +18,8 @@ $ZipCode = "";
 $PhoneNumber = "";
 $Email = "";
 
+# establish connection to MySQL server to access database and handle failed
+# connection error case
 $conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 if ($conn->connect_error)
 {
@@ -24,6 +27,7 @@ if ($conn->connect_error)
 }
 else
 {
+    # switch statements to handle which variable of contact information is edited
     switch ($edit) {
       case "FirstName":
         $stmt = $conn->prepare("UPDATE Contacts SET FirstName=? WHERE ID=? AND ContactID=?");
