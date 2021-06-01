@@ -16,7 +16,8 @@ $ZipCode = $inData["ZipCode"];
 $PhoneNumber= $inData["PhoneNumber"];
 $Email = $inData["Email"];
 
-# establish connection to database and handle failed connection error case
+# establish connection to MySQL server to access database and handle failed
+# connection error case
 $conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 if ($conn->connect_error)
 {
