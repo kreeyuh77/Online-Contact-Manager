@@ -5,7 +5,7 @@ require_once 'functions.php';
 
 $inData = getRequestInfo();
 
-# Contact Book User registration information stored as variables.
+# ID variables used to identify contact to be removed
 $ID = $inData["ID"];
 $ContactID = 0;
 $FirstName = $inData["FirstName"];
@@ -18,6 +18,9 @@ if ($conn->connect_error)
 {
     returnWithError( $conn->connect_error );
 }
+
+# query the database to select the contact based on the specified variables above
+# and delete that contact from the table. Return an error if encountered
 else
 {
     $stmt = $conn->prepare("SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?");
