@@ -1,9 +1,11 @@
 <?php
 
+# returns error as JSON element
 function returnWithError( $err ) {
    		$retValue = '{"error":"' . $err . '"}';
    		sendResultInfoAsJson( $retValue );
 }
+
 
 function sendResultInfoAsJson( $obj ) {
    		header('Content-type: application/json');
