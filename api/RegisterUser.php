@@ -18,6 +18,9 @@
 	{
 		returnWithError( $conn->connect_error );
 	}
+
+	# Query the database to insert the registered user into the Users table if
+	# validation constraints are met
 	else
 	{
 
