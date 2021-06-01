@@ -4,12 +4,15 @@
 
 	$inData = getRequestInfo();
 
+	# Conact Book User registration information stored as variables.
 	$DateCreated = date("Y/m/d");
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
 	$Login = $inData["Login"];
 	$Password = $inData["Password"];
 
+	# establish connection to MySQL server to access database and handle failed
+	# connection error case
 	$conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 	if( $conn->connect_error )
 	{
