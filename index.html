@@ -96,7 +96,7 @@
 			<div id = "pswdmatch_message">
 			</div>
 
-			<button type="submit" id="signupButton" onclick="doSignup();">Sign Up</button>
+			<button type="submit" id="signupButton" onclick="doSignup();" disabled>Sign Up</button>
 	    
 	    		<span id="signupResult"></span>
 		</div>
@@ -155,11 +155,11 @@ function checkPswds() {
     document.getElementById('confirm_signupPassword').value) {
     document.getElementById('pswdmatch_message').style.color = 'green';
     document.getElementById('pswdmatch_message').innerHTML = 'Passwords match';
-		return true;
+    document.getElementById('signupButton').disabled = false;
   } else {
     document.getElementById('pswdmatch_message').style.color = 'red';
     document.getElementById('pswdmatch_message').innerHTML = 'Passwords do not match';
-		return false;
+    document.getElementById('signupButton').disabled = true;
   }
 }
 // this part is for the password validation
