@@ -15,11 +15,17 @@
 	$PhoneNumber = "";
 	$Email = "";
 
+	# establish connection to MySQL server to access database and handle failed
+	# connection error case
 	$conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);
 	if($conn->connect_error)
 	{
 		returnWithError($conn->connect_error);
 	}
+
+	# select the contact ID of the contact with the specified ID and first/last name,
+	# then using the contact ID, select all attributes of that contact and return
+	# that information or else return an error
 	else
 	{
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?";
@@ -47,7 +53,9 @@
 		$stmt->close();
 		$conn->close();
 	}
-
+	
+	# obtain the login information based on the input parameters and send information
+	# as JSON element.
 	function returnWithInfo($FirstName,$LastName,$StreetAddress,$City,$State,$ZipCode,$PhoneNumber,$Email)
 	{
 		$retValue = '{"FirstName":"'.$FirstName.'","LastName":"'.$LastName.'","StreetAddress":"'.$StreetAddress.'","City":"'.$City.'","State":"'.$State.'","ZipCode":"'.$ZipCode.'","PhoneNumber":"'.$PhoneNumber.'","Email":"'.$Email.'","error":""}';
