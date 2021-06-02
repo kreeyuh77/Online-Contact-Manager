@@ -3,7 +3,6 @@ var extension = 'php';
 
 function doSignup()
 {
-	document.getElementById('success').style.display='block';
 	var firstName = document.getElementById("firstName").value;
 	var lastName = document.getElementById("lastName").value;
 	var login = document.getElementById("signupUsername").value;
