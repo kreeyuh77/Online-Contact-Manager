@@ -30,7 +30,7 @@ function doAdd()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("addContactButton").innerHTML = "User has been added!";
+				document.getElementById("addContactResult").innerHTML = "User has been added!";
 				window.location.href = "main.html";
 			} 			
 		}		
