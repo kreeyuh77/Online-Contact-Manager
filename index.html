@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>WowNice! Contact Book</title>
-
+	
 	<script type="text/javascript" src="javascript/doSignup.js"></script>
 	<script type="text/javascript" src="javascript/doLogin.js"></script>
 	<script type="text/javascript" src="javascript/md5.js"></script>
@@ -97,37 +97,13 @@
 			</div>
 
 			<button type="submit" id="signupButton" onclick="doSignup();" disabled>Sign Up</button>
-
+	    
+	    		<span id="signupResult"></span>
 		</div>
-
+		
 			<!--close button-->
 		 <div class="container" style="background-color:#f1f1f1">
 			 <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn">Cancel</button>
-		 </div>
-  </form>
-</div>
-
-<!--sign up success box-->
-<div id="success" class="modal">
-	<!--this is the close X in the corner-->
-	<form class="modal-content animate" >
-		<div class="imgcontainer">
-			<span onclick="document.getElementById('success').style.display='none'" class="close" title="Close Modal">&times;</span>
-		</div>
-
-		<!--message-->
-    <div class="container">
-			<div class = "center">
-				<h1>Success!</h1>
-	      <p>You have successfully crated a WowNice! Contact Book account</p>
-	      <br>
-				<p>You may now login to  your account</p>
-			</div>
-		</div>
-
-			<!--close button-->
-		 <div class="container" style="background-color:#f1f1f1">
-			 <button type="button" onclick="document.getElementById('success').style.display='none'" class="cancelbtn">Close</button>
 		 </div>
   </form>
 </div>
@@ -136,7 +112,6 @@
 // Get the modal
 var modal = document.getElementById('login');
 var modal2 = document.getElementById('signup');
-var modal3 = document.getElementById('success');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -146,13 +121,7 @@ window.onclick = function(event) {
 		if (event.target == modal2) {
         modal2.style.display = "none";
     }
-		if (event.target == modal3) {
-        modal3.style.display = "none";
-    }
 }
-
-// hide success box
-document.getElementById('success').style.display = 'none';
 
 //toggle password visibility in each window
 function pswdToggle() {
