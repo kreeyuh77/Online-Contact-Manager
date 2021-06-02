@@ -4,12 +4,7 @@ var extension = 'php';
 var userId = 0;
 var firstName = "";
 var lastName = "";
-var address = "";
-var city = ""; 
-var state = "";
-var zipCode = 0;
-var phoneNumber = 0;
-var email = "";
+
 
 function doLogin()
 {
@@ -23,7 +18,7 @@ function doLogin()
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
+	var jsonPayload = '{"Login" : "' + login + '", "Password" : "' + hash + '"}';
 //	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
 	var url = urlBase + '/LoginApi.' + extension;
 
