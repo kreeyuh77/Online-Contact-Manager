@@ -22,52 +22,20 @@ function saveCookie()
 
 function doLogin()
 {
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	
-	var login = document.getElementById("loginName").value;
-	var password = document.getElementById("loginPassword").value;
-	var hash = md5( password );
-	
-	document.getElementById("loginResult").innerHTML = "";
+	var firstName = document.getElementById("firstName").value;
+	var lastName = document.getElementById("lastName").value;
+	var login = document.getElementById("signupUsername").value;
+	var password = document.getElementById("signupPassword").value;
 
-	var jsonPayload = '{"Login" : "' + login + '", "Password" : "' + hash + '"}';
-//	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
+	var hash = md5( password );
+	let xhr = new XMLHttpRequest();
+
+	//Need to edit the url based on the php files given to us
 	let url = 'api/LoginApi.php';
 
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				var jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.id;
-		
-				if( userId < 1 )
-				{		
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
-					return;
-				}
-		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
-
-				saveCookie();
-	
-				//window.location.href = "../html/main.html";
-				
-			}
-		};
-		xhr.send(jsonPayload);
-	}
-	catch(err)
-	{
-		document.getElementById("loginResult").innerHTML = err.message;
-	}
-
+	xhr.open("POST", url, false);
+	xhr.setRequestHeader("Content-Type", "application/json");
+	//var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
+	var jsonPayload = '{"Login" : "' + login + '", "Password" : "' + hash + '"}';
+	xhr.send(jsonPayload);
 }
