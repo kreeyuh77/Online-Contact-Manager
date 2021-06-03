@@ -1,10 +1,6 @@
-var urlBase = 'http://wownice.club/api';
-var extension = 'php';
-
 var userId = 0;
 var firstName = "";
 var lastName = "";
-
 
 function saveCookie()
 {
@@ -41,13 +37,13 @@ function doLogin()
  
   
   
-  if (userId < 1 || jsonObject.error != ""){
+  if (userId < 1 || jsonObject.error != "")
+  {
     document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
   }
-  else{
-  	//saveCookie();
-	 alert("Hello! I am an alert box!");
+  else
+  {
+  	saveCookie();
 	location.assign("https://wownice.club/html/main.html");
- 	}
-    
+  }
 }
