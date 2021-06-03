@@ -46,7 +46,7 @@ function doLogin()
   }
   else{
   	saveCookie();
-  	window.location.href = "../html/main.html";
+  	window.location.href = "https://wownice.club/html/main.html";
  	}
     
 }
