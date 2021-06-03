@@ -39,7 +39,8 @@ function doLogin()
   
   if (userId < 1 || jsonObject.error != "")
   {
-    document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+     document.getElementById("loginResult").style.color = "red";
+    document.getElementById("loginResult").innerHTML = "Incorrect username or password";
   }
   else
   {
