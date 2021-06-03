@@ -1,6 +1,3 @@
-var urlBase = 'https://wownice.club/api';
-var extension = 'php';
-
 function doSignup()
 {
 	var firstName = document.getElementById("firstName").value;
@@ -16,8 +13,7 @@ function doSignup()
 
 	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-Type", "application/json");
-	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
-	//	var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : password});
+	//var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
 	var jsonPayload = '{"FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "Login" : "' + login + '", "Password" : "' + hash + '"}';
 	xhr.send(jsonPayload);
 	
