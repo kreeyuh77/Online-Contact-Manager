@@ -1,6 +1,3 @@
-var urlBase = 'http://wownice.club/api';
-var extension = 'php';
-
 var userId = 0;
 var firstName = "";
 var lastName = "";
@@ -16,13 +13,13 @@ function doAdd()
 
 	document.getElementById("addResult").innerHTML = "";
 
-	var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "address" : "' + address + '", "city" : "' + city + '", "state" : "' + state + '", "zipCode" : "' + zipCode + '", "phoneNumber" : "' + phoneNumber + '", "email" : "' + email + '"}';
+	var jsonPayload = '{"FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "StreetAddress" : "' + address + '", "City" : "' + city + '", "State" : "' + state + '", "ZipCode" : "' + zipCode + '", "PhoneNumber" : "' + phoneNumber + '", "Email" : "' + email + '"}';
 
 	//Need to edit the url based on the php files given to us
-	var url = urlBase + '/AddContact.' + extension;
+	var url = 'api/AddContact.php';
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
@@ -30,7 +27,7 @@ function doAdd()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("addResult").innerHTML = "User has been added!";
+				document.getElementById("addResult").innerHTML = firstName + " " + lastName +  " has been added!";
 				window.location.href = "main.html";
 			} 			
 		}		
