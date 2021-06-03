@@ -1,3 +1,4 @@
+import { saveCookie } from 'doCookie.js';
 var urlBase = 'http://wownice.club/api';
 var extension = 'php';
 
