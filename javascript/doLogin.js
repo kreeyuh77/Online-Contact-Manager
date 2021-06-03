@@ -46,7 +46,9 @@ function doLogin()
   }
   else{
   	//saveCookie();
-  	window.location.replace("https://wownice.club/html/main/html");
+	//window.location.replace("https://wownice.club/html/main.html");
+	alert("Hello! I am an alert box!");
+  	window.location.replace("https://google.com");
  	}
     
 }
