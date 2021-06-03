@@ -5,7 +5,20 @@ var extension = 'php';
 var userId = 0;
 var firstName = "";
 var lastName = "";
+var address = "";
+var city = ""; 
+var state = "";
+var zipCode = 0;
+var phoneNumber = 0;
+var email = "";
 
+function saveCookie()
+{
+	var minutes = 20;
+	var date = new Date();
+	date.setTime(date.getTime()+(minutes*60*1000));	
+	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+}
 
 
 function doLogin()
