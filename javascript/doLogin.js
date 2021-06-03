@@ -4,12 +4,7 @@ var extension = 'php';
 var userId = 0;
 var firstName = "";
 var lastName = "";
-var address = "";
-var city = ""; 
-var state = "";
-var zipCode = 0;
-var phoneNumber = 0;
-var email = "";
+
 
 function saveCookie()
 {
@@ -22,10 +17,9 @@ function saveCookie()
 
 function doLogin()
 {
-	var firstName = document.getElementById("firstName").value;
-	var lastName = document.getElementById("lastName").value;
-	var login = document.getElementById("signupUsername").value;
-	var password = document.getElementById("signupPassword").value;
+	
+	var login = document.getElementById("loginName").value;
+	var password = document.getElementById("loginPassword").value;
 
 	var hash = md5( password );
 	let xhr = new XMLHttpRequest();
@@ -38,4 +32,21 @@ function doLogin()
 	//var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
 	var jsonPayload = '{"Login" : "' + login + '", "Password" : "' + hash + '"}';
 	xhr.send(jsonPayload);
+  
+  
+  var jsonObject = JSON.parse( xhr.responseText );
+	userId = jsonObject.ID;
+  firstName = jsonObject.FirstName;
+  lastName = jsonObject.LastName;
+ 
+  
+  
+  if (userId < 1 || jsonObject.error != null){
+    document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+  }
+  else{
+  	saveCookie();
+  	window.location.href = "../html/main.html";
+ 	}
+    
 }
