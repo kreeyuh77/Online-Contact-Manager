@@ -45,7 +45,7 @@ function doLogin()
     document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
   }
   else{
-  	saveCookie();
+  	//saveCookie();
   	window.location.href = "https://wownice.club/html/main.html";
  	}
     
