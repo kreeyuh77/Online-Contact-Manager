@@ -1,9 +1,11 @@
+import { saveCookie } from "doCookie";
 var urlBase = 'http://wownice.club/api';
 var extension = 'php';
 
 var userId = 0;
 var firstName = "";
 var lastName = "";
+
 
 
 function doLogin()
