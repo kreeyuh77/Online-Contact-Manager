@@ -1,4 +1,3 @@
-import { saveCookie } from "doCookie";
 var urlBase = 'http://wownice.club/api';
 var extension = 'php';
 
