@@ -1,12 +1,11 @@
-var userId = 0;
-var firstName = "";
-var lastName = "";
-var address = "";
-var city = ""; 
-var state = "";
-var zipCode = 0;
-var phoneNumber = 0;
-var email = "";
+var firstName = document.getElementById("firstName").value;
+var lastName = document.getElementById("lastName").value;
+var address = document.getElementById("address").value;
+var city = document.getElementById("city").value;
+var state = document.getElementById("state").value;
+var zipcode = document.getElementById("zipcode").value;
+var phonenumber = document.getElementById("phonenumber").value;
+var email = document.getElementById("email").value;
 
 
 
@@ -15,7 +14,7 @@ function doAdd()
 
 	document.getElementById("addResult").innerHTML = "";
 
-	var jsonPayload = '{"userId" : "' + userId + '","FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "StreetAddress" : "' + address + '", "City" : "' + city + '", "State" : "' + state + '", "ZipCode" : "' + zipCode + '", "PhoneNumber" : "' + phoneNumber + '", "Email" : "' + email + '"}';
+	var jsonPayload = '{"ID" : "' + userId + '","FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "StreetAddress" : "' + address + '", "City" : "' + city + '", "State" : "' + state + '", "ZipCode" : "' + zipCode + '", "PhoneNumber" : "' + phoneNumber + '", "Email" : "' + email + '"}';
 
 	//Need to edit the url based on the php files given to us
 	var url = 'api/AddContact.php';
@@ -30,7 +29,7 @@ function doAdd()
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				document.getElementById("addResult").innerHTML = firstName + " " + lastName +  " has been added!";
-				window.location.href = "main.html";
+				
 			} 			
 		}		
 		xhr.send(jsonPayload);
