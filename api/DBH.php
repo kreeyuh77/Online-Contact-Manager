@@ -1,6 +1,6 @@
 <?php
 
-# server/databse information
+# server/database information
 $serverName = "192.3.62.202";
 $dBUsername = "API";
 $dBPassword = "I4m4robot!";
