@@ -8,12 +8,14 @@ var zipCode = 0;
 var phoneNumber = 0;
 var email = "";
 
+
+
 function doAdd()
 {
 
 	document.getElementById("addResult").innerHTML = "";
 
-	var jsonPayload = '{"FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "StreetAddress" : "' + address + '", "City" : "' + city + '", "State" : "' + state + '", "ZipCode" : "' + zipCode + '", "PhoneNumber" : "' + phoneNumber + '", "Email" : "' + email + '"}';
+	var jsonPayload = '{"userId" : "' + userId + '","FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "StreetAddress" : "' + address + '", "City" : "' + city + '", "State" : "' + state + '", "ZipCode" : "' + zipCode + '", "PhoneNumber" : "' + phoneNumber + '", "Email" : "' + email + '"}';
 
 	//Need to edit the url based on the php files given to us
 	var url = 'api/AddContact.php';
