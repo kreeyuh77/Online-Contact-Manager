@@ -1,3 +1,5 @@
+function doAdd()
+{
 var firstName = document.getElementById("firstName").value;
 var lastName = document.getElementById("lastName").value;
 var address = document.getElementById("address").value;
@@ -6,12 +8,8 @@ var state = document.getElementById("state").value;
 var zipcode = document.getElementById("zipcode").value;
 var phonenumber = document.getElementById("phonenumber").value;
 var email = document.getElementById("email").value;
-
-
-
-function doAdd()
-{
-
+	
+	
 	document.getElementById("addResult").innerHTML = "";
 
 	var jsonPayload = '{"ID" : "' + userId + '","FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "StreetAddress" : "' + address + '", "City" : "' + city + '", "State" : "' + state + '", "ZipCode" : "' + zipCode + '", "PhoneNumber" : "' + phoneNumber + '", "Email" : "' + email + '"}';
