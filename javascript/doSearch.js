@@ -1,58 +1,66 @@
 
-var urlBase = 'http://wownice.club/api';
-var extension = 'php';
-
-var userId = 0;
-var firstName = "";
-var lastName = "";
-var address = "";
-var city = ""; 
-var state = "";
-var zipCode = 0;
-var phoneNumber = 0;
-var email = "";
-
 function doSearch()
 {
-
+  var jsonPayload = '';
 	document.getElementById("searchResult").innerHTML = "";
 
-	var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "address" : "' + address + '", "city" : "' + city + '", "state" : "' + state + '", "zipCode" : "' + zipCode + '", "phoneNumber" : "' + phoneNumber + '", "email" : "' + email + '"}';
+	// get search attritbute
+	var searchText = document.getElementById('search');
+
+	// the list will be put here
+	var contactList = "";
+
+	//  payload depending on searchBy
+	switch (document.getElementById('searchType');) {
+  case "firstName":
+    jsonPayload =  '{"ID" : "' + ID + '", "FirstName" : "' + searchText +'"}';
+    break;
+  case "lastName":
+    jsonPayload =  '{"ID" : "' + ID + '", "LastName" : "' + searchText +'"}';
+    break;
+  case "address":
+    jsonPayload =  '{"ID" : "' + ID + '", "StreetAddress" : "' + searchText +'"}';
+    break;
+  case "city":
+    jsonPayload =  '{"ID" : "' + ID + '", "City" : "' + searchText +'"}';
+    break;
+  case "state":
+    jsonPayload =  '{"ID" : "' + ID + '", "State" : "' + searchText +'"}';
+    break;
+  case "zipcode":
+    jsonPayload =  '{"ID" : "' + ID + '", "ZipCode" : "' + searchText +'"}';
+    break;
+  case  "phonenumber":
+    jsonPayload =  '{"ID" : "' + ID + '", "PhoneNumber" : "' + searchText +'"}';
+	case  "email":
+		jsonPayload =  '{"ID" : "' + ID + '", "Email" : "' + searchText +'"}';
+}
 
 	//Need to edit the url based on the php files given to us
-	var url = urlBase + '/SearchContact.' + extension;
+	var url = '../api/SearchContact.php'
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
-		xhr.onreadystatechange = function() 
+		xhr.onreadystatechange = function()
 		{
-			if (this.readyState == 4 && this.status == 200) 
+			if (this.readyState == 4 && this.status == 200)
 			{
+				document.getElementById("searchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.id;
-		
-				if( userId < 1 )
-				{		
-					document.getElementById("searchResult").innerHTML = "No user found in the database.";
-					return;
-				}
-		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
-				address = jsonObject.address;
-				city = jsonObject.city;
-				state = jsonObject.state;
-				zipCode = jsonObject.zipCode;
-				phoneNumber = jsonObject.phoneNumber;
-				email = jsonObject.email;
 
-				saveCookie();
-	
-				window.location.href = "main.html";
-				
+				for( var i=0; i<jsonObject.results.length; i++ )
+				{
+					contactList += jsonObject.results[i];
+					if( i < jsonObject.results.length - 1 )
+					{
+						contactList += "<br />\r\n";
+					}
+				}
+
+				document.getElementsById('searchList')[0].innerHTML = contactList;
 			}
 		};
 		xhr.send(jsonPayload);
@@ -61,4 +69,5 @@ function doSearch()
 	{
 		document.getElementById("searchResult").innerHTML = err.message;
 	}
+
 }
