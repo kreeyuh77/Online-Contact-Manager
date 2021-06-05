@@ -51,33 +51,38 @@ function doSearch()
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
+	
+	xhr.send(jsonPayload);
+	var jsonObject = JSON.parse( xhr.responseText );
+	document.getElementsById('searchList').innerHTML = jsonObject.FirstName;
+	
+// 	try
+// 	{
 		
-		xhr.onreadystatechange = function()
-		{
-			if (this.readyState == 4 && this.status == 200)
-			{
-				alert("we sent to php");
-				document.getElementById("searchResult").innerHTML = "Contact(s) has been retrieved";
-				var jsonObject = JSON.parse( xhr.responseText );
+// 		xhr.onreadystatechange = function()
+// 		{
+// 			if (this.readyState == 4 && this.status == 200)
+// 			{
+// 				alert("we sent to php");
+// 				document.getElementById("searchResult").innerHTML = "Contact(s) has been retrieved";
+// 				var jsonObject = JSON.parse( xhr.responseText );
 
-// 				for( var i=0; i<jsonObject.results.length; i++ )
-// 				{
-// 					contactList += jsonObject.results[i];
-// 					if( i < jsonObject.results.length - 1 )
-// 					{
-// 						contactList += "<br />\r\n";
-// 					}
-// 				}
+// // 				for( var i=0; i<jsonObject.results.length; i++ )
+// // 				{
+// // 					contactList += jsonObject.results[i];
+// // 					if( i < jsonObject.results.length - 1 )
+// // 					{
+// // 						contactList += "<br />\r\n";
+// // 					}
+// // 				}
 
-				document.getElementsById('searchList').innerHTML = jsonObject.FirstName;
-			}
-		};
-	}
-	catch(err)
-	{
-		document.getElementById("searchResult").innerHTML = err.message;
-	}
+// 				document.getElementsById('searchList').innerHTML = jsonObject.FirstName;
+// 			}
+// 		};
+// 	}
+// 	catch(err)
+// 	{
+// 		document.getElementById("searchResult").innerHTML = err.message;
+// 	}
 
 }
