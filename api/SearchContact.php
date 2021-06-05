@@ -7,6 +7,7 @@
 	# contact information stored as variables
 	$search = $inData["search"];
 	$ID = $inData["ID"];
+	$ContactID = "";
 	$FirstName = "";
 	$LastName = "";
 	$StreetAddress = "";
