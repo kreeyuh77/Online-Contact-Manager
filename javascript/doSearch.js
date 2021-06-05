@@ -49,11 +49,11 @@ function doSearch()
 	var url = '../api/SearchContact.php'
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, false);
+	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
-		xhr.send(jsonPayload);
+		
 		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
