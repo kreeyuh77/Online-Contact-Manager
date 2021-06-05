@@ -10,7 +10,6 @@
 	$LastName = $inData["LastName"];
 	$Login = $inData["Login"];
 	$Password = $inData["Password"];
-	$exist = "";
 
 	# establish connection to MySQL server to access database and handle failed
 	# connection error case
@@ -25,15 +24,14 @@
 	else
 	{
 
-		$stmt = $conn->prepare("SELECT Login FROM Users WHERE Login =?");
+		$stmt = $conn->prepare("SELECT * FROM Users WHERE Login =?");
 		$stmt->bind_param("s", $Login);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
-		$exist = $row["Login"];
 		$stmt->close();
 		
-		if ($exist == $Login)
+		if ($Login == $row["Login"])
 		{
 			returnWithError("Username already exists.");
 		}
