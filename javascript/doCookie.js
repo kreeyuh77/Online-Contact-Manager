@@ -23,6 +23,7 @@ function saveCookie()
 
 function readCookie()
 {
+	alert("in read cookie");
 	userId = -1;
 	var data = document.cookie;
 	var splits = data.split(",");
