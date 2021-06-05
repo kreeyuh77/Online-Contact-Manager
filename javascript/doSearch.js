@@ -46,17 +46,19 @@ function doSearch()
 }
 
 	//Need to edit the url based on the php files given to us
-	var url = 'api/SearchContact.php'
+	var url = '../api/SearchContact.php'
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
+		xhr.send(jsonPayload);
 		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
+				alert("we sent to php");
 				document.getElementById("searchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse( xhr.responseText );
 
@@ -69,10 +71,10 @@ function doSearch()
 					}
 				}
 
-				document.getElementsById('searchList')[0].innerHTML = contactList;
+				document.getElementsById('searchList').innerHTML = contactList;
 			}
 		};
-		xhr.send(jsonPayload);
+		
 	}
 	catch(err)
 	{
