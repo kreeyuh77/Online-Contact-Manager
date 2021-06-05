@@ -23,18 +23,17 @@
 	# validation constraints are met or else return an error
 	else
 	{
-
-		//$stmt = $conn->prepare("SELECT * FROM Users WHERE Login =?");
-		//$stmt->bind_param("s", $Login);
-		//$stmt->execute();
-		//$result = $stmt->get_result();
-		//$row = $result->fetch_assoc();
-		//$stmt->close();
+		$stmt = $conn->prepare("SELECT * FROM Users WHERE Login =?");
+		$stmt->bind_param("s", $Login);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$stmt->close();
 		
-		//if ($Login == $row["Login"])
-		//{
-		//	returnWithError("Username already exists.");
-		//}
+		if ($Login == $row["Login"])
+		{
+			returnWithError("Username already exists.");
+		}
 
 		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?, ?)");
 		$stmt->bind_param("sssss", $DateCreated, $FirstName, $LastName, $Login, $Password);
