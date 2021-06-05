@@ -2,6 +2,7 @@
 function doSearch()
 {
   var jsonPayload = '';
+  var isearch = "";
 	document.getElementById("searchResult").innerHTML = "";
 
 	// get search attritbute
@@ -13,27 +14,35 @@ function doSearch()
 	//  payload depending on searchBy
 	switch (document.getElementById('searchType');) {
   case "firstName":
-    jsonPayload =  '{"ID" : "' + ID + '", "FirstName" : "' + searchText +'"}';
+    isearch = "FirstName";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + ID + '", "FirstName" : "' + searchText +'"}';
     break;
   case "lastName":
-    jsonPayload =  '{"ID" : "' + ID + '", "LastName" : "' + searchText +'"}';
+    isearch = "LastName";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + ID + '", "LastName" : "' + searchText +'"}';
     break;
   case "address":
-    jsonPayload =  '{"ID" : "' + ID + '", "StreetAddress" : "' + searchText +'"}';
+    isearch = "StreetAddress";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + ID + '", "StreetAddress" : "' + searchText +'"}';
     break;
   case "city":
-    jsonPayload =  '{"ID" : "' + ID + '", "City" : "' + searchText +'"}';
+    isearch = "City";		
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + ID + '", "City" : "' + searchText +'"}';
     break;
   case "state":
-    jsonPayload =  '{"ID" : "' + ID + '", "State" : "' + searchText +'"}';
+    isearch = "State";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + ID + '", "State" : "' + searchText +'"}';
     break;
   case "zipcode":
-    jsonPayload =  '{"ID" : "' + ID + '", "ZipCode" : "' + searchText +'"}';
+    isearch = "ZipCode";		
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + ID + '", "ZipCode" : "' + searchText +'"}';
     break;
   case  "phonenumber":
-    jsonPayload =  '{"ID" : "' + ID + '", "PhoneNumber" : "' + searchText +'"}';
-	case  "email":
-		jsonPayload =  '{"ID" : "' + ID + '", "Email" : "' + searchText +'"}';
+    isearch = "PhoneNumber";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + ID + '", "PhoneNumber" : "' + searchText +'"}';
+  case  "email":
+    isearch = "Email";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + ID + '", "Email" : "' + searchText +'"}';
 }
 
 	//Need to edit the url based on the php files given to us
