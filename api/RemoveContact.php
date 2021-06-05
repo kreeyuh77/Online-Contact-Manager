@@ -7,9 +7,8 @@ $inData = getRequestInfo();
 
 # ID variables used to identify contact to be removed
 $ID = $inData["ID"];
-$ContactID = 0;
-$FirstName = $inData["FirstName"];
-$LastName = $inData["LastName"];
+$ContactID = $inData["ContactID"];
+
 
 # establish connection to MySQL server to access database and handle failed
 # connection error case
