@@ -32,7 +32,7 @@
 		$exist = $row["Login"];
 		$stmt->close();
 		
-		if ($exist === $Login)
+		if ($exist == $Login)
 		{
 			returnWithError("Username already exists.");
 		}
