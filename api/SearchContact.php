@@ -7,8 +7,8 @@
 	# contact information stored as variables
 	$search = $inData["search"];
 	$ID = $inData["ID"];
-	$FirstName = $inData = "";
-	$LastName = $inData = "";
+	$FirstName = "";
+	$LastName = "";
 	$StreetAddress = "";
 	$City = "";
 	$State = "";
@@ -33,42 +33,42 @@
 	case "FirstName":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =?";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $FirstName);
+		$stmt->bind_param("is", $ID, $inData["FirstName"]);
 		break;
 	case "LastName":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND LastName =?";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $LastName);
+		$stmt->bind_param("is", $ID, $inData["LastName"]);
 		break;
 	case "StreetAddress":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND StreetAddress =?";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $StreetAddress);
+		$stmt->bind_param("is", $ID, $inData["StreetAddress"]);
 		break;
 	case "City":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND City =?";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $City);
+		$stmt->bind_param("is", $ID, $inData["City"]);
 		break;
 	case "State":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND State =?";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $State);
+		$stmt->bind_param("is", $ID, $inData["State"]);
 		break;	
 	case "ZipCode":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND State =?";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND ZipCode =?";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $ZipCode);
+		$stmt->bind_param("is", $ID, $inData["ZipCode"]);
 		break;
 	case "PhoneNumber":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND PhoneNumber =?";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $PhoneNumber);
+		$stmt->bind_param("is", $ID, $inData["PhoneNumber"]);
 		break;
 	case "Email":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND Email =?";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $Email);
+		$stmt->bind_param("is", $ID, $inData["Email"]);
 		break;
 	}
 		
@@ -89,7 +89,7 @@
 		}
 		else
 		{
-			returnWithError("$ID $ContactID $LastName");
+			returnWithError("No Records Found.");
 		}
 		$stmt->close();
 		$conn->close();
