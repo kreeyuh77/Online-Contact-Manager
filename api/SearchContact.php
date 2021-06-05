@@ -1,7 +1,7 @@
 <?php
 	require_once 'DBH.php';
 	require_once 'functions.php';
-	
+
 	$inData = getRequestInfo();
 	$retValue = "";
 	$resultCount = 0;
@@ -45,13 +45,13 @@
 				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
-					
+
 				if($resultCount > 0)
 				{
-				$retValue .= ","; 	
+				$retValue .= ",";
 				}
 				$resultCount++;
-				$retValue .= '"contactID" : ' . $row["ContacID"] . ', ';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
@@ -77,7 +77,7 @@
 				{
 					if($resultCount > 0)
 				{
-				$retValue .= ","; 	
+				$retValue .= ",";
 				}
 				$resultCount++;
 					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
@@ -105,7 +105,7 @@
 				{
 					if($resultCount > 0)
 				{
-				$retValue .= ","; 	
+				$retValue .= ",";
 				}
 				$resultCount++;
 					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
@@ -133,7 +133,7 @@
 			{
 				if($resultCount > 0)
 				{
-				$retValue .= ","; 	
+				$retValue .= ",";
 				}
 				$resultCount++;
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
@@ -160,7 +160,7 @@
 				{
 				if($resultCount > 0)
 				{
-				$retValue .= ","; 	
+				$retValue .= ",";
 				}
 				$resultCount++;
 					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
@@ -188,7 +188,7 @@
 				{
 				if($resultCount > 0)
 				{
-				$retValue .= ","; 	
+				$retValue .= ",";
 				}
 				$resultCount++;
 					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
@@ -257,6 +257,6 @@
 	function returnWithInfo($ContactID,$FirstName,$LastName,$StreetAddress,$City,$State,$ZipCode,$PhoneNumber,$Email)
 	{
 		$retValue .= '{"ContactID":'. $row["ContactID"] .'}';
-		
+
 	}
 ?>
