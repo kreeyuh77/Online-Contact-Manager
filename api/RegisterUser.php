@@ -31,10 +31,10 @@
 		$row = $result->fetch_assoc();
 		$stmt->close();
 		
-		if ($Login == $row["Login"])
-		{
-			returnWithError("Username already exists.");
-		}
+		//if ($Login == $row["Login"])
+		//{
+		//	returnWithError("Username already exists.");
+		//}
 
 		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?, ?)");
 		$stmt->bind_param("sssss", $DateCreated, $FirstName, $LastName, $Login, $Password);
