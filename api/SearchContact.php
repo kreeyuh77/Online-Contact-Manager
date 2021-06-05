@@ -31,7 +31,7 @@
 	# that information or else return an error
 	else
 	{
-		$retValue .= '"resultCount" : ' . $result->num_rows . ',';
+		
 		$retValue .= '"results" : [';
 
 		switch ($search)
@@ -46,6 +46,17 @@
 			{
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
+				$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
 				while($row = $result->fetch_assoc())
 				{
 
