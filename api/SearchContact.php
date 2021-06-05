@@ -29,27 +29,20 @@
 	# that information or else return an error
 	else
 	{
-		switch ($search){
-	case "FirstName":
-		$query = "SELECT * FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData["FirstName"] . "%' ";
-		$stmt = $conn->prepare($query);
-		$stmt->bind_param("i", $ID);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		break;
+		switch ($search)
+		{
+			case "FirstName":
+			$query = "SELECT * FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData["FirstName"] . "%' ";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param("i", $ID);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			break;
+		}
 
-	}
 		while(($row = $result->fetch_assoc())
 		{
-			if($result->num_rows == 0)
-			{
-				returnWithError("No Records Found.");
-				
-			}
-			else
-			{
-				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-			}
+			returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 		}
 		$stmt->close();
 		$conn->close();
