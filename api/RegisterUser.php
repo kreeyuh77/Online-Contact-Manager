@@ -34,13 +34,15 @@
 		{
 			returnWithError("Username already exists.");
 		}
-
-		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?, ?)");
-		$stmt->bind_param("sssss", $DateCreated, $FirstName, $LastName, $Login, $Password);
-		$stmt->execute();
-		$stmt->close();
-		$conn->close();
-		returnWithError("");
+		else
+		{
+			$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?, ?)");
+			$stmt->bind_param("sssss", $DateCreated, $FirstName, $LastName, $Login, $Password);
+			$stmt->execute();
+			$stmt->close();
+			$conn->close();
+			returnWithError("");
+		}
 	}
 
 ?>
