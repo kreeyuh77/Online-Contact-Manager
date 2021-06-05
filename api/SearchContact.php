@@ -34,51 +34,84 @@
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["FirstName"]);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$ContactID = $row["ContactID"];
+		$stmt->close();
 		break;
 	case "LastName":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND LastName =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["LastName"]);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$ContactID = $row["ContactID"];
+		$stmt->close();
 		break;
 	case "StreetAddress":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND StreetAddress =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["StreetAddress"]);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$ContactID = $row["ContactID"];
+		$stmt->close();
 		break;
 	case "City":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND City =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["City"]);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$ContactID = $row["ContactID"];
+		$stmt->close();
 		break;
 	case "State":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND State =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["State"]);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$ContactID = $row["ContactID"];
+		$stmt->close();
 		break;	
 	case "ZipCode":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND ZipCode =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["ZipCode"]);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$ContactID = $row["ContactID"];
+		$stmt->close();
 		break;
 	case "PhoneNumber":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND PhoneNumber =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["PhoneNumber"]);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$ContactID = $row["ContactID"];
+		$stmt->close();
 		break;
 	case "Email":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND Email =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["Email"]);
-		break;
-	}
-		
 		$stmt->execute();
-		returnWithError("No Records Found");
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
 		$ContactID = $row["ContactID"];
 		$stmt->close();
-		returnWithError("No Records Found");
+		break;
+	}
+		
 		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("ii", $ID, $ContactID);
