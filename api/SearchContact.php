@@ -3,7 +3,7 @@
 	require_once 'functions.php';
 	
 	$inData = getRequestInfo();
-	
+	$retValue = "";
 	$resultCount = 0;
 	# contact information stored as variables
 	$search = $inData["search"];
