@@ -53,7 +53,7 @@ function doSearch()
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
-		
+		xhr.send(jsonPayload);
 		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
@@ -74,7 +74,6 @@ function doSearch()
 				document.getElementsById('searchList').innerHTML = jsonObject.FirstName;
 			}
 		};
-	xhr.send(jsonPayload);	
 	}
 	catch(err)
 	{
