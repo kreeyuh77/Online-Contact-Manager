@@ -351,7 +351,18 @@
 			$result = $stmt->get_result();
 			if($row = $result->fetch_assoc())
 			{
-				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
