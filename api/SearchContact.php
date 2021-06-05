@@ -29,7 +29,6 @@
 	# that information or else return an error
 	else
 	{
-		returnWithError("No Records Found");
 		switch ($search){
 	case "FirstName":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =?";
@@ -78,7 +77,7 @@
 		$row = $result->fetch_assoc();
 		$ContactID = $row["ContactID"];
 		$stmt->close();
-
+		returnWithError("No Records Found");
 		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("ii", $ID, $ContactID);
