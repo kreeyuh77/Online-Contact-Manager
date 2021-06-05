@@ -31,7 +31,7 @@
 	{
 		switch ($search){
 	case "FirstName":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData["FirstName"] . "%' ";
+		$query = "SELECT * FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData["FirstName"] . "%' ";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("i", $ID);
 		$stmt->execute();
@@ -61,7 +61,7 @@
 	# as JSON element.
 	function returnWithInfo($FirstName,$LastName,$StreetAddress,$City,$State,$ZipCode,$PhoneNumber,$Email)
 	{
-		$retValue = '{"FirstName":"'.$FirstName.'","LastName":"'.$LastName.'","StreetAddress":"'.$StreetAddress.'","City":"'.$City.'","State":"'.$State.'","ZipCode":"'.$ZipCode.'","PhoneNumber":"'.$PhoneNumber.'","Email":"'.$Email.'","error":""}';
+		$retValue = '{"ContactID":"'.$ContactID.'","FirstName":"'.$FirstName.'","LastName":"'.$LastName.'","StreetAddress":"'.$StreetAddress.'","City":"'.$City.'","State":"'.$State.'","ZipCode":"'.$ZipCode.'","PhoneNumber":"'.$PhoneNumber.'","Email":"'.$Email.'","error":""}';
 		sendResultInfoAsJson($retValue);
 	}
 ?>
