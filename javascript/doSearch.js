@@ -54,7 +54,7 @@ function doSearch()
 	
 	xhr.send(jsonPayload);
 	var jsonObject = JSON.parse( xhr.responseText );
-	document.getElementById('searchList').innerHTML = jsonObject.FirstName;
+	document.getElementById('searchList').innerHTML = jsonObject;
 	
 // 	try
 // 	{
