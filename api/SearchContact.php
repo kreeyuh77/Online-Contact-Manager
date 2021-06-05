@@ -29,6 +29,7 @@
 	# that information or else return an error
 	else
 	{
+		returnWithError("No Records Found");
 		switch ($search){
 	case "FirstName":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =?";
