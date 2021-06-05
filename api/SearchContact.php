@@ -33,7 +33,7 @@
 	case "FirstName":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData["FirstName"] . "%' ";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $inData["FirstName"]);
+		$stmt->bind_param("i", $ID);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
