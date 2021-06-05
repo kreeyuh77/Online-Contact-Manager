@@ -27,7 +27,7 @@ function doSearch()
     break;
   case "city":
     isearch = "City";		
-    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + IuserId D + '", "City" : "' + searchText + '"}';
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "City" : "' + searchText + '"}';
     break;
   case "state":
     isearch = "State";
