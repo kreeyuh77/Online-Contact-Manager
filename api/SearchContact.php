@@ -5,7 +5,7 @@
 	$inData = getRequestInfo();
 
 	# contact information stored as variables
-	$Search = $inData["search"];
+	$search = $inData["search"];
 	$ID = $inData["ID"];
 	$FirstName = $inData = "";
 	$LastName = $inData = "";
@@ -29,7 +29,7 @@
 	# that information or else return an error
 	else
 	{
-		switch ($Search){
+		switch ($search){
 	case "FirstName":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =?";
 		$stmt = $conn->prepare($query);
