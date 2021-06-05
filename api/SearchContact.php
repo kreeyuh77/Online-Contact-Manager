@@ -31,7 +31,7 @@
 	{
 		switch ($search){
 	case "FirstName":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =?";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName LIKE '%$search%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["FirstName"]);
 		$stmt->execute();
@@ -41,7 +41,7 @@
 		$stmt->close();
 		break;
 	case "LastName":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND LastName =?";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND LastName LIKE '%$search%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["LastName"]);
 		$stmt->execute();
@@ -51,7 +51,7 @@
 		$stmt->close();
 		break;
 	case "StreetAddress":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND StreetAddress =?";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND StreetAddress LIKE '%$search%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["StreetAddress"]);
 		$stmt->execute();
@@ -61,7 +61,7 @@
 		$stmt->close();
 		break;
 	case "City":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND City =?";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND City LIKE '%$search%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["City"]);
 		$stmt->execute();
@@ -71,7 +71,7 @@
 		$stmt->close();
 		break;
 	case "State":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND State =?";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND State LIKE '%$search%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["State"]);
 		$stmt->execute();
@@ -79,9 +79,9 @@
 		$row = $result->fetch_assoc();
 		$ContactID = $row["ContactID"];
 		$stmt->close();
-		break;	
+		break;
 	case "ZipCode":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND ZipCode =?";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND ZipCode LIKE '%$search%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["ZipCode"]);
 		$stmt->execute();
@@ -91,7 +91,7 @@
 		$stmt->close();
 		break;
 	case "PhoneNumber":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND PhoneNumber =?";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND PhoneNumber LIKE '%$search%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["PhoneNumber"]);
 		$stmt->execute();
@@ -101,7 +101,7 @@
 		$stmt->close();
 		break;
 	case "Email":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND Email =?";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND Email LIKE '%$search%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["Email"]);
 		$stmt->execute();
@@ -111,7 +111,7 @@
 		$stmt->close();
 		break;
 	}
-		
+
 		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("ii", $ID, $ContactID);
@@ -128,7 +128,7 @@
 		$stmt->close();
 		$conn->close();
 	}
-	
+
 	# obtain the login information based on the input parameters and send information
 	# as JSON element.
 	function returnWithInfo($FirstName,$LastName,$StreetAddress,$City,$State,$ZipCode,$PhoneNumber,$Email)
