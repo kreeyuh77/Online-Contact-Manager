@@ -42,9 +42,9 @@
 			$stmt->bind_param("sssss", $DateCreated, $FirstName, $LastName, $Login, $Password);
 			$stmt->execute();
 			$stmt->close();
+			$conn->close();
 			returnWithError("");
 		}
-		$conn->close();
 	}
 
 ?>
