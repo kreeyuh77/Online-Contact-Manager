@@ -38,7 +38,7 @@
 			$stmt->bind_param("i", $ID);
 			$stmt->execute();
 			$result = $stmt->get_result();
-			while(($row = $result->fetch_assoc())
+			while($row = $result->fetch_assoc())
 			{
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 			}
