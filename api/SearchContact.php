@@ -31,7 +31,7 @@
 	{
 		switch ($search){
 	case "FirstName":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FIRSTNAME LIKE '%" . $inData["FirstName"] . "%' ";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData["FirstName"] . "%' ";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["FirstName"]);
 		$stmt->execute();
