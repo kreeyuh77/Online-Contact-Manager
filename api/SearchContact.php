@@ -89,7 +89,7 @@
 		}
 		else
 		{
-			returnWithError("No Records Found");
+			returnWithError("$ID $ContactID $LastName");
 		}
 		$stmt->close();
 		$conn->close();
