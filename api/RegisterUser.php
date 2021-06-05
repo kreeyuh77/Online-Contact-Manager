@@ -36,7 +36,6 @@
 		if ($exist == $Login)
 		{
 			returnWithError("Username already exists.");
-			break;
 		}
 
 		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?, ?)");
