@@ -255,7 +255,7 @@
 	# as JSON element.
 	function returnWithInfo($ContactID,$FirstName,$LastName,$StreetAddress,$City,$State,$ZipCode,$PhoneNumber,$Email)
 	{
-		$retValue .= '{"ContactID":"'.$ContactID.'"}';
+		$retValue .= '{"ContactID":'. $row["ContactID"] .'}';
 		
 	}
 ?>
