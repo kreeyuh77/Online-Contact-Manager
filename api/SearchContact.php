@@ -71,8 +71,9 @@
 		$stmt->bind_param("is", $ID, $inData["Email"]);
 		break;
 	}
-		returnWithError("No Records Found");
+		
 		$stmt->execute();
+		returnWithError("No Records Found");
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
 		$ContactID = $row["ContactID"];
