@@ -10,6 +10,7 @@
 	$LastName = $inData["LastName"];
 	$Login = $inData["Login"];
 	$Password = $inData["Password"];
+	$exist = "";
 
 	# establish connection to MySQL server to access database and handle failed
 	# connection error case
