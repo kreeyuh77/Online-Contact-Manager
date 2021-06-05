@@ -1,4 +1,3 @@
-
 function doSearch()
 {
 	alert("we called do search!");
