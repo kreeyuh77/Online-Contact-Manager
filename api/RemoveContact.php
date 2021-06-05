@@ -6,7 +6,7 @@ require_once 'functions.php';
 $inData = getRequestInfo();
 
 # ID variables used to identify contact to be removed
-$ID = $inData["ID"];
+# $ID = $inData["ID"];
 $ContactID = $inData["ContactID"];
 
 
