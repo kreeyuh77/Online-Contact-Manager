@@ -40,12 +40,12 @@
 		$ContactID = $row["ContactID"];
 		$stmt->close();
 		break;
-	
+
 	}
-		
+
 		while($row = $result->fetch_assoc()){
-		
-		returnWithInfo($row["ContactID"];,$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email'],);
+
+		returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email'],);
 		}
 		else
 		{
