@@ -42,13 +42,14 @@
 		break;
 	
 	}
-
+		
+		
 		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("ii", $ID, $ContactID);
 		$stmt->execute();
 		$result = $stmt->get_result();
-		if($row = $result->fetch_assoc())
+		while($row = $result->fetch_assoc())
 		{
 			returnWithInfo($row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email'],);
 		}
