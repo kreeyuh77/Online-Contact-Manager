@@ -51,7 +51,8 @@
 				$retValue .= ","; 	
 				}
 				$resultCount++;
-				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$retValue .= '"contactID" : ' . $row["ID"] . ', ';
+				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
 			else
