@@ -71,7 +71,7 @@
 		$stmt->bind_param("is", $ID, $inData["Email"]);
 		break;
 	}
-		
+		returnWithError("No Records Found");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
