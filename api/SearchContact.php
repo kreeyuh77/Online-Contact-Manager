@@ -40,76 +40,7 @@
 		$ContactID = $row["ContactID"];
 		$stmt->close();
 		break;
-	case "LastName":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND LastName LIKE '%" . $inData["LastName"] . "%' ";
-		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $inData["LastName"]);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$ContactID = $row["ContactID"];
-		$stmt->close();
-		break;
-	case "StreetAddress":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND StreetAddress LIKE '%" . $inData["StreetAddress"] . "%' ";
-		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $inData["StreetAddress"]);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$ContactID = $row["ContactID"];
-		$stmt->close();
-		break;
-	case "City":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND City LIKE '%" . $inData["City"] . "%' ";
-		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $inData["City"]);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$ContactID = $row["ContactID"];
-		$stmt->close();
-		break;
-	case "State":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND State LIKE '%" . $inData["State"] . "%' ";
-		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $inData["State"]);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$ContactID = $row["ContactID"];
-		$stmt->close();
-		break;
-	case "ZipCode":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND ZipCode LIKE '%" . $inData["ZipCode"] . "%' ";
-		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $inData["ZipCode"]);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$ContactID = $row["ContactID"];
-		$stmt->close();
-		break;
-	case "PhoneNumber":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND PhoneNumber LIKE '%" . $inData["PhoneNumber"] . "%' ";
-		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $inData["PhoneNumber"]);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$ContactID = $row["ContactID"];
-		$stmt->close();
-		break;
-	case "Email":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND Email LIKE '%" . $inData["Email"] . "%' ";
-		$stmt = $conn->prepare($query);
-		$stmt->bind_param("is", $ID, $inData["Email"]);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$ContactID = $row["ContactID"];
-		$stmt->close();
-		break;
+	
 	}
 
 		$query = "SELECT * FROM Contacts WHERE ID =? AND ContactID =?";
