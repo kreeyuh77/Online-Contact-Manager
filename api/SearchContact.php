@@ -31,6 +31,9 @@
 	# that information or else return an error
 	else
 	{
+		$retValue .= '"resultCount" : ' . $result->num_rows . ',';
+		$retValue .= '"results" : [';
+
 		switch ($search)
 		{
 			case "FirstName":
@@ -51,7 +54,19 @@
 				$retValue .= ",";
 				}
 				$resultCount++;
+				$retValue .= '{';
 				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+			
+				
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
@@ -59,6 +74,7 @@
 			{
 				returnWithError("No Results Match");
 			}
+			$retValue .= ']';
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -71,7 +87,18 @@
 			$result = $stmt->get_result();
 			if($row = $result->fetch_assoc())
 			{
-				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
 				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
@@ -80,13 +107,25 @@
 				$retValue .= ",";
 				}
 				$resultCount++;
-					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
+			$retValue .= ']';
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -99,7 +138,18 @@
 			$result = $stmt->get_result();
 			if($row = $result->fetch_assoc())
 			{
-				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
@@ -108,13 +158,25 @@
 				$retValue .= ",";
 				}
 				$resultCount++;
-					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
+			$retValue .= ']';
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -126,8 +188,18 @@
 			$stmt->execute();
 			$result = $stmt->get_result();
 			if($row = $result->fetch_assoc()){
-
-				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+			$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 			$resultCount++;
 			while($row = $result->fetch_assoc())
 			{
@@ -136,12 +208,24 @@
 				$retValue .= ",";
 				}
 				$resultCount++;
-				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 			}
 			}
 			else{
 			returnWithError("No Results Match");
 			}
+			$retValue .= ']';
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -154,7 +238,18 @@
 			$result = $stmt->get_result();
 			if($row = $result->fetch_assoc())
 			{
-				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
@@ -163,13 +258,25 @@
 				$retValue .= ",";
 				}
 				$resultCount++;
-					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+					$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
+			$retValue .= ']';
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -182,7 +289,18 @@
 			$result = $stmt->get_result();
 			if($row = $result->fetch_assoc())
 			{
-				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
@@ -191,13 +309,25 @@
 				$retValue .= ",";
 				}
 				$resultCount++;
-					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+					$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
+			$retValue .= ']';
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -214,13 +344,29 @@
 				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
-					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				if($resultCount > 0)
+				{
+				$retValue .= ",";
+				}
+					$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
+			$retValue .= ']';
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -233,17 +379,45 @@
 			$result = $stmt->get_result();
 			if($row = $result->fetch_assoc())
 			{
-				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+					$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
-					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				if($resultCount > 0)
+				{
+				$retValue .= ",";
+				}
+						$retValue .= '{';
+				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
+				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
+				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
+				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"City" : ' . $row["City"] . ', ';
+				$retValue .= '"State" : ' . $row["State"] . ', ';
+				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
+				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '}';
+					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
+				
+			$retValue .= ']';
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
