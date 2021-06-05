@@ -8,31 +8,22 @@
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
 
+.box {
+	width: 800px;
+	height: auto;
+}
+
+</style>
 <body>
 <!--this is the box with the title and two buttions-->
 <div class="center">
-	<div class="box">
-	  <h2>Welcome to WowNice! Contact Book</h2>
-		<div class="center">
-	    	<button onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
-				<button onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Sign Up</button>
-			
-			</div>
-	</div>
-</div>
+	<div class="box"style="padding-left: 20px;padding-right: 20px;">
+	  <h1 align="center">Welcome to WowNice! Contact Book</h1>
 
-<!--log in box-->
-<div id="login" class="modal">
-		<!--this is the close X in the corner-->
-	<form class="modal-content animate">
-		<div class="imgcontainer">
-			<span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
-		</div>
-
-		 <!--input fields and login button-->
-		<div class="container">
-			<h1>Log In</h1>
+			<form>
+			<h2 >Log In</h2>
       <hr>
 			<label for="uname"><b>Username</b></label>
 			<input type="text" id="loginName" placeholder="Enter Username" name="uname" required>
@@ -44,17 +35,12 @@
 
 			<button type="reset" id="loginButton" onclick="doLogin();">Login</button>
 			 <span id="loginResult"></span>
+		 </form>
+		 <p style="font-size: 12px;" align="center" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Don't have an account? Click Here</p>
 
-
-
-		</div>
-
-		 <!--close button-->
-		<div class="container" style="background-color:#f1f1f1">
-			<button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Cancel</button>
-		</div>
-	</form>
+	</div>
 </div>
+
 
 <!--sign up box-->
 <div id="signup" class="modal">
@@ -111,16 +97,12 @@
 
 <script>
 // Get the modal
-var modal = document.getElementById('login');
-var modal2 = document.getElementById('signup');
+var modal = document.getElementById('signup');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
-    }
-		if (event.target == modal2) {
-        modal2.style.display = "none";
     }
 }
 
