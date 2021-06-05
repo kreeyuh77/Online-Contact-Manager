@@ -24,12 +24,27 @@
 	else
 	{
 
-		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?, ?)");
-		$stmt->bind_param("sssss", $DateCreated, $FirstName, $LastName, $Login, $Password);
+		$stmt = $conn->prepare("SELECT Login FROM Users WHERE VALUES Login =?);
+		$stmt->bind_param("s", $Login);
 		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$exist = $row["Login"];
 		$stmt->close();
+		
+		if ($exist === $Login)
+		{
+			returnWithError("Username already exists.");
+		}
+		else
+		{
+			$stmt = $conn->prepare("INSERT INTO Users (DateCreated, FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?, ?)");
+			$stmt->bind_param("sssss", $DateCreated, $FirstName, $LastName, $Login, $Password);
+			$stmt->execute();
+			$stmt->close();
+			returnWithError("");
+		}
 		$conn->close();
-		returnWithError("");
 	}
 
 ?>
