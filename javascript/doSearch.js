@@ -71,7 +71,7 @@ function doSearch()
 // 					}
 // 				}
 
-				document.getElementsById('searchList').innerHTML = jsonObject.results;
+				document.getElementsById('searchList').innerHTML = jsonObject.FirstName;
 			}
 		};
 	xhr.send(jsonPayload);	
