@@ -5,9 +5,10 @@
 	$inData = getRequestInfo();
 
 	# contact information stored as variables
+	$Search = $inData["search"];
 	$ID = $inData["ID"];
-	$FirstName = $inData["FirstName"];
-	$LastName = $inData["LastName"];
+	$FirstName = $inData = "";
+	$LastName = $inData = "";
 	$StreetAddress = "";
 	$City = "";
 	$State = "";
@@ -28,9 +29,49 @@
 	# that information or else return an error
 	else
 	{
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =? AND LastName =?";
+		switch ($Search){
+	case "FirstName":
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName =?";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param("iss", $ID, $FirstName, $LastName);
+		$stmt->bind_param("is", $ID, $FirstName);
+		break;
+	case "LastName":
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND LastName =?";
+		$stmt = $conn->prepare($query);
+		$stmt->bind_param("is", $ID, $LastName);
+		break;
+	case "StreetAddress":
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND StreetAddress =?";
+		$stmt = $conn->prepare($query);
+		$stmt->bind_param("is", $ID, $StreetAddress);
+		break;
+	case "City":
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND City =?";
+		$stmt = $conn->prepare($query);
+		$stmt->bind_param("is", $ID, $City);
+		break;
+	case "State":
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND State =?";
+		$stmt = $conn->prepare($query);
+		$stmt->bind_param("is", $ID, $State);
+		break;	
+	case "ZipCode":
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND State =?";
+		$stmt = $conn->prepare($query);
+		$stmt->bind_param("is", $ID, $ZipCode);
+		break;
+	case "ZipCode":
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND PhoneNumber =?";
+		$stmt = $conn->prepare($query);
+		$stmt->bind_param("is", $ID, $PhoneNumber);
+		break;
+	case "ZipCode":
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND Email =?";
+		$stmt = $conn->prepare($query);
+		$stmt->bind_param("is", $ID, $Email);
+		break;
+	}
+		
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
