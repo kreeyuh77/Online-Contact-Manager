@@ -41,7 +41,7 @@
 			$result = $stmt->get_result();
 			if($row = $result->fetch_assoc())
 			{
-				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
@@ -51,7 +51,7 @@
 				$retValue .= ","; 	
 				}
 				$resultCount++;
-				$retValue .= '"contactID" : ' . $row["ID"] . ', ';
+				$retValue .= '"contactID" : ' . $row["ContacID"] . ', ';
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
