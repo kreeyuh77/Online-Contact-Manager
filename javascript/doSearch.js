@@ -62,16 +62,16 @@ function doSearch()
 				document.getElementById("searchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse( xhr.responseText );
 
-				for( var i=0; i<jsonObject.results.length; i++ )
-				{
-					contactList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
-					{
-						contactList += "<br />\r\n";
-					}
-				}
+// 				for( var i=0; i<jsonObject.results.length; i++ )
+// 				{
+// 					contactList += jsonObject.results[i];
+// 					if( i < jsonObject.results.length - 1 )
+// 					{
+// 						contactList += "<br />\r\n";
+// 					}
+// 				}
 
-				document.getElementsById('searchList').innerHTML = contactList;
+				document.getElementsById('searchList').innerHTML = jsonObject.results;
 			}
 		};
 	xhr.send(jsonPayload);	
