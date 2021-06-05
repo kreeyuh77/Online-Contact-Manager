@@ -106,6 +106,10 @@ function doSearch()
             {
               array[i][j] = jsonObject.results[i].Email;
             }
+						if (j == 7)
+            {
+              array[i][j] = jsonObject.results[i].contactID;
+            }
           }
         }
 
