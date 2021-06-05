@@ -24,7 +24,7 @@
 	else
 	{
 
-		$stmt = $conn->prepare("SELECT Login FROM Users WHERE VALUES Login =?);
+		$stmt = $conn->prepare("SELECT Login FROM Users WHERE VALUES Login =?");
 		$stmt->bind_param("s", $Login);
 		$stmt->execute();
 		$result = $stmt->get_result();
