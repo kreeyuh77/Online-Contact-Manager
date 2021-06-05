@@ -1,16 +1,17 @@
 function doSearch()
 {
-	alert("we called do search!");
-  var jsonPayload = '';
-  var isearch = "";
-	document.getElementById("searchResult").innerHTML = "";
-
+	var jsonPayload = '';
+	var isearch = "";
 	// get search attritbute
 	var searchText = document.getElementById('search');
-
 	// the list will be put here
 	var contactList = "";
+	var url = ../api/SearchContact.php;
 
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	//  payload depending on searchBy
 	switch (document.getElementById('searchType')){
   case "firstName":
@@ -26,7 +27,7 @@ function doSearch()
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "StreetAddress" : "' + searchText + '"}';
     break;
   case "city":
-    isearch = "City";		
+    isearch = "City";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "City" : "' + searchText + '"}';
     break;
   case "state":
@@ -34,7 +35,7 @@ function doSearch()
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "State" : "' + searchText + '"}';
     break;
   case "zipcode":
-    isearch = "ZipCode";		
+    isearch = "ZipCode";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "ZipCode" : "' + searchText + '"}';
     break;
   case  "phonenumber":
@@ -45,44 +46,93 @@ function doSearch()
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "Email" : "' + searchText + '"}';
 }
 
-	//Need to edit the url based on the php files given to us
-	var url = '../api/SearchContact.php'
 
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	
-	xhr.send(jsonPayload);
-	var jsonObject = JSON.parse( xhr.responseText );
-	document.getElementById('searchList').innerHTML = jsonObject;
-	
-// 	try
-// 	{
-		
-// 		xhr.onreadystatechange = function()
-// 		{
-// 			if (this.readyState == 4 && this.status == 200)
-// 			{
-// 				alert("we sent to php");
-// 				document.getElementById("searchResult").innerHTML = "Contact(s) has been retrieved";
-// 				var jsonObject = JSON.parse( xhr.responseText );
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				var jsonObject = JSON.parse(xhr.responseText);
 
-// // 				for( var i=0; i<jsonObject.results.length; i++ )
-// // 				{
-// // 					contactList += jsonObject.results[i];
-// // 					if( i < jsonObject.results.length - 1 )
-// // 					{
-// // 						contactList += "<br />\r\n";
-// // 					}
-// // 				}
+        var localArray = new Array(jsonObject.results.length);
 
-// 				document.getElementsById('searchList').innerHTML = jsonObject.FirstName;
-// 			}
-// 		};
-// 	}
-// 	catch(err)
-// 	{
-// 		document.getElementById("searchResult").innerHTML = err.message;
-// 	}
+        array = localArray;
 
+        if (jsonObject.error == "")
+        {
+          document.getElementById("searchResult").innerHTML = "Account(s) have been retrieved";
+        }
+        else
+        {
+          document.getElementById("searchResult").innerHTML = jsonObject.error;
+        }
+
+
+        for (var i = 0; i < array.length; i++)
+        {
+          array[i] = new Array(7);
+        }
+
+        for (var i = 0; i < jsonObject.results.length; i++)
+        {
+          for (var j = 0; j < 7; j++)
+          {
+            if (j == 0)
+            {
+              array[i][j] = jsonObject.results[i].FirstName;
+            }
+            if (j == 1)
+            {
+              array[i][j] = jsonObject.results[i].LastName;
+            }
+            if (j == 2)
+            {
+              array[i][j] = jsonObject.results[i].StreetAddress;
+            }
+            if (j == 3)
+            {
+              array[i][j] = jsonObject.results[i].City;
+            }
+            if (j == 4)
+            {
+              array[i][j] = jsonObject.results[i].State;
+            }
+            if (j == 5)
+            {
+              array[i][j] = jsonObject.results[i].PhoneNumber;
+            }
+						if (j == 6)
+            {
+              array[i][j] = jsonObject.results[i].Email;
+            }
+          }
+        }
+
+        createTable(array);
+
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("searchResult").innerHTML = err.message;
+	}
+}
+
+function createTable(array){
+	for (var i = 0; i <array.length; i++)
+	{
+		for (var j = 0; j < 7; j++)
+		{
+			if(j<6){
+				document.getElementById('searchList').innerHTML += array[i][j] + ", ";
+			}
+			else {
+				document.getElementById('searchList').innerHTML += "<br>";
+			}
+
+		}
+	}
 }
