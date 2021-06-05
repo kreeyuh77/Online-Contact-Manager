@@ -4,6 +4,7 @@
 	<script type="text/javascript" src="../javascript/doSearch.js"></script>
 	<script type="text/javascript" src="../javascript/doDelete.js"></script>
 	<script type="text/javascript" src="../javascript/doAdd.js"></script>
+	<script type="text/javascript" src="../javascript/doEditContact.js"></script>
 	<script type="text/javascript" src="../javascript/doLogout.js"></script>
 	<script type="text/javascript" src="../javascript/doCookie.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
@@ -122,6 +123,54 @@
 		</div>
 	</form>
 </div>
+	
+<!--edit box-->
+<div id="editContact" class="modal">
+		<!--this is the close X in the corner-->
+	<form class="modal-content animate">
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('editContact').style.display='none'" class="close" title="Close Modal">&times;</span>
+		</div>
+
+		 <!--input fields -->
+		<div class="container">
+			<h1>Search/Edit</h1>
+      <hr>
+			<label for="searchType"><b>Search by</b></label>
+			<select name="searchType" id="searchType" class= "dropBox" required>
+				<option disabled selected value>Select</option>
+    		<option value="firstName">First Name</option>
+    		<option value="lastName">Last Name</option>
+    		<option value="address">Address</option>
+    		<option value="city">City</option>
+				<option value="state">State</option>
+				<option value="zipcode">Zip Code</option>
+				<option value="phonenumber">Phone Number</option>
+				<option value="email">Email</option>
+  		</select>
+
+			 <input type="text" id="search" placeholder="Search..." name="search" required>
+			 <button type="reset" id="addContactButton" onclick="doSearch();">Search</button>
+
+			 <!--searched items displays here-->
+			 <div id="searchResult"></div>
+			<div id="searchList"></div>
+		</div>
+		
+		 <!--display users-->
+		
+		 <!--select users-->
+		
+		 <!--checkboxes to opt in what you want to edit-->
+		
+		 <!--submit changes-->
+
+		 <!--close button-->
+		<div class="container" style="background-color:#f1f1f1">
+			<button type="button" onclick="document.getElementById('search').style.display='none'" class="cancelbtn">Cancel</button>
+		</div>
+	</form>
+</div>
 
 <!--delete box-->
 <div id="deleteContact" class="modal">
@@ -174,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
 var modal = document.getElementById('addContact');
 var modal2 = document.getElementById('deleteContact');
 var modal3 = document.getElementById('search');
-
+var modal4 = document.getElementById('editContact');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -186,6 +235,9 @@ window.onclick = function(event) {
     }
 		if (event.target == modal3) {
         modal3.style.display = "none";
+    }
+	    	if (event.target == modal4) {
+        modal4.style.display = "none";
     }
 }
 
