@@ -53,6 +53,23 @@ function doEditContact()
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	
 	xhr.send(jsonPayload);
+	
+	// 5. DECLARE FUNCTIONS BASED ON EVENTS
+	xhr.onload = (jsonPayload) => {
+  	const data = xhr.response;
+   	console.log(data);
+	};
+
+	xhr.onprogress = (event) => {
+    	console.log(`Loaded ${event.loaded} of ${event.total}`);
+	};
+
+	xhr.onerror = () => {
+    	console.log("Request failed!");
+	};
+
+	
+	
 	var jsonObject = JSON.parse( xhr.responseText );
     document.getElementById('searchList').innerHTML = jsonObject.FirstName;
   
