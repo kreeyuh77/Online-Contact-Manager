@@ -33,7 +33,7 @@
 		switch ($search)
 		{
 			case "FirstName":
-			$query = "SELECT * FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData["FirstName"] . "%' ";
+			$query = "SELECT * FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData["userText"] . "%' ";
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("i", $ID);
 			$stmt->execute();
@@ -44,6 +44,91 @@
 			}
 			$stmt->close();
 			break;
+			case "LastName":
+			$query = "SELECT * FROM Contacts WHERE ID =? AND LastName LIKE '%" . $inData["userText"] . "%' ";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param("i", $ID);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			while($row = $result->fetch_assoc())
+			{
+				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+			}
+			$stmt->close();
+			break;
+			case "StreetAddress":
+			$query = "SELECT * FROM Contacts WHERE ID =? AND StreetAddress LIKE '%" . $inData["userText"] . "%' ";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param("i", $ID);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			while($row = $result->fetch_assoc())
+			{
+				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+			}
+			$stmt->close();
+			break;
+			case "City":
+			$query = "SELECT * FROM Contacts WHERE ID =? AND City LIKE '%" . $inData["userText"] . "%' ";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param("i", $ID);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			while($row = $result->fetch_assoc())
+			{
+				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+			}
+			$stmt->close();
+			break;
+			case "State":
+			$query = "SELECT * FROM Contacts WHERE ID =? AND State LIKE '%" . $inData["userText"] . "%' ";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param("i", $ID);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			while($row = $result->fetch_assoc())
+			{
+				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+			}
+			$stmt->close();
+			break;
+			case "ZipCode":
+			$query = "SELECT * FROM Contacts WHERE ID =? AND ZipCode LIKE '%" . $inData["userText"] . "%' ";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param("i", $ID);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			while($row = $result->fetch_assoc())
+			{
+				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+			}
+			$stmt->close();
+			break;
+			case "PhoneNumber":
+			$query = "SELECT * FROM Contacts WHERE ID =? AND PhoneNumber LIKE '%" . $inData["userText"] . "%' ";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param("i", $ID);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			while($row = $result->fetch_assoc())
+			{
+				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+			}
+			$stmt->close();
+			break;
+			case "Email":
+			$query = "SELECT * FROM Contacts WHERE ID =? AND Email LIKE '%" . $inData["userText"] . "%' ";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param("i", $ID);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			while($row = $result->fetch_assoc())
+			{
+				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+			}
+			$stmt->close();
+			break;
+			
 		}
 		$conn->close();
 	}
