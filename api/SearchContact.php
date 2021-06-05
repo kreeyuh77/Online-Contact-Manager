@@ -1,9 +1,10 @@
 <?php
 	require_once 'DBH.php';
 	require_once 'functions.php';
-
+	
 	$inData = getRequestInfo();
-
+	
+	$resultCount = 0;
 	# contact information stored as variables
 	$search = $inData["search"];
 	$ID = $inData["ID"];
@@ -41,8 +42,15 @@
 			if($row = $result->fetch_assoc())
 			{
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
+					
+				if($resultCount > 0)
+				{
+				$retValue .= ","; 	
+				}
+				$resultCount++;
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
@@ -50,6 +58,7 @@
 			{
 				returnWithError("No Results Match");
 			}
+			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
 
@@ -62,8 +71,14 @@
 			if($row = $result->fetch_assoc())
 			{
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
+					if($resultCount > 0)
+				{
+				$retValue .= ","; 	
+				}
+				$resultCount++;
 					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
@@ -71,6 +86,7 @@
 			{
 				returnWithError("No Results Match");
 			}
+			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
 
@@ -83,8 +99,14 @@
 			if($row = $result->fetch_assoc())
 			{
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
+					if($resultCount > 0)
+				{
+				$retValue .= ","; 	
+				}
+				$resultCount++;
 					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
@@ -92,6 +114,7 @@
 			{
 				returnWithError("No Results Match");
 			}
+			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
 
@@ -104,15 +127,21 @@
 			if($row = $result->fetch_assoc()){
 
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-
+			$resultCount++;
 			while($row = $result->fetch_assoc())
 			{
+				if($resultCount > 0)
+				{
+				$retValue .= ","; 	
+				}
+				$resultCount++;
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 			}
 			}
 			else{
 			returnWithError("No Results Match");
 			}
+			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
 
@@ -125,8 +154,14 @@
 			if($row = $result->fetch_assoc())
 			{
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
+				if($resultCount > 0)
+				{
+				$retValue .= ","; 	
+				}
+				$resultCount++;
 					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
@@ -134,6 +169,7 @@
 			{
 				returnWithError("No Results Match");
 			}
+			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
 
@@ -146,8 +182,14 @@
 			if($row = $result->fetch_assoc())
 			{
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
+				if($resultCount > 0)
+				{
+				$retValue .= ","; 	
+				}
+				$resultCount++;
 					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
@@ -155,6 +197,7 @@
 			{
 				returnWithError("No Results Match");
 			}
+			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
 
@@ -167,6 +210,7 @@
 			if($row = $result->fetch_assoc())
 			{
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
 					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
@@ -176,6 +220,7 @@
 			{
 				returnWithError("No Results Match");
 			}
+			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
 
@@ -188,6 +233,7 @@
 			if($row = $result->fetch_assoc())
 			{
 				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
 					returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
@@ -197,6 +243,7 @@
 			{
 				returnWithError("No Results Match");
 			}
+			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
 
@@ -208,7 +255,7 @@
 	# as JSON element.
 	function returnWithInfo($ContactID,$FirstName,$LastName,$StreetAddress,$City,$State,$ZipCode,$PhoneNumber,$Email)
 	{
-		$retValue = '{"ContactID":"'.$ContactID.'","FirstName":"'.$FirstName.'","LastName":"'.$LastName.'","StreetAddress":"'.$StreetAddress.'","City":"'.$City.'","State":"'.$State.'","ZipCode":"'.$ZipCode.'","PhoneNumber":"'.$PhoneNumber.'","Email":"'.$Email.'","error":""}';
-		sendResultInfoAsJson($retValue);
+		$retValue .= '{"ContactID":"'.$ContactID.'","FirstName":"'.$FirstName.'","LastName":"'.$LastName.'","StreetAddress":"'.$StreetAddress.'","City":"'.$City.'","State":"'.$State.'","ZipCode":"'.$ZipCode.'","PhoneNumber":"'.$PhoneNumber.'","Email":"'.$Email.'","error":""}';
+		
 	}
 ?>
