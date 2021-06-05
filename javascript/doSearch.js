@@ -13,7 +13,7 @@ function doSearch()
 	var contactList = "";
 
 	//  payload depending on searchBy
-	switch (document.getElementById('searchType');) {
+	switch (document.getElementById('searchType'); {
   case "firstName":
     isearch = "FirstName";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + ID + '", "FirstName" : "' + searchText +'"}';
