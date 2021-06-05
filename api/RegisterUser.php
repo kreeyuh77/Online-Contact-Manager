@@ -29,7 +29,7 @@
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
-		returnWithError("($FirstName, $LastName, $Login, $Password)");
+		returnWithError("");
 	}
 
 ?>
