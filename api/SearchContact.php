@@ -31,7 +31,7 @@
 	{
 		switch ($search){
 	case "FirstName":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName LIKE '%$search%'";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND FirstName LIKE '%$FirstName%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["FirstName"]);
 		$stmt->execute();
@@ -41,7 +41,7 @@
 		$stmt->close();
 		break;
 	case "LastName":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND LastName LIKE '%$search%'";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND LastName LIKE '%$LastName%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["LastName"]);
 		$stmt->execute();
@@ -51,7 +51,7 @@
 		$stmt->close();
 		break;
 	case "StreetAddress":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND StreetAddress LIKE '%$search%'";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND StreetAddress LIKE '%$StreetAddress%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["StreetAddress"]);
 		$stmt->execute();
@@ -61,7 +61,7 @@
 		$stmt->close();
 		break;
 	case "City":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND City LIKE '%$search%'";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND City LIKE '%$City%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["City"]);
 		$stmt->execute();
@@ -71,7 +71,7 @@
 		$stmt->close();
 		break;
 	case "State":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND State LIKE '%$search%'";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND State LIKE '%$State%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["State"]);
 		$stmt->execute();
@@ -81,7 +81,7 @@
 		$stmt->close();
 		break;
 	case "ZipCode":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND ZipCode LIKE '%$search%'";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND ZipCode LIKE '%$ZipCode%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["ZipCode"]);
 		$stmt->execute();
@@ -91,7 +91,7 @@
 		$stmt->close();
 		break;
 	case "PhoneNumber":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND PhoneNumber LIKE '%$search%'";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND PhoneNumber LIKE '%$PhoneNumber%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["PhoneNumber"]);
 		$stmt->execute();
@@ -101,7 +101,7 @@
 		$stmt->close();
 		break;
 	case "Email":
-		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND Email LIKE '%$search%'";
+		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND Email LIKE '%$Email%'";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $inData["Email"]);
 		$stmt->execute();
