@@ -1,6 +1,7 @@
 
 function doSearch()
 {
+	alert("we called do search!");
   var jsonPayload = '';
   var isearch = "";
 	document.getElementById("searchResult").innerHTML = "";
