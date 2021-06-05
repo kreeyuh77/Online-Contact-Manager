@@ -43,7 +43,7 @@
 	
 	}
 		
-		while($row = $result->fetch_assoc()){
+		
 		
 		returnWithInfo($row["ContactID"];,$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email'],);
 		
@@ -51,7 +51,7 @@
 		{
 			returnWithError("No Records Found.");
 		}
-	}
+	
 		$stmt->close();
 		$conn->close();
 	}
