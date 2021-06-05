@@ -38,21 +38,21 @@
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
 		$ContactID = $row["ContactID"];
-		$stmt->close();
+		
 		break;
-
+	
 	}
-
+		
 		while($row = $result->fetch_assoc()){
-
-		returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email'],);
-		}
+		
+		returnWithInfo($row["ContactID"];,$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email'],);
+		
 		else
 		{
 			returnWithError("No Records Found.");
 		}
+	}
 		$stmt->close();
-		}
 		$conn->close();
 	}
 
