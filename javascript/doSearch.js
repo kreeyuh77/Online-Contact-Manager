@@ -46,7 +46,7 @@ function doSearch()
 }
 
 	//Need to edit the url based on the php files given to us
-	var url = '../api/SearchContact.php'
+	var url = 'api/SearchContact.php'
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
