@@ -60,12 +60,12 @@
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $ZipCode);
 		break;
-	case "ZipCode":
+	case "PhoneNumber":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND PhoneNumber =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $PhoneNumber);
 		break;
-	case "ZipCode":
+	case "Email":
 		$query = "SELECT ContactID FROM Contacts WHERE ID =? AND Email =?";
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("is", $ID, $Email);
