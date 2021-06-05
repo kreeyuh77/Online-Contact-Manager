@@ -36,23 +36,21 @@
 		$stmt->bind_param("i", $ID);
 		$stmt->execute();
 		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$ContactID = $row["ContactID"];
-
 		break;
 
 	}
-
-
-
-		if($row = $result->fetch_assoc()){
-		returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email'],);
-		}
-		else
+		while(($row = $result->fetch_assoc())
 		{
-			returnWithError("No Records Found.");
+			if($result->num_rows == 0)
+			{
+				returnWithError("No Records Found.");
+				
+			}
+			else
+			{
+				returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+			}
 		}
-
 		$stmt->close();
 		$conn->close();
 	}
