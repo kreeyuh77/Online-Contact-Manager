@@ -5,21 +5,43 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+/* for input texts/passwords bars*/
+input[type=text]:focus {
+width: 100%;
 }
 
+input[type=password]:focus {
+width: 100%;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+	border-radius: 4px;
+	font-size: 16px;
+	padding: 12px 20px 12px 20px;
+	background-color: white;
+}
+/* for dropdown bar*/
+.dropBox {
+	width: 200px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 2px solid #ccc;
+	box-sizing: border-box;
+	border-radius: 4px;
+	font-size: 16px;
+	padding: 12px 20px 12px 20px;
+	background-color: white;
+}
 /* Set a style for all buttons */
 button {
   background-color: #d687b3;
   color: white;
-  padding: 14px 20px;
+  padding: 15px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
@@ -118,45 +140,8 @@ span.psw {
   border: 3px solid #d687b3;
 	border-radius: 4px;
 }
-/* for input texts/passwords bars*/
-input[type=text] {
-box-sizing: 200px;
-border: 2px solid #ccc;
-border-radius: 4px;
-font-size: 16px;
-background-color: white;
-background-repeat: no-repeat;
-padding: 12px 20px 12px 20px;
-}
 
-input[type=text]:focus {
-width: 100%;
-}
 
-input[type=password] {
-box-sizing: 200px;
-border: 2px solid #ccc;
-border-radius: 4px;
-font-size: 16px;
-background-color: white;
-background-repeat: no-repeat;
-padding: 12px 20px 12px 20px;
-}
-
-input[type=password]:focus {
-width: 100%;
-}
-
-/* for dropdown bar*/
-.dropBox {
-	box-sizing: 200px;
-	border: 2px solid #ccc;
-	border-radius: 4px;
-	font-size: 16px;
-	background-color: white;
-	background-repeat: no-repeat;
-	padding: 12px 20px 12px 20px;
-}
 
 /*These are the styles for the pswd verification parts*/
 /* The message box is shown when the user clicks on the password field */
