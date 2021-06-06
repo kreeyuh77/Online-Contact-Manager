@@ -32,7 +32,7 @@
 	# that information or else return an error
 	else
 	{
-		$retValue .= "{";
+		$retValue .= '{';
 		$retValue .= '"results" : [';
 
 		switch ($search)
