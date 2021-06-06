@@ -55,7 +55,7 @@ function doSearch()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				const myJSON = xhr.responseText
+				const myJSON = xhr.responseText;
 				var jsonObject = JSON.parse(myJSON);
 
         var localArray = new Array(jsonObject.results.length);
