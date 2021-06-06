@@ -18,7 +18,7 @@ var email = document.getElementById("email").value;
 	var url = '../api/AddContact.php';
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, false);
+	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
