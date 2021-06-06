@@ -32,7 +32,7 @@
 	# that information or else return an error
 	else
 	{
-		$retValue .= "'{";
+		$retValue .= "{";
 		$retValue .= '"results" : [';
 
 		switch ($search)
@@ -84,7 +84,7 @@
 				returnWithError("No Results Match");
 			}
 			$retValue .= ']}';
-			$retValue .= "'";
+			
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -136,7 +136,7 @@
 				returnWithError("No Results Match");
 			}
 			$retValue .= ']}';
-			$retValue .= "'";
+			
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -189,7 +189,7 @@
 				returnWithError("No Results Match");
 			}
 			$retValue .= ']}';
-			$retValue .= "'";
+			
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -240,7 +240,7 @@
 				returnWithError("No Results Match");
 			}
 			$retValue .= ']}';
-			$retValue .= "'";
+			
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -292,7 +292,7 @@
 				returnWithError("No Results Match");
 			}
 			$retValue .= ']}';
-			$retValue .= "'";
+			
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -344,7 +344,7 @@
 				returnWithError("No Results Match");
 			}
 			$retValue .= ']}';
-			$retValue .= "'";
+			
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -396,7 +396,7 @@
 				returnWithError("No Results Match");
 			}
 			$retValue .= ']}';
-			$retValue .= "'";
+			
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -449,7 +449,7 @@
 			}
 			
 			$retValue .= ']}';
-			$retValue .= "'";
+			
 			
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
