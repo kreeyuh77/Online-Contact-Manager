@@ -32,7 +32,7 @@
 	# that information or else return an error
 	else
 	{
-		
+		$retValue .= '{';
 		$retValue .= '"results" : [';
 
 		switch ($search)
@@ -442,6 +442,7 @@
 			}
 
 			$retValue .= ']';
+			$retValue .= '}';
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
