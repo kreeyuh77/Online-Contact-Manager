@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Your Contact Book</title>
+	<title>Small Project Main Page</title>
 	<script type="text/javascript" src="../javascript/doSearch.js"></script>
 	<script type="text/javascript" src="../javascript/doAdd.js"></script>
 	<script type="text/javascript" src="../javascript/doLogout.js"></script>
@@ -23,9 +23,8 @@
 	<h2>Your Contact Book</h2>
 	<div align ="center" id = "userName"></div><br>
 		<form  style="display: inline;">
-			<label for="searchType"><b>Search by</b></label>
 			<select name="searchType" id="searchType" class= "dropBox" required>
-				<option disabled selected value>Select</option>
+				<option disabled selected value>Search by</option>
 				<option value="firstName">First Name</option>
 				<option value="lastName">Last Name</option>
 				<option value="address">Address</option>
@@ -95,7 +94,6 @@
 		</div>
 	</form>
 </div>
-
 <script>
 // Read cookie with user info
 document.addEventListener('DOMContentLoaded', function() {
