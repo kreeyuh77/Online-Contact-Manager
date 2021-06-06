@@ -31,5 +31,5 @@ else
 	$stmt->execute();
 	$stmt->close();
 	$conn->close();
-	returnWithError("");
+	returnWithError("account added");
 }
