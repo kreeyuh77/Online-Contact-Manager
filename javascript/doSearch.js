@@ -76,7 +76,7 @@ function doSearch()
 
         for (var i = 0; i < jsonObject.results.length; i++)
         {
-          for (var j = 0; j < 7; j++)
+          for (var j = 0; j < 9; j++)
           {
             if (j == 0)
             {
@@ -98,23 +98,25 @@ function doSearch()
             {
               array[i][j] = jsonObject.results[i].State;
             }
-            if (j == 5)
+						if (j == 5)
+            {
+              array[i][j] = jsonObject.results[i].ZipCode;
+            }
+            if (j == 6)
             {
               array[i][j] = jsonObject.results[i].PhoneNumber;
             }
-						if (j == 6)
+						if (j == 7)
             {
               array[i][j] = jsonObject.results[i].Email;
             }
-						if (j == 7)
+						if (j == 8)
             {
               array[i][j] = jsonObject.results[i].contactID;
             }
           }
         }
-
         createTable(array);
-
 			}
 		};
 		xhr.send(jsonPayload);
@@ -125,18 +127,35 @@ function doSearch()
 	}
 }
 
-function createTable(array){
-	for (var i = 0; i <array.length; i++)
-	{
-		for (var j = 0; j < 7; j++)
-		{
-			if(j<6){
-				document.getElementById('searchList').innerHTML += array[i][j] + ", ";
-			}
-			else {
-				document.getElementById('searchList').innerHTML += "<br>";
-			}
 
+function createTable(array)
+{
+    var table = document.createElement('table');
+
+		// string to create table in html
+    var table = "<table><tr>";
+    table += "<th>" + "First Name" + "</th>";
+    table += "<th>" + "Last Name" + "</th>";
+		table += "<th>" + "Street Adress" + "</th>";
+		table += "<th>" + "City" + "</th>";
+		table += "<th>" + "State" + "</th>";
+		table += "<th>" + "Zip Code" + "</th>";
+		table += "<th>" + "Phone Number" + "</th>";
+    table += "<th>" + "Email" + "</th>";
+
+    for (var i = 0; i < array.length; i++)
+    {
+      table+="<tr>";
+      for (var j = 0; j < 8; j++)
+      {
+          table+= "<td>" + array[i][j] + "</td>";
+      }
+			table +="<td><input type='image' src='media/pencil.png' height='35px' class='editform' id='pencil' onclick='editContact(" + array[i][8] + ")';><input type='image' src='media/delete.png' height='35px' class='editform' id='trash' onclick='deleteContact(" + array[i][8] + ")';></td>";
 		}
-	}
+      table+="</tr>";
+
+    }
+
+      table+="</table>";
+      document.getElementById("searchList").innerHTML = table;
 }
