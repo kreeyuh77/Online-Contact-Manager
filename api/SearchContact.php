@@ -48,16 +48,16 @@
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
 				$retValue .= '{';
-				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-				$retValue .= '"City" : ' . $row["City"] . ', ';
-				$retValue .= '"State" : ' . $row["State"] . ', ';
-				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-				$retValue .= '"Email" : ' . $row["Email"] . ', ';
-				$retValue .= '}';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
+					$retValue .= '}';
 				while($row = $result->fetch_assoc())
 				{
 					if($resultCount > 0)
@@ -66,16 +66,16 @@
 						}
 						$resultCount++;
 						$retValue .= '{';
-						$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-						$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-						$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-						$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-						$retValue .= '"City" : ' . $row["City"] . ', ';
-						$retValue .= '"State" : ' . $row["State"] . ', ';
-						$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-						$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-						$retValue .= '"Email" : ' . $row["Email"] . ', ';
-						$retValue .= '}';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
+					$retValue .= '}';
 						//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
@@ -98,16 +98,16 @@
 			{
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$retValue .= '{';
-				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-				$retValue .= '"City" : ' . $row["City"] . ', ';
-				$retValue .= '"State" : ' . $row["State"] . ', ';
-				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-				$retValue .= '"Email" : ' . $row["Email"] . ', ';
-				$retValue .= '}';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
+					$retValue .= '}';
 				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
@@ -117,16 +117,16 @@
 						}
 						$resultCount++;
 						$retValue .= '{';
-						$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-						$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-						$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-						$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-						$retValue .= '"City" : ' . $row["City"] . ', ';
-						$retValue .= '"State" : ' . $row["State"] . ', ';
-						$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-						$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-						$retValue .= '"Email" : ' . $row["Email"] . ', ';
-						$retValue .= '}';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
+					$retValue .= '}';
 						//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
 			}
@@ -148,16 +148,16 @@
 			if($row = $result->fetch_assoc())
 			{
 				$retValue .= '{';
-				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-				$retValue .= '"City" : ' . $row["City"] . ', ';
-				$retValue .= '"State" : ' . $row["State"] . ', ';
-				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-				$retValue .= '"Email" : ' . $row["Email"] . ', ';
-				$retValue .= '}';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
+					$retValue .= '}';
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
 				while($row = $result->fetch_assoc())
@@ -168,15 +168,15 @@
 					}
 					$resultCount++;
 					$retValue .= '{';
-					$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-					$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-					$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-					$retValue .= '"City" : ' . $row["City"] . ', ';
-					$retValue .= '"State" : ' . $row["State"] . ', ';
-					$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-					$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-					$retValue .= '"Email" : ' . $row["Email"] . ', ';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
 					$retValue .= '}';
 					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
@@ -199,16 +199,16 @@
 			$result = $stmt->get_result();
 			if($row = $result->fetch_assoc()){
 				$retValue .= '{';
-				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-				$retValue .= '"City" : ' . $row["City"] . ', ';
-				$retValue .= '"State" : ' . $row["State"] . ', ';
-				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-				$retValue .= '"Email" : ' . $row["Email"] . ', ';
-				$retValue .= '}';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
+					$retValue .= '}';
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 			$resultCount++;
 			while($row = $result->fetch_assoc())
@@ -219,15 +219,15 @@
 					}
 					$resultCount++;
 					$retValue .= '{';
-					$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-					$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-					$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-					$retValue .= '"City" : ' . $row["City"] . ', ';
-					$retValue .= '"State" : ' . $row["State"] . ', ';
-					$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-					$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-					$retValue .= '"Email" : ' . $row["Email"] . ', ';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
 					$retValue .= '}';
 					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
@@ -250,16 +250,16 @@
 			if($row = $result->fetch_assoc())
 			{
 				$retValue .= '{';
-				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-				$retValue .= '"City" : ' . $row["City"] . ', ';
-				$retValue .= '"State" : ' . $row["State"] . ', ';
-				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-				$retValue .= '"Email" : ' . $row["Email"] . ', ';
-				$retValue .= '}';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
+					$retValue .= '}';
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
 				while($row = $result->fetch_assoc())
@@ -270,15 +270,15 @@
 					}
 					$resultCount++;
 					$retValue .= '{';
-					$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-					$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-					$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-					$retValue .= '"City" : ' . $row["City"] . ', ';
-					$retValue .= '"State" : ' . $row["State"] . ', ';
-					$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-					$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-					$retValue .= '"Email" : ' . $row["Email"] . ', ';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
 					$retValue .= '}';
 					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
@@ -301,16 +301,16 @@
 			if($row = $result->fetch_assoc())
 			{
 				$retValue .= '{';
-				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-				$retValue .= '"City" : ' . $row["City"] . ', ';
-				$retValue .= '"State" : ' . $row["State"] . ', ';
-				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-				$retValue .= '"Email" : ' . $row["Email"] . ', ';
-				$retValue .= '}';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
+					$retValue .= '}';
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
 				while($row = $result->fetch_assoc())
@@ -321,15 +321,15 @@
 					}
 					$resultCount++;
 					$retValue .= '{';
-					$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-					$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-					$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-					$retValue .= '"City" : ' . $row["City"] . ', ';
-					$retValue .= '"State" : ' . $row["State"] . ', ';
-					$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-					$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-					$retValue .= '"Email" : ' . $row["Email"] . ', ';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
 					$retValue .= '}';
 					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
@@ -360,7 +360,7 @@
 				$retValue .= '"State" : ' . $row["State"] . ', ';
 				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
 				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-				$retValue .= '"Email" : ' . $row["Email"] . ', ';
+				$retValue .= '"Email" : ' . $row["Email"] .  '"';
 				$retValue .= '}';
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
@@ -370,16 +370,17 @@
 					{
 						$retValue .= ",";
 					}
+					$resultCount++;
 					$retValue .= '{';
-					$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-					$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-					$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-					$retValue .= '"City" : ' . $row["City"] . ', ';
-					$retValue .= '"State" : ' . $row["State"] . ', ';
-					$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-					$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-					$retValue .= '"Email" : ' . $row["Email"] . ', ';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
 					$retValue .= '}';
 					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
@@ -402,16 +403,16 @@
 			if($row = $result->fetch_assoc())
 			{
 				$retValue .= '{';
-				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-				$retValue .= '"City" : ' . $row["City"] . ', ';
-				$retValue .= '"State" : ' . $row["State"] . ', ';
-				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-				$retValue .= '"Email" : ' . $row["Email"] . ', ';
-				$retValue .= '}';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
+					$retValue .= '}';
 				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				$resultCount++;
 				while($row = $result->fetch_assoc())
@@ -420,16 +421,17 @@
 					{
 						$retValue .= ",";
 					}
+					$resultCount++;
 					$retValue .= '{';
-					$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
-					$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-					$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
-					$retValue .= '"City" : ' . $row["City"] . ', ';
-					$retValue .= '"State" : ' . $row["State"] . ', ';
-					$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-					$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-					$retValue .= '"Email" : ' . $row["Email"] . ', ';
+					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
+					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
+					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"City" : "' . $row["City"] . '", ';
+					$retValue .= '"State" : "' . $row["State"] . '", ';
+					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$retValue .= '"Email" : "' . $row["Email"] .  '"';
 					$retValue .= '}';
 					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
