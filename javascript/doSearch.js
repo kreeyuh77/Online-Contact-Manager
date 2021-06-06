@@ -7,6 +7,8 @@ function doSearch()
 	// the list will be put here
 	var contactList = "";
 	var url = '../api/SearchContact.php';
+	
+	document.getElementById('searchResult').innerHTML = "";
 
 
 	var xhr = new XMLHttpRequest();
