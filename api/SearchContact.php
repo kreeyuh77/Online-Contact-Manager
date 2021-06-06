@@ -458,7 +458,7 @@
 		}
 		$conn->close();
 	}
-
+	returnWithError("");
 	# obtain the login information based on the input parameters and send information
 	# as JSON element.
 	function returnWithInfo($ContactID,$FirstName,$LastName,$StreetAddress,$City,$State,$ZipCode,$PhoneNumber,$Email)
