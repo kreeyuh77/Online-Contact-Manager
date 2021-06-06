@@ -83,7 +83,8 @@
 			{
 				returnWithError("No Results Match");
 			}
-			$retValue .= ']';
+			$retValue .= ']}';
+			$retValue .= "'";
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -134,7 +135,8 @@
 			{
 				returnWithError("No Results Match");
 			}
-			$retValue .= ']';
+			$retValue .= ']}';
+			$retValue .= "'";
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -186,7 +188,8 @@
 			{
 				returnWithError("No Results Match");
 			}
-			$retValue .= ']';
+			$retValue .= ']}';
+			$retValue .= "'";
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -236,7 +239,8 @@
 			{
 				returnWithError("No Results Match");
 			}
-			$retValue .= ']';
+			$retValue .= ']}';
+			$retValue .= "'";
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -287,7 +291,8 @@
 			{
 				returnWithError("No Results Match");
 			}
-			$retValue .= ']';
+			$retValue .= ']}';
+			$retValue .= "'";
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -338,7 +343,8 @@
 			{
 				returnWithError("No Results Match");
 			}
-			$retValue .= ']';
+			$retValue .= ']}';
+			$retValue .= "'";
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -389,7 +395,8 @@
 			{
 				returnWithError("No Results Match");
 			}
-			$retValue .= ']';
+			$retValue .= ']}';
+			$retValue .= "'";
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
 			break;
@@ -441,7 +448,7 @@
 				returnWithError("No Results Match");
 			}
 			
-			$retValue .= '}';
+			$retValue .= ']}';
 			$retValue .= "'";
 			
 			sendResultInfoAsJson($retValue);
