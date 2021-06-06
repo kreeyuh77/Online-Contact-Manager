@@ -118,7 +118,8 @@ function doSearch()
             }
           }
         }
-        createTable(array);
+        //createTable(array);
+	document.getElementById("searchResult").innerHTML = jsonObject;			
 			}
 		};
 		xhr.send(jsonPayload);
