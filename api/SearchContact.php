@@ -51,7 +51,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -69,7 +69,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -101,7 +101,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -120,7 +120,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -151,7 +151,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -171,7 +171,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -202,7 +202,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -222,7 +222,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -253,7 +253,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -273,7 +273,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -304,7 +304,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -324,7 +324,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -355,7 +355,7 @@
 				$retValue .= '"contactID" : ' . $row["ContactID"] . ', ';
 				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
 				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-				$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . ', ';
+				$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 				$retValue .= '"City" : ' . $row["City"] . ', ';
 				$retValue .= '"State" : ' . $row["State"] . ', ';
 				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
@@ -375,7 +375,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -406,7 +406,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
@@ -426,7 +426,7 @@
 					$retValue .= '"contactID" : "' . $row["ContactID"] . '", ';
 					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : ' . $row["StreetAddress"] . '", ';
+					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
 					$retValue .= '"City" : "' . $row["City"] . '", ';
 					$retValue .= '"State" : "' . $row["State"] . '", ';
 					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
