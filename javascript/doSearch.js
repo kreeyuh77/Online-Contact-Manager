@@ -10,7 +10,7 @@ function doSearch()
 
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	//  payload depending on searchBy
 	switch (document.getElementById('searchType')){
