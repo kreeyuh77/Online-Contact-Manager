@@ -151,7 +151,7 @@ function createTable(array)
           table+= "<td>" + array[i][j] + "</td>";
       }
 			table +="<td><input type='image' src='media/pencil.png' height='35px' class='editform' id='pencil' onclick='editContact(" + array[i][8] + ")';><input type='image' src='media/delete.png' height='35px' class='editform' id='trash' onclick='deleteContact(" + array[i][8] + ")';></td>";
-		}
+		
       table+="</tr>";
 
     }
