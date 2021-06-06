@@ -440,7 +440,7 @@
 			{
 				returnWithError("No Results Match");
 			}
-			$retValue .= ']';
+			
 			$retValue .= '}';
 			$retValue .= "'";
 			
