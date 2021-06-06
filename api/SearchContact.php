@@ -441,7 +441,7 @@
 				returnWithError("No Results Match");
 			}
 
-			$retValue .= "]}'";
+			$retValue .= "]}";
 			
 			sendResultInfoAsJson($retValue);
 			$stmt->close();
