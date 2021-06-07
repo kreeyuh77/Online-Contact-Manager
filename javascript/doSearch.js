@@ -78,7 +78,7 @@ function doSearch()
 			
         //var localArray = new Array(jsonObject.results.length);
 
-        array = localArray;
+        //array = localArray;
 	
         if (jsonObject.error == "")
         {
