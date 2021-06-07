@@ -51,7 +51,6 @@ function doSearch()
 }
    try
    {
-	   	document.getElementById("searchResult").innerHTML = jsonPayload;
 		xhr.send(jsonPayload);
 		xhr.onreadystatechange = function()
 		{
