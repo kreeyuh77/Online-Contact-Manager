@@ -57,7 +57,6 @@ function doSearch()
 			{
 				const myJSON = xhr.responseText;
 				var jsonObject = JSON.parse(myJSON);
-				console.log(JSON.stringify(jsonObject));
 				document.getElementById("searchResult").innerHTML = jsonObject;
 
         var localArray = new Array(jsonObject.results.length);
