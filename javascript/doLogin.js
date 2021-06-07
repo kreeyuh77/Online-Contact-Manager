@@ -23,7 +23,7 @@ function doLogin()
 	//Need to edit the url based on the php files given to us
 	let url = 'api/LoginApi.php';
 
-	xhr.open("POST", url, false);
+	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
 	//var jsonPayload = JSON.stringify({"FirstName" : firstName, "LastName" : lastName, "Login" : login, "Password" : hash});
 	var jsonPayload = '{"Login" : "' + login + '", "Password" : "' + hash + '"}';
