@@ -64,20 +64,20 @@ function doSearch()
 			{
 				var jsonObject = JSON.parse(xhr.responseText);
 				console.log("This is the result: " + JSON.stringify(jsonObject));
-			
-        var localArray = new Array(jsonObject.results.length);
-
-        array = localArray;
 	
-        if (jsonObject.error == "")
+	if (jsonObject.error == "")
         {
           document.getElementById("searchResult").innerHTML = "Account(s) have been retrieved";
         }
         else
         {
           document.getElementById("searchResult").innerHTML = jsonObject.error;
+	  return;
         }
+				
+        var localArray = new Array(jsonObject.results.length);
 
+        array = localArray;
 
         for (var i = 0; i < array.length; i++)
         {
