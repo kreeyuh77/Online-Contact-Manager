@@ -4,6 +4,7 @@ function doSearch()
 	var isearch = "";
 	// get search attritbute
 	var searchText = document.getElementById('search');
+	
 	// the list will be put here
 	var contactList = "";
 	var url = '../api/SearchContact.php';
@@ -14,7 +15,10 @@ function doSearch()
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	//  payload depending on searchBy
-	switch (document.getElementById('searchType'))
+	
+	var e = document.getElementById("searchType");
+	var searchAtt = e.options[e.selectedIndex].text;
+	switch (searchAtt)
 {
   case "firstName":
     isearch = "FirstName";
