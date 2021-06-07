@@ -73,6 +73,7 @@
 					$searchResult .= '"Email" : "' . $row["Email"] .  '"';
 					$searchResult .= '}';
 				}
+				$searchResult .= ']';
 			}
 			else
 			{
@@ -121,6 +122,7 @@
 					$searchResult .= '"Email" : "' . $row["Email"] .  '"';
 					$searchResult .= '}';
 				}
+				$searchResult .= ']';
 			}
 			else
 			{
@@ -169,6 +171,7 @@
 					$searchResult .= '"Email" : "' . $row["Email"] .  '"';
 					$searchResult .= '}';
 				}
+				$searchResult .= ']';
 			}
 			else
 			{
@@ -217,6 +220,7 @@
 					$searchResult .= '"Email" : "' . $row["Email"] .  '"';
 					$searchResult .= '}';
 				}
+				$searchResult .= ']';
 			}
 			else
 			{
@@ -265,6 +269,7 @@
 					$searchResult .= '"Email" : "' . $row["Email"] .  '"';
 					$searchResult .= '}';
 				}
+				$searchResult .= ']';
 			}
 			else
 			{
@@ -313,6 +318,7 @@
 					$searchResult .= '"Email" : "' . $row["Email"] .  '"';
 					$searchResult .= '}';
 				}
+				$searchResult .= ']';
 			}
 			else
 			{
@@ -361,6 +367,7 @@
 					$searchResult .= '"Email" : "' . $row["Email"] .  '"';
 					$searchResult .= '}';
 				}
+				$searchResult .= ']';
 			}
 			else
 			{
@@ -409,6 +416,7 @@
 					$searchResult .= '"Email" : "' . $row["Email"] .  '"';
 					$searchResult .= '}';
 				}
+				$searchResult .= ']';
 			}
 			else
 			{
