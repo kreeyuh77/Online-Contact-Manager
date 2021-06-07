@@ -52,6 +52,7 @@ function doSearch()
 }
 	try
 	{
+		xhr.send(jsonPayload);
 		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
@@ -122,12 +123,8 @@ function doSearch()
 	    }
           }
         }
-        createTable(array);
-	document.getElementById("searchResult").innerHTML = jsonObject;			
-			}
-		};
-		xhr.send(jsonPayload);
-	}
+        createTable(array);		
+		
 	catch(err)
 	{
 		document.getElementById("searchResult").innerHTML = err.message;
