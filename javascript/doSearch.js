@@ -18,6 +18,7 @@ function doSearch()
 	
 	var e = document.getElementById("searchType");
 	var searchAtt = e.options[e.selectedIndex].text;
+	console.log("This is the attribute to search by: " + searchAtt);
 	switch (searchAtt)
 {
   case "firstName":
