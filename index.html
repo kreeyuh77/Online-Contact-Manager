@@ -14,6 +14,10 @@
 	width: 800px;
 	height: auto;
 }
+	
+#signuplink:hover{
+	opacity: .5;
+}
 
 </style>
 <body>
@@ -36,7 +40,7 @@
 			<button type="reset" id="loginButton" onclick="doLogin();">Login</button>
 			 <span id="loginResult"></span>
 		 </form>
-		 <p style="font-size: 12px;" align="center" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Don't have an account? Click Here</p>
+		 <p style="font-size: 12px;" align="center">Don't have an account? <span id = "signuplink" style="font-size: 12px;"  onclick="document.getElementById('signup').style.display='block'">Click Here</span></p>
 
 	</div>
 </div>
