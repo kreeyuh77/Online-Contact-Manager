@@ -160,7 +160,7 @@ function createTable(array)
       {
           table+= "<td>" + array[i][j] + "</td>";
       }
-       	table +="<td style='word-wrap:break-word;'><span id='editContactButton' style='width:auto;height:30px;margin-right:30px;margin-left:100px;' onclick='editContactHelper(" + array[i][8] + ")';><i class='fas fa-edit'></i></span><span id='deleteContactButton' style='width:auto;height:30px;margin:0' onclick='deleteContactHelper(" + array[i][8] + ")';><i class='fas fa-trash-alt'></i></span></td>";
+       	table +="<td style='word-wrap:break-word;'><span id='editContactButton' style='width:auto;height:30px;padding:10px' onclick='editContactHelper(" + array[i][8] + ")';><i class='fas fa-edit'></i></span><span id='deleteContactButton' style='width:auto;height:30px;padding:10px' onclick='deleteContactHelper(" + array[i][8] + ")';><i class='fas fa-trash-alt'></i></span></td>";
       table+="</tr>";
 
     }
