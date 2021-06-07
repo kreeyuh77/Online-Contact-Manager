@@ -428,6 +428,7 @@
 			break;
 		}
 		$conn->close();
+	}
 	# obtain the login information based on the input parameters and send information
 	# as JSON element.
 	function returnWithInfo($searchResult)
