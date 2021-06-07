@@ -5,6 +5,22 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+/* format for table*/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 /* for input texts/passwords bars*/
 input[type=text]:focus {
 width: 100%;
