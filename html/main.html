@@ -141,16 +141,15 @@
 
 		 <!--input fields-->
 		<div class="container">
-			<h1 id='deleteName'>Delete Contact</h1>
+			<h1>Delete Contact</h1>
+			<p id="deleteName">Are you sure you want to delete?</p>
       <hr>
-			<button type="reset" id="deleteContactButton" onclick="doDelete(contactID);">Delete Contact</button>
+			<button type="button" onclick="document.getElementById('deleteContact').style.display='none'" class="cancelbtn">Cancel</button>
+			<button type="reset" id="deleteContactButton" onclick="doDelete(contactID);">Yes</button>
 			<p align = "center" id = "deleteResult"></p>
 
 		</div>
-		 <!--close button-->
-		<div class="container" style="background-color:#f1f1f1">
-			<button type="button" onclick="document.getElementById('deleteContact').style.display='none'" class="cancelbtn">Cancel</button>
-		</div>
+		
 	</form>
 </div>
 <script>
@@ -170,7 +169,10 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 		if (event.target == modal2) {
-				modal.style.display = "none";
+				modal2.style.display = "none";
+		}
+	if (event.target == modal3) {
+				modal3.style.display = "none";
 		}
 }
 
