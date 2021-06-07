@@ -21,7 +21,7 @@ function doSearch()
 	console.log("This is the attribute to search by: " + searchAtt);
 	switch (searchAtt)
 {
-  case "firstName":
+  case "First Name":
     isearch = "FirstName";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "FirstName" : "' + searchText + '"}';
     break;
