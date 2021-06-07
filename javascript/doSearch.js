@@ -158,7 +158,7 @@ function createTable(array)
       {
           table+= "<td>" + array[i][j] + "</td>";
       }
-      table +="<td><input type='image' src='media/pencil.png' height='35px' class='editform' id='pencil' onclick='editContactHelper(" + array[i][8] + ","+ array[i][0] +")';><input type='image' src='media/delete.png' height='35px' class='editform' id='trash' onclick='deleteContactHelper(" + array[i][8] + ","+ array[i][0] +")';></td>";
+      table +="<td>"<input type='image' src='media/pencil.png' height='35px' class='editform' id='pencil' onclick='editContact(" + array[i][5] + ")';><input type='image' src='media/delete.png' height='35px' class='editform' id='trash' onclick='deleteContact(" + array[i][5] + ")';></td>";
 		
       table+="</tr>";
 
@@ -168,9 +168,8 @@ function createTable(array)
     document.getElementById("searchList").innerHTML = table;
 }
 
-function editContactHelper(contactID,name)
+function editContactHelper(contactID)
 {
-    document.getElementById('editName').innerHTML = "Edit" + name;
     document.getElementById('editContact').style.display='block';	
 }
 
