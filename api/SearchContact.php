@@ -78,16 +78,15 @@
 					$retValue .= '}';
 						//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
 				}
-				$retValue .= '],"error":""}';
-			
-			sendResultInfoAsJson($retValue);
-			$stmt->close();
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
+			$retValue .= '],"error":""}';
 			
+			sendResultInfoAsJson($retValue);
+			$stmt->close();
 			break;
 
 			case "LastName":
