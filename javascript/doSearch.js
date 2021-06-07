@@ -167,3 +167,9 @@ function createTable(array)
     table+="</table>";
     document.getElementById("searchList").innerHTML = table;
 }
+
+function editContactHelper(contactID)
+{
+    document.getElementById('editContact').style.display='block';	
+}
+
