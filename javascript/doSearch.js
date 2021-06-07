@@ -25,7 +25,7 @@ function doSearch()
     isearch = "FirstName";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "FirstName" : "' + searchText + '"}';
     break;
-  case " Last Name":
+  case "Last Name":
     isearch = "LastName";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "LastName" : "' + searchText + '"}';
     break;
