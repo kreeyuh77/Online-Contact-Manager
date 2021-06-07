@@ -66,8 +66,18 @@ function doSearch()
 				console.log("This is the result: " + JSON.stringify(jsonObject));
 			}
 		}
-
-        var localArray = new Array(jsonObject.results.length);
+	var array = []
+	var i = 0;	
+	while(i < jsonObject.length)
+	{
+		array.push([]);
+		for (var j in jsonObject[i].results)
+		{
+			array[array.length-1].push(jsonObject[i].results[j]);
+		}
+		i++;
+	}
+        //var localArray = new Array(jsonObject.results.length);
 
         array = localArray;
 	
