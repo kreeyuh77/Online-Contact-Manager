@@ -3,7 +3,7 @@
 	require_once 'functions.php';
 
 	$inData = getRequestInfo();
-	$retValue = "";
+	$searchResult = "";
 	$resultCount = 0;
 	$search = $inData["search"];
 
@@ -32,436 +32,59 @@
 	# that information or else return an error
 	else
 	{
-		$retValue .= '{';
-		$retValue .= '"results" : [';
+		$searchResult .= '"results" : [';
 
-		switch ($search)
-		{
-			case "FirstName":
-			$query = "SELECT * FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData["FirstName"] . "%' ";
+			$query = "SELECT * FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData[". $search ."] . "%' ";
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("i", $ID);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			if($row = $result->fetch_assoc())
 			{
-				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				$resultCount++;
-				$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-				while($row = $result->fetch_assoc())
-				{
-					if($resultCount > 0)
-					{
-						$retValue .= ",";
-						}
-						$resultCount++;
-						$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-						//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				}
-			}
-			else
-			{
-				returnWithError("No Results Match");
-			}
-			$retValue .= '],"error":""}';
-			
-			sendResultInfoAsJson($retValue);
-			$stmt->close();
-			break;
-
-			case "LastName":
-			$query = "SELECT * FROM Contacts WHERE ID =? AND LastName LIKE '%" . $inData["LastName"] . "%' ";
-			$stmt = $conn->prepare($query);
-			$stmt->bind_param("i", $ID);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			if($row = $result->fetch_assoc())
-			{
-				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-				$resultCount++;
-				while($row = $result->fetch_assoc())
-				{
-					if($resultCount > 0)
-						{
-							$retValue .= ",";
-						}
-						$resultCount++;
-						$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-						//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				}
-			}
-			else
-			{
-				returnWithError("No Results Match");
-			}
-			$retValue .= '],"error":""}';
-			
-			sendResultInfoAsJson($retValue);
-			$stmt->close();
-			break;
-
-			case "StreetAddress":
-			$query = "SELECT * FROM Contacts WHERE ID =? AND StreetAddress LIKE '%" . $inData["StreetAddress"] . "%' ";
-			$stmt = $conn->prepare($query);
-			$stmt->bind_param("i", $ID);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			if($row = $result->fetch_assoc())
-			{
-				$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+				$searchResult .= '{';
+					$searchResult .= '"ContactID" : "' . $row["ContactID"] . '", ';
+					$searchResult .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$searchResult .= '"LastName" : "' . $row["LastName"] . '", ';
+					$searchResult .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
+					$searchResult .= '"City" : "' . $row["City"] . '", ';
+					$searchResult .= '"State" : "' . $row["State"] . '", ';
+					$searchResult .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$searchResult .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$searchResult .= '"Email" : "' . $row["Email"] .  '"';
+					$searchResult .= '}';
 				$resultCount++;
 				while($row = $result->fetch_assoc())
 				{
 					if($resultCount > 0)
 					{
-						$retValue .= ",";
+						$searchResult .= ",";
 					}
 					$resultCount++;
 					$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				}
-			}
-
-			else
-			{
-				returnWithError("No Results Match");
-			}
-			$retValue .= '],"error":""}';
-			
-			sendResultInfoAsJson($retValue);
-			$stmt->close();
-			break;
-
-			case "City":
-			$query = "SELECT * FROM Contacts WHERE ID =? AND City LIKE '%" . $inData["City"] . "%' ";
-			$stmt = $conn->prepare($query);
-			$stmt->bind_param("i", $ID);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			if($row = $result->fetch_assoc()){
-				$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-			$resultCount++;
-			while($row = $result->fetch_assoc())
-			{
-				if($resultCount > 0)
-					{
-						$retValue .= ",";
-					}
-					$resultCount++;
-					$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
+					$searchResult .= '"ContactID" : "' . $row["ContactID"] . '", ';
+					$searchResult .= '"FirstName" : "' . $row["FirstName"] . '", ';
+					$searchResult .= '"LastName" : "' . $row["LastName"] . '", ';
+					$searchResult .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
+					$searchResult .= '"City" : "' . $row["City"] . '", ';
+					$searchResult .= '"State" : "' . $row["State"] . '", ';
+					$searchResult .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
+					$searchResult .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
+					$searchResult .= '"Email" : "' . $row["Email"] .  '"';
+					$searchResult .= '}';
 				}
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
-			$retValue .= '],"error":""}';
-			
-			sendResultInfoAsJson($retValue);
+			returnWithInfo($searchResult);
 			$stmt->close();
-			break;
-
-			case "State":
-			$query = "SELECT * FROM Contacts WHERE ID =? AND State LIKE '%" . $inData["State"] . "%' ";
-			$stmt = $conn->prepare($query);
-			$stmt->bind_param("i", $ID);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			if($row = $result->fetch_assoc())
-			{
-				$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				$resultCount++;
-				while($row = $result->fetch_assoc())
-				{
-					if($resultCount > 0)
-					{
-						$retValue .= ",";
-					}
-					$resultCount++;
-					$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				}
-			}
-			else
-			{
-				returnWithError("No Results Match");
-			}
-			$retValue .= '],"error":""}';
-			
-			sendResultInfoAsJson($retValue);
-			$stmt->close();
-			break;
-
-			case "ZipCode":
-			$query = "SELECT * FROM Contacts WHERE ID =? AND ZipCode LIKE '%" . $inData["ZipCode"] . "%' ";
-			$stmt = $conn->prepare($query);
-			$stmt->bind_param("i", $ID);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			if($row = $result->fetch_assoc())
-			{
-				$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				$resultCount++;
-				while($row = $result->fetch_assoc())
-				{
-					if($resultCount > 0)
-					{
-						$retValue .= ",";
-					}
-					$resultCount++;
-					$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				}
-			}
-			else
-			{
-				returnWithError("No Results Match");
-			}
-			$retValue .= '],"error":""}';
-			
-			sendResultInfoAsJson($retValue);
-			$stmt->close();
-			break;
-
-			case "PhoneNumber":
-			$query = "SELECT * FROM Contacts WHERE ID =? AND PhoneNumber LIKE '%" . $inData["PhoneNumber"] . "%' ";
-			$stmt = $conn->prepare($query);
-			$stmt->bind_param("i", $ID);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			if($row = $result->fetch_assoc())
-			{
-				$retValue .= '{';
-				$retValue .= '"ContactID" : ' . $row["ContactID"] . ', ';
-				$retValue .= '"FirstName" : ' . $row["FirstName"] . ', ';
-				$retValue .= '"LastName" : ' . $row["LastName"] . ', ';
-				$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-				$retValue .= '"City" : ' . $row["City"] . ', ';
-				$retValue .= '"State" : ' . $row["State"] . ', ';
-				$retValue .= '"ZipCode" : ' . $row["ZipCode"] . ', ';
-				$retValue .= '"PhoneNumber" : ' . $row["PhoneNumber"] . ', ';
-				$retValue .= '"Email" : ' . $row["Email"] .  '"';
-				$retValue .= '}';
-				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				$resultCount++;
-				while($row = $result->fetch_assoc())
-				{
-					if($resultCount > 0)
-					{
-						$retValue .= ",";
-					}
-					$resultCount++;
-					$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				}
-			}
-			else
-			{
-				returnWithError("No Results Match");
-			}
-			$retValue .= '],"error":""}';
-			
-			sendResultInfoAsJson($retValue);
-			$stmt->close();
-			break;
-
-			case "Email":
-			$query = "SELECT * FROM Contacts WHERE ID =? AND Email LIKE '%" . $inData["Email"] . "%' ";
-			$stmt = $conn->prepare($query);
-			$stmt->bind_param("i", $ID);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			if($row = $result->fetch_assoc())
-			{
-				$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-				//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				$resultCount++;
-				while($row = $result->fetch_assoc())
-				{
-					if($resultCount > 0)
-					{
-						$retValue .= ",";
-					}
-					$resultCount++;
-					$retValue .= '{';
-					$retValue .= '"ContactID" : "' . $row["ContactID"] . '", ';
-					$retValue .= '"FirstName" : "' . $row["FirstName"] . '", ';
-					$retValue .= '"LastName" : "' . $row["LastName"] . '", ';
-					$retValue .= '"StreetAddress" : "' . $row["StreetAddress"] . '", ';
-					$retValue .= '"City" : "' . $row["City"] . '", ';
-					$retValue .= '"State" : "' . $row["State"] . '", ';
-					$retValue .= '"ZipCode" : "' . $row["ZipCode"] . '", ';
-					$retValue .= '"PhoneNumber" : "' . $row["PhoneNumber"] . '", ';
-					$retValue .= '"Email" : "' . $row["Email"] .  '"';
-					$retValue .= '}';
-					//returnWithInfo($row["ContactID"],$row['FirstName'],$row['LastName'],$row['StreetAddress'],$row['City'],$row['State'],$row['ZipCode'],$row['PhoneNumber'],$row['Email']);
-				}
-			}
-			else
-			{
-				returnWithError("No Results Match");
-			}
-			
-			$retValue .= '],"error":""}';
-			
-			
-			sendResultInfoAsJson($retValue);
-			$stmt->close();
-			break;
-
-		}
 		$conn->close();
-	}
 	# obtain the login information based on the input parameters and send information
 	# as JSON element.
-	function returnWithInfo($ContactID,$FirstName,$LastName,$StreetAddress,$City,$State,$ZipCode,$PhoneNumber,$Email)
+	function returnWithInfo($searchResult)
 	{
-		$retValue .= '{"ContactID":'. $row["ContactID"] .'}';
+		$retValue = '{'. $searchResult . ', "error" : ""}';
+		sendResultInfoAsJson($retValue);
 	}
 ?>
