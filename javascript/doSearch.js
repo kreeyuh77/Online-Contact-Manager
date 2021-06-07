@@ -49,8 +49,8 @@ function doSearch()
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "Email" : "' + searchText + '"}';
     break;
 }
-	try
-	{
+   try
+   {
 		xhr.send(jsonPayload);
 		xhr.onreadystatechange = function()
 		{
@@ -123,11 +123,11 @@ function doSearch()
           }
         }
         createTable(array);		
-		
-	catch(err)
-	{
-		document.getElementById("searchResult").innerHTML = err.message;
-	}
+   }	
+   catch(err)
+   {
+	document.getElementById("searchResult").innerHTML = err.message;
+   }
 }
 
 
