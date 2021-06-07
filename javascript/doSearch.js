@@ -51,13 +51,14 @@ function doSearch()
 }
    try
    {
+	   document.getElementById("searchResult").innerHTML = jsonPayload;
 		xhr.send(jsonPayload);
 		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
 				var jsonObject = JSON.parse(xhr.responseText);
-				document.getElementById("searchResult").innerHTML = jsonObject;
+				
 			}
 		}
 
