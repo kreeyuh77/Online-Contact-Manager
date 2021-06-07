@@ -25,31 +25,31 @@ function doSearch()
     isearch = "FirstName";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "FirstName" : "' + searchText + '"}';
     break;
-  case "lastName":
+  case " Last Name":
     isearch = "LastName";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "LastName" : "' + searchText + '"}';
     break;
-  case "address":
+  case "Address":
     isearch = "StreetAddress";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "StreetAddress" : "' + searchText + '"}';
     break;
-  case "city":
+  case "City":
     isearch = "City";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "City" : "' + searchText + '"}';
     break;
-  case "state":
+  case "State":
     isearch = "State";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "State" : "' + searchText + '"}';
     break;
-  case "zipcode":
+  case "Zip Code":
     isearch = "ZipCode";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "ZipCode" : "' + searchText + '"}';
     break;
-  case  "phonenumber":
+  case  "Phone Number":
     isearch = "PhoneNumber";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "PhoneNumber" : "' + searchText + '"}';
     break;
-  case  "email":
+  case  "Email":
     isearch = "Email";
     jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "Email" : "' + searchText + '"}';
     break;
