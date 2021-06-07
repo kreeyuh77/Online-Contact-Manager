@@ -151,6 +151,7 @@ function createTable(array)
 		table += "<th>" + "Zip Code" + "</th>";
 		table += "<th>" + "Phone Number" + "</th>";
     table += "<th>" + "Email" + "</th>";
+	 table += "<th>" + "" + "</th>";
 
     for (var i = 0; i < array.length; i++)
     {
