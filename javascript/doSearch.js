@@ -64,19 +64,18 @@ function doSearch()
 			{
 				var jsonObject = JSON.parse(xhr.responseText);
 				console.log("This is the result: " + JSON.stringify(jsonObject));
-			}
-		}
-	var array = []
-	var i = 0;	
-	while(i < jsonObject.length)
-	{
-		array.push([]);
-		for (var j in jsonObject[i].results)
-		{
-			array[array.length-1].push(jsonObject[i].results[j]);
-		}
-		i++;
-	}
+				var array = []
+				var i = 0;	
+				while(i < jsonObject.length)
+				{
+					array.push([]);
+					for (var j in jsonObject[i].results)
+					{
+						array[array.length-1].push(jsonObject[i].results[j]);
+					}
+					i++;
+				}
+			
         //var localArray = new Array(jsonObject.results.length);
 
         array = localArray;
@@ -120,25 +119,27 @@ function doSearch()
             {
               array[i][j] = jsonObject.results[i].State;
             }
-	    if (j == 5)
-            {
-              array[i][j] = jsonObject.results[i].ZipCode;
-            }
-            if (j == 6)
-            {
-              array[i][j] = jsonObject.results[i].PhoneNumber;
-            }
-	    if (j == 7)
-            {
-              array[i][j] = jsonObject.results[i].Email;
-            }
-	    if (j == 8)
-	    {
-            array[i][j] = jsonObject.results[i].ContactID;
-	    }
+						if (j == 5)
+			            {
+			              array[i][j] = jsonObject.results[i].ZipCode;
+			            }
+			            if (j == 6)
+			            {
+			              array[i][j] = jsonObject.results[i].PhoneNumber;
+			            }
+				    if (j == 7)
+			            {
+			              array[i][j] = jsonObject.results[i].Email;
+			            }
+				    if (j == 8)
+				    {
+			            array[i][j] = jsonObject.results[i].ContactID;
+				    }
           }
         }
-        createTable(array);		
+        createTable(array);	
+			}
+		}	;
  //  }	
  //  catch(err)
  //  {
