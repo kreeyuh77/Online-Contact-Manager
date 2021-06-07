@@ -189,7 +189,7 @@ function doDelete(contactID)
 	xhr.open("DELETE", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
-	{	
+	{	document.getElementById("deleteResult").innerHTML = "Successfully deleted!";
 		xhr.send(jsonPayload);
 	}
 	catch(err)
