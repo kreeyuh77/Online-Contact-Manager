@@ -72,7 +72,6 @@ function doSearch()
         else
         {
           document.getElementById("searchResult").innerHTML = jsonObject.error;
-	  document.getElementById("searchList").innerHTML = "";
 	  return;
         }
 				
@@ -174,3 +173,7 @@ function editContactHelper(contactID)
     document.getElementById('editContact').style.display='block';	
 }
 
+function deleteContactHelper(contactID)
+{
+    document.getElementById('deleteContact').style.display='block';	
+}
