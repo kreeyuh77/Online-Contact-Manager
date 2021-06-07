@@ -11,36 +11,8 @@ function doDelete(ContactID)
 	xhr.open("DELETE", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				var jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.id;
-		
-				if( userId < 1 )
-				{		
-					document.getElementById("deleteResult").innerHTML = "User was not found. Unable to delete.";
-					return;
-				}
-		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
-				address = jsonObject.address;
-				city = jsonObject.city;
-				state = jsonObject.state;
-				zipCode = jsonObject.zipCode;
-				phoneNumber = jsonObject.phoneNumber;
-				email = jsonObject.email;
-
-				saveCookie();
-	
-				window.location.href = "main.html";
-				
-			}
-		};
-		xhr.send(jsonPayload);
+	{	
+		xhr.send(null);
 	}
 	catch(err)
 	{
