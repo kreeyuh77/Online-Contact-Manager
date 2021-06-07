@@ -75,12 +75,12 @@
 					$searchResult .= '}';
 				}
 				$searchResult .= ']';
+				returnWithInfo($searchResult);
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
-			returnWithInfo($searchResult);
 			$stmt->close();
 			break;
 		
@@ -124,12 +124,12 @@
 					$searchResult .= '}';
 				}
 				$searchResult .= ']';
+				returnWithInfo($searchResult);
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
-			returnWithInfo($searchResult);
 			$stmt->close();
 			break;
 		
@@ -173,12 +173,12 @@
 					$searchResult .= '}';
 				}
 				$searchResult .= ']';
+				returnWithInfo($searchResult);
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
-			returnWithInfo($searchResult);
 			$stmt->close();
 			break;
 		
@@ -222,12 +222,12 @@
 					$searchResult .= '}';
 				}
 				$searchResult .= ']';
+				returnWithInfo($searchResult);
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
-			returnWithInfo($searchResult);
 			$stmt->close();
 			break;
 		
@@ -271,12 +271,12 @@
 					$searchResult .= '}';
 				}
 				$searchResult .= ']';
+				returnWithInfo($searchResult);
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
-			returnWithInfo($searchResult);
 			$stmt->close();
 			break;
 			
@@ -320,12 +320,12 @@
 					$searchResult .= '}';
 				}
 				$searchResult .= ']';
+				returnWithInfo($searchResult);
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
-			returnWithInfo($searchResult);
 			$stmt->close();
 			break;
 		
@@ -369,12 +369,12 @@
 					$searchResult .= '}';
 				}
 				$searchResult .= ']';
+				returnWithInfo($searchResult);
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
-			returnWithInfo($searchResult);
 			$stmt->close();
 			break;
 		
@@ -418,12 +418,12 @@
 					$searchResult .= '}';
 				}
 				$searchResult .= ']';
+				returnWithInfo($searchResult);
 			}
 			else
 			{
 				returnWithError("No Results Match");
 			}
-			returnWithInfo($searchResult);
 			$stmt->close();
 			break;
 		}
