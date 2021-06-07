@@ -145,7 +145,7 @@ function createTable(array)
     var table = "<table><tr>";
     table += "<th>" + "First Name" + "</th>";
     table += "<th>" + "Last Name" + "</th>";
-		table += "<th>" + "Street Adress" + "</th>";
+		table += "<th>" + "Street Address" + "</th>";
 		table += "<th>" + "City" + "</th>";
 		table += "<th>" + "State" + "</th>";
 		table += "<th>" + "Zip Code" + "</th>";
