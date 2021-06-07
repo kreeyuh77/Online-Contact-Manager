@@ -72,6 +72,7 @@ function doSearch()
         else
         {
           document.getElementById("searchResult").innerHTML = jsonObject.error;
+	  document.getElementById("searchList").innerHTML = "";
 	  return;
         }
 				
