@@ -35,7 +35,7 @@
 		$searchResult .= '"results" : [';
 		switch($search)
 		{
-			case "FirstName":
+		   case "FirstName":
 			$query = "SELECT * FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData["FirstName"] . "%' ";
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("i", $ID);
@@ -84,7 +84,7 @@
 			$stmt->close();
 			break;
 		
-			case "LastName":
+		   case "LastName":
 			$query = "SELECT * FROM Contacts WHERE ID =? AND LastName LIKE '%" . $inData["LastName"] . "%' ";
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("i", $ID);
@@ -133,7 +133,7 @@
 			$stmt->close();
 			break;
 		
-			case "StreetAddress":
+		   case "StreetAddress":
 			$query = "SELECT * FROM Contacts WHERE ID =? AND StreetAddress LIKE '%" . $inData["StreetAddress"] . "%' ";
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("i", $ID);
@@ -182,7 +182,7 @@
 			$stmt->close();
 			break;
 		
-			case "City":
+		   case "City":
 			$query = "SELECT * FROM Contacts WHERE ID =? AND City LIKE '%" . $inData["City"] . "%' ";
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("i", $ID);
@@ -231,7 +231,7 @@
 			$stmt->close();
 			break;
 		
-			case "State":
+		   case "State":
 			$query = "SELECT * FROM Contacts WHERE ID =? AND State LIKE '%" . $inData["State"] . "%' ";
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("i", $ID);
@@ -280,7 +280,7 @@
 			$stmt->close();
 			break;
 			
-			case "ZipCode":
+		   case "ZipCode":
 			$query = "SELECT * FROM Contacts WHERE ID =? AND ZipCode LIKE '%" . $inData["ZipCode"] . "%' ";
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("i", $ID);
@@ -329,7 +329,7 @@
 			$stmt->close();
 			break;
 		
-			case "PhoneNumber":
+		   case "PhoneNumber":
 			$query = "SELECT * FROM Contacts WHERE ID =? AND PhoneNumber LIKE '%" . $inData["PhoneNumber"] . "%' ";
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("i", $ID);
@@ -378,7 +378,7 @@
 			$stmt->close();
 			break;
 		
-			case "Email":
+		   case "Email":
 			$query = "SELECT * FROM Contacts WHERE ID =? AND Email LIKE '%" . $inData["Email"] . "%' ";
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("i", $ID);
