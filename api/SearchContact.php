@@ -62,7 +62,7 @@
 						$searchResult .= ",";
 					}
 					$resultCount++;
-					$retValue .= '{';
+					$searchResult .= '{';
 					$searchResult .= '"ContactID" : "' . $row["ContactID"] . '", ';
 					$searchResult .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$searchResult .= '"LastName" : "' . $row["LastName"] . '", ';
@@ -111,7 +111,7 @@
 						$searchResult .= ",";
 					}
 					$resultCount++;
-					$retValue .= '{';
+					$searchResult .= '{';
 					$searchResult .= '"ContactID" : "' . $row["ContactID"] . '", ';
 					$searchResult .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$searchResult .= '"LastName" : "' . $row["LastName"] . '", ';
@@ -160,7 +160,7 @@
 						$searchResult .= ",";
 					}
 					$resultCount++;
-					$retValue .= '{';
+					$searchResult .= '{';
 					$searchResult .= '"ContactID" : "' . $row["ContactID"] . '", ';
 					$searchResult .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$searchResult .= '"LastName" : "' . $row["LastName"] . '", ';
@@ -209,7 +209,7 @@
 						$searchResult .= ",";
 					}
 					$resultCount++;
-					$retValue .= '{';
+					$searchResult .= '{';
 					$searchResult .= '"ContactID" : "' . $row["ContactID"] . '", ';
 					$searchResult .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$searchResult .= '"LastName" : "' . $row["LastName"] . '", ';
@@ -258,7 +258,7 @@
 						$searchResult .= ",";
 					}
 					$resultCount++;
-					$retValue .= '{';
+					$searchResult .= '{';
 					$searchResult .= '"ContactID" : "' . $row["ContactID"] . '", ';
 					$searchResult .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$searchResult .= '"LastName" : "' . $row["LastName"] . '", ';
@@ -307,7 +307,7 @@
 						$searchResult .= ",";
 					}
 					$resultCount++;
-					$retValue .= '{';
+					$searchResult .= '{';
 					$searchResult .= '"ContactID" : "' . $row["ContactID"] . '", ';
 					$searchResult .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$searchResult .= '"LastName" : "' . $row["LastName"] . '", ';
@@ -356,7 +356,7 @@
 						$searchResult .= ",";
 					}
 					$resultCount++;
-					$retValue .= '{';
+					$searchResult .= '{';
 					$searchResult .= '"ContactID" : "' . $row["ContactID"] . '", ';
 					$searchResult .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$searchResult .= '"LastName" : "' . $row["LastName"] . '", ';
@@ -405,7 +405,7 @@
 						$searchResult .= ",";
 					}
 					$resultCount++;
-					$retValue .= '{';
+					$searchResult .= '{';
 					$searchResult .= '"ContactID" : "' . $row["ContactID"] . '", ';
 					$searchResult .= '"FirstName" : "' . $row["FirstName"] . '", ';
 					$searchResult .= '"LastName" : "' . $row["LastName"] . '", ';
