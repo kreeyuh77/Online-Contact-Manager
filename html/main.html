@@ -98,7 +98,7 @@
 	</form>
 </div>
 
-<!--add box-->
+<!--edit box-->
 <div id="editContact" class="modal">
 		<!--this is the close X in the corner-->
 	<form class="modal-content animate">
@@ -110,7 +110,7 @@
 		<div class="container">
 			<h1 id='editName'>Edit Contact</h1>
       <hr>
-			<button type="reset" id="editContactButton" onclick="doEdit(contactID);">Add Contact</button>
+			<button type="reset" id="editContactButton" onclick="doEdit(contactID);">Edit Contact</button>
 			<p align = "center" id = "editResult"></p>
 
 		</div>
@@ -121,6 +121,28 @@
 	</form>
 </div>
 
+<!--delete box-->
+<div id="deleteContact" class="modal">
+		<!--this is the close X in the corner-->
+	<form class="modal-content animate">
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('deleteContact').style.display='none'" class="close" title="Close Modal">&times;</span>
+		</div>
+
+		 <!--input fields-->
+		<div class="container">
+			<h1 id='deleteName'>Delete Contact</h1>
+      <hr>
+			<button type="reset" id="deleteContactButton" onclick="doDelete(contactID);">Delete Contact</button>
+			<p align = "center" id = "deleteResult"></p>
+
+		</div>
+		 <!--close button-->
+		<div class="container" style="background-color:#f1f1f1">
+			<button type="button" onclick="document.getElementById('deleteContact').style.display='none'" class="cancelbtn">Cancel</button>
+		</div>
+	</form>
+</div>
 <script>
 // Read cookie with user info
 document.addEventListener('DOMContentLoaded', function() {
@@ -130,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Get the modal
 var modal = document.getElementById('addContact');
 var modal2 = document.getElementById('editContact');
+var modal3 = document.getElementById('deleteContact');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
