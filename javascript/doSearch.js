@@ -3,7 +3,7 @@ function doSearch()
 	var jsonPayload = '';
 	var isearch = "";
 	// get search attritbute
-	var searchText = document.getElementById('search');
+	var searchText = document.getElementById('search').value;
 	
 	// the list will be put here
 	var contactList = "";
