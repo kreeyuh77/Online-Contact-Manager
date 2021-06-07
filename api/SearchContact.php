@@ -432,7 +432,7 @@
 	# as JSON element.
 	function returnWithInfo($searchResult)
 	{
-		$retValue = '{'. $searchResult . ', "error" : ""}';
+		$retValue = '{'. $searchResult .', "error" : ""}';
 		sendResultInfoAsJson($retValue);
 	}
 ?>
