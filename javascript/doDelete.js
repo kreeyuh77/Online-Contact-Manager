@@ -12,7 +12,7 @@ function doDelete(ContactID)
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{	
-		xhr.send(null);
+		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
