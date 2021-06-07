@@ -51,7 +51,7 @@ function doSearch()
 }
    try
    {
-	  	console.log(JSON.stringify(jsonPayload));
+	  	console.log(JSON.stringify("This is the payload: " + jsonPayload));
 		xhr.send(jsonPayload);
 		xhr.onreadystatechange = function()
 		{
