@@ -34,6 +34,7 @@
 	{
 		$searchResult .= '"results" : [';
 		switch($search)
+		{
 			case "FirstName":
 			$query = "SELECT * FROM Contacts WHERE ID =? AND FirstName LIKE '%" . $inData["FirstName"] . "%' ";
 			$stmt = $conn->prepare($query);
@@ -425,7 +426,7 @@
 			returnWithInfo($searchResult);
 			$stmt->close();
 			break;
-		
+		}
 		$conn->close();
 	# obtain the login information based on the input parameters and send information
 	# as JSON element.
