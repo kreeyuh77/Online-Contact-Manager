@@ -2,7 +2,7 @@ function doDelete(ContactID)
 {
 	document.getElementById("deleteResult").innerHTML = "";
 
-	var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "address" : "' + address + '", "city" : "' + city + '", "state" : "' + state + '", "zipCode" : "' + zipCode + '", "phoneNumber" : "' + phoneNumber + '", "email" : "' + email + '"}';
+	var jsonPayload = '{"ContactID" : "' + ContactID + '"}';
 
 	//Need to edit the url based on the php files given to us
 	var url = '../api/RemoveContact.php';
