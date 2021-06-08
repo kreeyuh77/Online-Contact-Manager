@@ -1,11 +1,11 @@
 <html>
 <head>
 	<title>WowNice! Contact Book</title>
+
 	<script type="text/javascript" src="javascript/doSignup.js"></script>
 	<script type="text/javascript" src="javascript/doLogin.js"></script>
 	<script type="text/javascript" src="javascript/md5.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-	<link rel="icon" href="images/favicon.png">
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -38,7 +38,6 @@
 			<input type="checkbox" onclick="pswdToggle()">Show Password
 
 			<button type="reset" id="loginButton" onclick="doLogin();">Login</button>
-	
 			 <span id="loginResult"></span>
 		 </form>
 		 <p style="font-size: 12px;" align="center">Don't have an account? <span id = "signuplink" style="font-size: 12px;"  onclick="document.getElementById('signup').style.display='block'">Click Here</span></p>
@@ -50,7 +49,7 @@
 <!--sign up box-->
 <div id="signup" class="modal">
 	<!--this is the close X in the corner-->
-	<form class="modal-content animate" action="html/successmessage.html">
+	<form class="modal-content animate" action = "html/signupsuccess.html">
 		<div class="imgcontainer">
 			<span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
 		</div>
@@ -88,7 +87,7 @@
 			<div id = "pswdmatch_message">
 			</div>
 
-			<button type="submit" id="signupButton" onclick="doSignup();document.getElementById('success').style.display='block';" disabled>Sign Up</button>
+			<button type="submit" id="signupButton" onclick="doSignup();" disabled>Sign Up</button>
 
 	    		<span id="signupResult"></span>
 		</div>
@@ -103,7 +102,6 @@
 <script>
 // Get the modal
 var modal = document.getElementById('signup');
-
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
