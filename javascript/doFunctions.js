@@ -1,7 +1,7 @@
 var array = '';
 
 
-function doOpenAll(searchText, searchAtt)
+function doOpenAll()
 {
 	var jsonPayload = '';
 	var isearch = "";
@@ -14,41 +14,7 @@ function doOpenAll(searchText, searchAtt)
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	//  payload
-	switch (searchAtt)
-{
-  case "First Name":
-    isearch = "FirstName";
-    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "FirstName" : "' + searchText + '"}';
-    break;
-  case "Last Name":
-    isearch = "LastName";
-    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "LastName" : "' + searchText + '"}';
-    break;
-  case "Address":
-    isearch = "StreetAddress";
-    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "StreetAddress" : "' + searchText + '"}';
-    break;
-  case "City":
-    isearch = "City";
-    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "City" : "' + searchText + '"}';
-    break;
-  case "State":
-    isearch = "State";
-    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "State" : "' + searchText + '"}';
-    break;
-  case "Zip Code":
-    isearch = "ZipCode";
-    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "ZipCode" : "' + searchText + '"}';
-    break;
-  case  "Phone Number":
-    isearch = "PhoneNumber";
-    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "PhoneNumber" : "' + searchText + '"}';
-    break;
-  case  "Email":
-    isearch = "Email";
-    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "Email" : "' + searchText + '"}';
-    break;
-}
+	jsonPayload =  '{"search" : "' + "FirstName" + '", "ID" : "' + userId  + '", "FirstName" : "' + searchText + '"}';
    try
    {
 	  	console.log("This is the payload: " + jsonPayload);
