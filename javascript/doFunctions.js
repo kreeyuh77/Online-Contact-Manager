@@ -306,7 +306,7 @@ function doDelete(i)
 		document.getElementById("deleteResult").innerHTML = err.message;
 	}
 	});
-
+doOpenAll();
 
 }
 
@@ -436,4 +436,5 @@ function doEdit(i){
 			document.getElementById("editResult").innerHTML = err.message;
 		}
 });
+	doOpenAll();
 }
