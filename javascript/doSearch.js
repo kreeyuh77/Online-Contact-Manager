@@ -170,14 +170,13 @@ function createTable(array)
 }
 
 
-function doDelete(contactID, firstName, lastName)
+function doDelete(contactID)
 {
-	console.log("in do Delete" + contactID + firstName + lastName);
 	document.getElementById('deleteContact').style.display='block';
 	document.getElementById("deleteResult").innerHTML = "";
 	
 	document.getElementById("deleteButton").addEventListener("click", function() {
-		document.getElementById("deleteName").innerHTML = "Are you sure you want to remove " + firstName + " " + lastName + " from your contact book?";
+		document.getElementById("deleteName").innerHTML = "Are you sure you want to remove from your contact book?";
 		var jsonPayload = '{"ContactID" : "' + contactID + '"}';
 
 	//Need to edit the url based on the php files given to us
@@ -192,7 +191,7 @@ function doDelete(contactID, firstName, lastName)
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("deleteResult").innerHTML = firstName + " " + lastName + " has been deleted!";
+				document.getElementById("deleteResult").innerHTML = " has been deleted!";
 
 			}
 		}
