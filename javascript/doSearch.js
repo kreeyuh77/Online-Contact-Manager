@@ -77,9 +77,9 @@ function doSearch()
 	  return;
         }
 
-        var localArray = new Array(jsonObject.results.length);
+       array = new Array(jsonObject.results.length);
 
-        array = localArray;
+       // array = localArray;
 
         for (var i = 0; i < array.length; i++)
         {
