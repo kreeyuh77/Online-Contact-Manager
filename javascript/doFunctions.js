@@ -220,6 +220,39 @@ function doEdit(i){
 	document.getElementById('editContact').style.display='block';
 	document.getElementById("editResult").innerHTML = "";
 	document.getElementById("editName").innerHTML = "Currently editing " + fname + " " + lname;
+	
+	var d = document.getElementById("editType");
+		var editAtt = d.options[d.selectedIndex].text;
+		console.log("This is the attribute to search by: " + editAtt);
+	
+	switch (editAtt){
+			 case "First Name":
+    document.getElementById("newinfo").value = array[i][0];
+		break;
+  case "Last Name":
+    document.getElementById("newinfo").value = array[i][1];
+		break;
+  case "Address":
+    document.getElementById("newinfo").value = array[i][2];
+		break;
+  case "City":
+    document.getElementById("newinfo").value = array[i][3];
+		break;
+  case "State":
+    document.getElementById("newinfo").value = array[i][4];
+		break;
+  case "Zip Code":
+    document.getElementById("newinfo").value = array[i][5];
+		break;
+  case  "Phone Number":
+    document.getElementById("newinfo").value = array[i][6];
+		break;
+  case  "Email":
+    document.getElementById("newinfo").value = array[i][7];
+		break;
+}
+ 
+
 
 	document.getElementById("editButton").addEventListener("click", function() {
 		var jsonPayload = '';
@@ -231,9 +264,7 @@ function doEdit(i){
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-		var d = document.getElementById("editType");
-		var editAtt = d.options[d.selectedIndex].text;
-		console.log("This is the attribute to search by: " + editAtt);
+		
 
 			switch (editAtt)
 	{
@@ -303,35 +334,4 @@ function doEdit(i){
 });
 }
 
-// this is the new placeholder depending on dropdown
-	function changePlaceholder(i){
-	var e = document.getElementById("editType");
-	var editAtt = e.options[e.selectedIndex].text;
-	switch (editAtt)
-{
-  case "First Name":
-    document.getElementById("newinfo").placeholder = "Enter New First Name";
-		break;
-  case "Last Name":
-    document.getElementById("newinfo").placeholder = "Enter New Last Name";
-		break;
-  case "Address":
-    document.getElementById("newinfo").placeholder = "Enter New Address";
-		break;
-  case "City":
-    document.getElementById("newinfo").placeholder = "Enter New City";
-		break;
-  case "State":
-    document.getElementById("newinfo").placeholder = "Enter New State";
-		break;
-  case "Zip Code":
-    document.getElementById("newinfo").placeholder = "Enter New Zip Code";
-		break;
-  case  "Phone Number":
-    document.getElementById("newinfo").placeholder = "Enter New Phone Number";
-		break;
-  case  "Email":
-    document.getElementById("newinfo").placeholder = "Enter New Email";
-		break;
-}
-	}
+
