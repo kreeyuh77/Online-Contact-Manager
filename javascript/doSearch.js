@@ -160,7 +160,7 @@ function createTable(array)
       {
           table+= "<td>" + array[i][j] + "</td>";
       }
-       	table +="<td style='word-wrap:break-word;'><span id='editContactButton' style='width:auto;height:30px;padding:10px' onclick='doEdit(" + array[i][8] + ")';><i class='fas fa-edit'></i></span><span id='deleteContactButton' style='width:auto;height:30px;padding:10px' onclick='doDelete(" + array[i][8] + ")';><i class='fas fa-trash-alt'></i></span></td>";
+       	table +="<td style='word-wrap:break-word;'><span id='editContactButton' style='width:auto;height:30px;padding:10px' onclick='doEdit(" + array[i][8] + ")';><i class='fas fa-edit'></i></span><span id='deleteContactButton' style='width:auto;height:30px;padding:10px' onclick='doDelete(" + array[i][8] + "," + array[i][0] + "," + array[i][1] + ")';><i class='fas fa-trash-alt'></i></span></td>";
       table+="</tr>";
 
     }
@@ -170,10 +170,11 @@ function createTable(array)
 }
 
 
-function doDelete(contactID)
+function doDelete(contactID, firstName, lastName)
 {
 	document.getElementById('deleteContact').style.display='block';
 	document.getElementById("deleteResult").innerHTML = "";
+	document.getElementById("deleteName").innerHTML = "Are you sure you want to remove " + firstName + " " + lastName + " from your contact book?";
 	
 	document.getElementById("deleteButton").addEventListener("click", function() {
 		var jsonPayload = '{"ContactID" : "' + contactID + '"}';
@@ -190,7 +191,7 @@ function doDelete(contactID)
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("deleteResult").innerHTML = " has been deleted!";
+				document.getElementById("deleteResult").innerHTML = firstName + " " + lastName + " has been deleted!";
 
 			}
 		}
