@@ -87,7 +87,7 @@ function doSearch()
 
         for (var i = 0; i < jsonObject.results.length; i++)
         {
-          for (var j = 0; j < 8; j++)
+          for (var j = 0; j < 9; j++)
           {
             if (j == 0)
             {
