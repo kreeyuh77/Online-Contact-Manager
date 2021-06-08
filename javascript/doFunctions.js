@@ -173,12 +173,15 @@ function createTable(array)
 
 function doDelete(i)
 {
+	var contactID = array[i][8];
+	var fname = array[i][0];
+	var lname = array[i][1];
 	document.getElementById('deleteContact').style.display='block';
 	document.getElementById("deleteResult").innerHTML = "";
-	
+
 	document.getElementById("deleteButton").addEventListener("click", function() {
-		document.getElementById("deleteName").innerHTML = "Are you sure you want to remove from your contact book?";
-		var jsonPayload = '{"ContactID" : "' + array[i][8] + '"}';
+		document.getElementById("deleteName").innerHTML = "Are you sure you want to remove " + fname + " " + lname + " from your contact book?";
+		var jsonPayload = '{"ContactID" : "' + contactID + '"}';
 
 	//Need to edit the url based on the php files given to us
 	var url = '../api/RemoveContact.php';
@@ -192,7 +195,7 @@ function doDelete(i)
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("deleteResult").innerHTML = array[i][0] + "has been deleted!";
+				document.getElementById("deleteResult").innerHTML = fname + " " + lname + "has been deleted!";
 
 			}
 		}
@@ -209,12 +212,16 @@ function doDelete(i)
 
 
 
-function doEdit(contactID){
+
+function doEdit(i){
+	var contactID = array[i][8];
+	var fname = array[i][0];
+	var lname = array[i][1];
 	document.getElementById('editContact').style.display='block';
 	document.getElementById("editResult").innerHTML = "";
 
 	document.getElementById("editButton").addEventListener("click", function() {
-		
+		document.getElementById("deleteName").innerHTML = "Currently editing " + fname + " " + lname;
 		var jsonPayload = '';
 		var iedit = "";
 		var newinfo = document.getElementById('newinfo').value;
@@ -277,7 +284,7 @@ function doEdit(contactID){
 
 		if (jsonObject.error == "")
 	        {
-	          document.getElementById("editResult").innerHTML = "Succesfully edited";
+	          document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
 	        }
 	        else
 	        {
