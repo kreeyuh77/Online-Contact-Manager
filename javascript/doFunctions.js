@@ -4,7 +4,6 @@ var array = '';
 function doOpenAll()
 {
 	var jsonPayload = '';
-	var isearch = "";
 
 	var url = '../api/SearchContact.php';
 
@@ -14,7 +13,7 @@ function doOpenAll()
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	//  payload
-	jsonPayload =  '{"search" : "' + "FirstName" + '", "ID" : "' + userId  + '", "FirstName" : "' + searchText + '"}';
+	jsonPayload =  '{"search" : "' + "FirstName" + '", "ID" : "' + userId  + '", "FirstName" : "' + "" + '"}';
    try
    {
 	  	console.log("This is the payload: " + jsonPayload);
