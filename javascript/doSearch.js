@@ -174,8 +174,8 @@ function doDelete(contactID)
 {
 	document.getElementById('deleteContact').style.display='block';
 	document.getElementById("deleteResult").innerHTML = "";
+	
 	document.getElementById("deleteButton").addEventListener("click", function() {
-		alert("button to delte has been clicked");
 		var jsonPayload = '{"ContactID" : "' + contactID + '"}';
 
 	//Need to edit the url based on the php files given to us
@@ -212,7 +212,7 @@ function doEdit(contactID){
 	document.getElementById("editResult").innerHTML = "";
 
 	document.getElementById("editButton").addEventListener("click", function() {
-		alert("button to edit has been clicked");
+		
 		var jsonPayload = '';
 		var iedit = "";
 		var newinfo = document.getElementById('newinfo').value;
@@ -288,7 +288,7 @@ function doEdit(contactID){
 		}
 		catch(err)
 		{
-			document.getElementById("addResult").innerHTML = err.message;
+			document.getElementById("editResult").innerHTML = err.message;
 		}
 
 });
