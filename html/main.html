@@ -193,7 +193,7 @@ window.onclick = function(event) {
 }
 
 // this is the new placeholder depending on dropdown
-	function changePlaceholder();
+	function changePlaceholder(){
 	var e = document.getElementById("editType");
 	var editAtt = e.options[e.selectedIndex].text;
 	switch (editAtt)
@@ -215,6 +215,7 @@ window.onclick = function(event) {
   case  "Email":
     document.getElementById("newinfo").placeholder = "Enter New Email";
 }
+	}
 
 </script>
 </body>
