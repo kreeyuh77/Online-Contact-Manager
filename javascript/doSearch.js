@@ -180,6 +180,7 @@ function doDelete(contactID)
 	document.getElementById('deleteContact').style.display='block';
 	document.getElementById("deleteResult").innerHTML = "";
 	document.getElementById("deleteContactButton").addEventListener("click", function() {
+		alert("button to delte has been clicked");
 		var jsonPayload = '{"ContactID" : "' + contactID + '"}';
 
 	//Need to edit the url based on the php files given to us
