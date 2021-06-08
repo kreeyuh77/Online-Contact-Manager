@@ -212,83 +212,89 @@ function doDelete(contactID)
 
 
 
-
 function doEdit(contactID){
-var jsonPayload = '';
-var iedit = "";
-var newinfo = document.getElementById('newinfo').value;
-var url = '../api/EditContact.php';
-
-	var xhr = new XMLHttpRequest();
-	xhr.open("UPDATE", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-	var d = document.getElementById("editType");
-	var editAtt = d.options[d.selectedIndex].text;
-	console.log("This is the attribute to search by: " + editAtt);
-
-		switch (editAtt)
-{
-  case "First Name":
-    iedit = "FirstName";
-    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "FirstName" : "' + newinfo + '"}';
-    break;
-  case "Last Name":
-    iedit = "LastName";
-    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "LastName" : "' + newinfo + '"}';
-    break;
-  case "Address":
-    iedit = "StreetAddress";
-    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "StreetAddress" : "' + newinfo + '"}';
-    break;
-  case "City":
-    iedit = "City";
-    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "City" : "' + newinfo + '"}';
-    break;
-  case "State":
-    iedit = "State";
-    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "State" : "' + newinfo + '"}';
-    break;
-  case "Zip Code":
-    iedit = "ZipCode";
-    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "ZipCode" : "' + newinfo + '"}';
-    break;
-  case  "Phone Number":
-    iedit = "PhoneNumber";
-    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "PhoneNumber" : "' + newinfo + '"}';
-    break;
-  case  "Email":
-    iedit = "Email";
-    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "Email" : "' + newinfo + '"}';
-    break;
-}
-
-	try
-   {
-	  	console.log("This is the payload: " + jsonPayload);
-		xhr.send(jsonPayload);
-		xhr.onreadystatechange = function()
-		{
-			if (this.readyState == 4 && this.status == 200)
+	document.getElementById('editContact').style.display='block';
+	document.getElementById("editResult").innerHTML = "";
+	
+	document.getElementById("editButton").addEventListener("click", function() {
+		alert("button to edit has been clicked");
+		var jsonPayload = '';
+		var iedit = "";
+		var newinfo = document.getElementById('newinfo').value;
+		var url = '../api/EditContact.php';
+	
+		var xhr = new XMLHttpRequest();
+		xhr.open("UPDATE", url, true);
+		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	
+		var d = document.getElementById("editType");
+		var editAtt = d.options[d.selectedIndex].text;
+		console.log("This is the attribute to search by: " + editAtt);
+	
+			switch (editAtt)
+	{
+	  case "First Name":
+	    iedit = "FirstName";
+	    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "FirstName" : "' + newinfo + '"}';
+	    break;
+	  case "Last Name":
+	    iedit = "LastName";
+	    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "LastName" : "' + newinfo + '"}';
+	    break;
+	  case "Address":
+	    iedit = "StreetAddress";
+	    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "StreetAddress" : "' + newinfo + '"}';
+	    break;
+	  case "City":
+	    iedit = "City";
+	    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "City" : "' + newinfo + '"}';
+	    break;
+	  case "State":
+	    iedit = "State";
+	    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "State" : "' + newinfo + '"}';
+	    break;
+	  case "Zip Code":
+	    iedit = "ZipCode";
+	    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "ZipCode" : "' + newinfo + '"}';
+	    break;
+	  case  "Phone Number":
+	    iedit = "PhoneNumber";
+	    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "PhoneNumber" : "' + newinfo + '"}';
+	    break;
+	  case  "Email":
+	    iedit = "Email";
+	    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "Email" : "' + newinfo + '"}';
+	    break;
+	}
+	
+		try
+	   {
+		  	console.log("This is the payload: " + jsonPayload);
+			xhr.send(jsonPayload);
+			xhr.onreadystatechange = function()
 			{
-				var jsonObject = JSON.parse(xhr.responseText);
-				console.log("This is the result: " + JSON.stringify(jsonObject));
-
-	if (jsonObject.error == "")
-        {
-          document.getElementById("editResult").innerHTML = "Succesfully edited";
-        }
-        else
-        {
-          document.getElementById("editResult").innerHTML = jsonObject.error;
-	  return;
-        }
+				if (this.readyState == 4 && this.status == 200)
+				{
+					var jsonObject = JSON.parse(xhr.responseText);
+					console.log("This is the result: " + JSON.stringify(jsonObject));
+	
+		if (jsonObject.error == "")
+	        {
+	          document.getElementById("editResult").innerHTML = "Succesfully edited";
+	        }
+	        else
+	        {
+	          document.getElementById("editResult").innerHTML = jsonObject.error;
+		  		return;
+	        }
+				}
 			}
+	
+		}
+		catch(err)
+		{
+			document.getElementById("addResult").innerHTML = err.message;
 		}
 
-	}
-	catch(err)
-	{
-		document.getElementById("addResult").innerHTML = err.message;
-	}
+};
 }
