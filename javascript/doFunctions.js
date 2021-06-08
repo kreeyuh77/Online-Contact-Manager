@@ -178,9 +178,9 @@ function doDelete(i)
 	var lname = array[i][1];
 	document.getElementById('deleteContact').style.display='block';
 	document.getElementById("deleteResult").innerHTML = "";
+	document.getElementById("deleteName").innerHTML = "Are you sure you want to remove " + fname + " " + lname + " from your contact book?";
 
 	document.getElementById("deleteButton").addEventListener("click", function() {
-		document.getElementById("deleteName").innerHTML = "Are you sure you want to remove " + fname + " " + lname + " from your contact book?";
 		var jsonPayload = '{"ContactID" : "' + contactID + '"}';
 
 	//Need to edit the url based on the php files given to us
@@ -219,9 +219,9 @@ function doEdit(i){
 	var lname = array[i][1];
 	document.getElementById('editContact').style.display='block';
 	document.getElementById("editResult").innerHTML = "";
+	document.getElementById("editName").innerHTML = "Currently editing " + fname + " " + lname;
 
 	document.getElementById("editButton").addEventListener("click", function() {
-		document.getElementById("deleteName").innerHTML = "Currently editing " + fname + " " + lname;
 		var jsonPayload = '';
 		var iedit = "";
 		var newinfo = document.getElementById('newinfo').value;
