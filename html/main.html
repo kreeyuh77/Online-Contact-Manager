@@ -158,18 +158,15 @@
 			<h1>Delete Contact</h1>
 			<p id="deleteName"></p>
       <hr>
-			<span><button type="button" onclick="document.getElementById('deleteContact').style.display='none'" class="cancelbtn" style="width:200px">Cancel</button>
-				<button type="reset" id="deleteButton" style="width:200px">Yes</button></span>
-			
+
+				<button onclick="document.getElementById('deleteContact').style.display='none'"  style="width:49.5%;background-color: red;">Cancel</button>
+				<button type="reset" id="deleteButton" style="width:49.5%">Delete</button>
+
 			<p align = "center" id = "deleteResult"></p>
- <!--close button-->
-		
-			
-		
 		</div>
-		
 	</form>
 </div>
+
 <script>
 // Read cookie with user info
 document.addEventListener('DOMContentLoaded', function() {
