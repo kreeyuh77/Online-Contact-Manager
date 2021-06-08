@@ -181,7 +181,7 @@ function doDelete(contactID)
 	document.getElementById("deleteResult").innerHTML = "";
 	document.getElementById("deleteButton").addEventListener("click", function() {
 		alert("button to delte has been clicked");
-		/*var jsonPayload = '{"ContactID" : "' + contactID + '"}';
+		var jsonPayload = '{"ContactID" : "' + contactID + '"}';
 
 	//Need to edit the url based on the php files given to us
 	var url = '../api/RemoveContact.php';
@@ -205,7 +205,7 @@ function doDelete(contactID)
 	{
 		document.getElementById("addResult").innerHTML = err.message;
 	}
-	*/});
+	});
 	
 	
 }
