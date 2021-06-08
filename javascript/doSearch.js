@@ -172,11 +172,12 @@ function createTable(array)
 
 function doDelete(contactID, firstName, lastName)
 {
+	console.log("in do Delete" + contactID + firstName + lastName);
 	document.getElementById('deleteContact').style.display='block';
 	document.getElementById("deleteResult").innerHTML = "";
-	document.getElementById("deleteName").innerHTML = "Are you sure you want to remove " + firstName + " " + lastName + " from your contact book?";
 	
 	document.getElementById("deleteButton").addEventListener("click", function() {
+		document.getElementById("deleteName").innerHTML = "Are you sure you want to remove " + firstName + " " + lastName + " from your contact book?";
 		var jsonPayload = '{"ContactID" : "' + contactID + '"}';
 
 	//Need to edit the url based on the php files given to us
