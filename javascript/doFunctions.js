@@ -296,6 +296,7 @@ function doDelete(i)
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("deleteResult").innerHTML = fname + " " + lname + " has been deleted!";
+				doOpenAll();
 
 			}
 		}
@@ -306,7 +307,7 @@ function doDelete(i)
 		document.getElementById("deleteResult").innerHTML = err.message;
 	}
 	});
-doOpenAll();
+;
 
 }
 
@@ -421,6 +422,7 @@ function doEdit(i){
 		if (jsonObject.error == "")
 	        {
 	          document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
+			doOpenAll();
 	        }
 	        else
 	        {
@@ -436,5 +438,5 @@ function doEdit(i){
 			document.getElementById("editResult").innerHTML = err.message;
 		}
 });
-	doOpenAll();
+	
 }
