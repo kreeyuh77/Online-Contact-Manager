@@ -6,6 +6,10 @@ function doSearch()
 	var isearch = "";
 	// get search attritbute
 	var searchText = document.getElementById('search').value;
+	if(searchText == ""){
+		document.getElementById("searchResult").innerHTML = "Start a search to view your contacts!";
+		return;
+	}
 
 	// the list will be put here
 	var contactList = "";
