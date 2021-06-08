@@ -68,7 +68,7 @@ function doSearch()
 
 	if (jsonObject.error == "")
         {
-          document.getElementById("searchResult").innerHTML = "Account(s) have been retrieved";
+          document.getElementById("searchResult").innerHTML = "Contact(s) have been retrieved";
         }
         else
         {
@@ -195,7 +195,7 @@ function doDelete(i)
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("deleteResult").innerHTML = fname + " " + lname + "has been deleted!";
+				document.getElementById("deleteResult").innerHTML = fname + " " + lname + " has been deleted!";
 
 			}
 		}
