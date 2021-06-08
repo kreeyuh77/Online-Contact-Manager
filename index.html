@@ -49,7 +49,7 @@
 <!--sign up box-->
 <div id="signup" class="modal">
 	<!--this is the close X in the corner-->
-	<form class="modal-content animate" action = "html/signupsuccess.html">
+	<form class="modal-content animate">
 		<div class="imgcontainer">
 			<span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
 		</div>
@@ -99,15 +99,36 @@
   </form>
 </div>
 
+<!--success box-->
+<div id="success" class="modal">
+	<!--this is the close X in the corner-->
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('success').style.display='none'" class="close" title="Close Modal">&times;</span>
+		</div>
+
+		<!--input fields and sign up button-->
+    <div class="container">
+      <h1>Sign Up Successful!</h1>
+      <hr>
+			<p style="text-align:center">You have successfully created a WowNice! Contact Book Account. You may now login.</p>
+			<button type = "button" onclick="location.href='index.html'" >Continue</button>
+		</div>
+
+</div>
+
 <script>
 // Get the modal
 var modal = document.getElementById('signup');
+var modal2 = document.getElementById('success');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+		if (event.target == modal2) {
+				modal2.style.display = "none";
+		}
 }
 
 //toggle password visibility in each window
