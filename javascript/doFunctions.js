@@ -221,6 +221,7 @@ function doEdit(i){
 	document.getElementById("editResult").innerHTML = "";
 	document.getElementById("editName").innerHTML = "Currently editing " + fname + " " + lname;
 	
+	document.getElementById("editType").addEventListener("change", function() {
 	var d = document.getElementById("editType");
 		var editAtt = d.options[d.selectedIndex].text;
 		console.log("This is the attribute to search by: " + editAtt);
@@ -251,6 +252,7 @@ function doEdit(i){
     document.getElementById("newinfo").value = array[i][7];
 		break;
 }
+	});
  
 
 
