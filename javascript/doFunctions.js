@@ -266,7 +266,9 @@ function doEdit(i){
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
+                var d = document.getElementById("editType");
+		var editAtt = d.options[d.selectedIndex].text;
+		console.log("This is the attribute to search by: " + editAtt);
 		
 
 			switch (editAtt)
