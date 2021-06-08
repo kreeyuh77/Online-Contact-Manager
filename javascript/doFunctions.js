@@ -1,13 +1,10 @@
 var array = '';
-function doOpenAll()
+
+function doOpenAll(searchText, searchAtt)
 {
 	var jsonPayload = '';
 	var isearch = "";
-	// get search attritbute
-	var searchText = "";
 
-	// the list will be put here
-	var contactList = "";
 	var url = '../api/SearchContact.php';
 
 	document.getElementById('searchResult').innerHTML = "";
@@ -16,9 +13,42 @@ function doOpenAll()
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	//  payload
-	 jsonPayload =  '{"search" : "' + "FirstName" + '", "ID" : "' + userId  + '", "FirstName" : "' + searchText + '"}';
-
-	try
+	switch (searchAtt)
+{
+  case "First Name":
+    isearch = "FirstName";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "FirstName" : "' + searchText + '"}';
+    break;
+  case "Last Name":
+    isearch = "LastName";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "LastName" : "' + searchText + '"}';
+    break;
+  case "Address":
+    isearch = "StreetAddress";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "StreetAddress" : "' + searchText + '"}';
+    break;
+  case "City":
+    isearch = "City";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "City" : "' + searchText + '"}';
+    break;
+  case "State":
+    isearch = "State";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "State" : "' + searchText + '"}';
+    break;
+  case "Zip Code":
+    isearch = "ZipCode";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "ZipCode" : "' + searchText + '"}';
+    break;
+  case  "Phone Number":
+    isearch = "PhoneNumber";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "PhoneNumber" : "' + searchText + '"}';
+    break;
+  case  "Email":
+    isearch = "Email";
+    jsonPayload =  '{"search" : "' + isearch + '", "ID" : "' + userId  + '", "Email" : "' + searchText + '"}';
+    break;
+}
+   try
    {
 	  	console.log("This is the payload: " + jsonPayload);
 		xhr.send(jsonPayload);
@@ -31,7 +61,7 @@ function doOpenAll()
 
 	if (jsonObject.error == "")
         {
-          document.getElementById("searchResult").innerHTML = "Your Contacts";
+          document.getElementById("searchResult").innerHTML = "Contact(s) have been retrieved";
         }
         else
         {
@@ -97,9 +127,10 @@ function doOpenAll()
   }
   catch(err)
   {
-	document.getElementById("openResult").innerHTML = err.message;
+	document.getElementById("searchResult").innerHTML = err.message;
   }
 }
+
 
 function doSearch()
 {
@@ -322,12 +353,12 @@ function doEdit(i){
 	document.getElementById('editContact').style.display='block';
 	document.getElementById("editResult").innerHTML = "";
 	document.getElementById("editName").innerHTML = "Currently editing " + fname + " " + lname;
-	
+
 	document.getElementById("editType").addEventListener("change", function() {
 	var d = document.getElementById("editType");
 		var editAtt = d.options[d.selectedIndex].text;
 		console.log("This is the attribute to search by: " + editAtt);
-	
+
 	switch (editAtt){
 			 case "First Name":
     document.getElementById("newinfo").value = array[i][0];
@@ -355,7 +386,7 @@ function doEdit(i){
 		break;
 }
 	});
- 
+
 
 
 	document.getElementById("editButton").addEventListener("click", function() {
@@ -371,7 +402,7 @@ function doEdit(i){
                 var d = document.getElementById("editType");
 		var editAtt = d.options[d.selectedIndex].text;
 		console.log("This is the attribute to search by: " + editAtt);
-		
+
 
 			switch (editAtt)
 	{
@@ -440,5 +471,3 @@ function doEdit(i){
 
 });
 }
-
-
