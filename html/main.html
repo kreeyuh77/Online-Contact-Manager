@@ -138,7 +138,9 @@
 
 		</div>
 		 <!--close button-->
-		<div class="container" style="background-color:#f1f1f1">0
+		<div class="container" style="background-color:#f1f1f1">
+			<button type="button" onclick="document.getElementById('editContact').style.display='none'" class="cancelbtn">Cancel</button>
+		</div>
 	</form>
 </div>
 
@@ -198,6 +200,7 @@ window.onclick = function(event) {
 	switch (editAtt)
 {
   case "First Name":
+    document.getElementById("newinfo").placeholder = "";
     document.getElementById("newinfo").placeholder = "Enter New First Name";
 		break;
   case "Last Name":
