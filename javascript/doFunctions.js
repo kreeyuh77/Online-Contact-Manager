@@ -1,4 +1,6 @@
 var array = '';
+var text ='';
+var att = '';
 
 function doOpenAll(searchText, searchAtt)
 {
@@ -269,6 +271,8 @@ function doSearch()
   {
 	document.getElementById("searchResult").innerHTML = err.message;
   }
+	att = searchAtt;
+	text = searchText;
 }
 
 
@@ -339,7 +343,7 @@ function doDelete(i)
 		document.getElementById("deleteResult").innerHTML = err.message;
 	}
 	});
-
+ doOpenAll(text, att);
 
 }
 
@@ -468,6 +472,6 @@ function doEdit(i){
 		{
 			document.getElementById("editResult").innerHTML = err.message;
 		}
-
+ doOpenAll(text, att);
 });
 }
