@@ -160,18 +160,13 @@ function createTable(array)
       {
           table+= "<td>" + array[i][j] + "</td>";
       }
-       	table +="<td style='word-wrap:break-word;'><span id='editContactButton' style='width:auto;height:30px;padding:10px' onclick='editContactHelper(" + array[i][8] + ")';><i class='fas fa-edit'></i></span><span id='deleteContactButton' style='width:auto;height:30px;padding:10px' onclick='doDelete(" + array[i][8] + ")';><i class='fas fa-trash-alt'></i></span></td>";
+       	table +="<td style='word-wrap:break-word;'><span id='editContactButton' style='width:auto;height:30px;padding:10px' onclick='doEdit(" + array[i][8] + ")';><i class='fas fa-edit'></i></span><span id='deleteContactButton' style='width:auto;height:30px;padding:10px' onclick='doDelete(" + array[i][8] + ")';><i class='fas fa-trash-alt'></i></span></td>";
       table+="</tr>";
 
     }
 
     table+="</table>";
     document.getElementById("searchList").innerHTML = table;
-}
-
-function editContactHelper(contactID)
-{
-    document.getElementById('editContact').style.display='block';
 }
 
 
