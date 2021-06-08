@@ -4,18 +4,18 @@ function doSearch()
 	var isearch = "";
 	// get search attritbute
 	var searchText = document.getElementById('search').value;
-	
+
 	// the list will be put here
 	var contactList = "";
 	var url = '../api/SearchContact.php';
-	
+
 	document.getElementById('searchResult').innerHTML = "";
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	//  payload depending on searchBy
-	
+
 	var e = document.getElementById("searchType");
 	var searchAtt = e.options[e.selectedIndex].text;
 	console.log("This is the attribute to search by: " + searchAtt);
@@ -64,7 +64,7 @@ function doSearch()
 			{
 				var jsonObject = JSON.parse(xhr.responseText);
 				console.log("This is the result: " + JSON.stringify(jsonObject));
-	
+
 	if (jsonObject.error == "")
         {
           document.getElementById("searchResult").innerHTML = "Account(s) have been retrieved";
@@ -75,7 +75,7 @@ function doSearch()
 	  document.getElementById("searchList").innerHTML = "";
 	  return;
         }
-				
+
         var localArray = new Array(jsonObject.results.length);
 
         array = localArray;
@@ -127,10 +127,10 @@ function doSearch()
 				    }
           }
         }
-        createTable(array);	
+        createTable(array);
 			}
 		}	;
-  }	
+  }
   catch(err)
   {
 	document.getElementById("searchResult").innerHTML = err.message;
@@ -171,7 +171,7 @@ function createTable(array)
 
 function editContactHelper(contactID)
 {
-    document.getElementById('editContact').style.display='block';	
+    document.getElementById('editContact').style.display='block';
 }
 
 
@@ -191,14 +191,14 @@ function doDelete(contactID)
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
-		xhr.onreadystatechange = function() 
+		xhr.onreadystatechange = function()
 		{
-			if (this.readyState == 4 && this.status == 200) 
+			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("deleteResult").innerHTML = " has been deleted!";
-				
-			} 			
-		}		
+
+			}
+		}
 		xhr.send(jsonPayload);
 	}
 	catch(err)
@@ -206,8 +206,8 @@ function doDelete(contactID)
 		document.getElementById("addResult").innerHTML = err.message;
 	}
 	});
-	
-	
+
+
 }
 
 
@@ -216,17 +216,17 @@ function doDelete(contactID)
 function doDelete(contactID){
 var jsonPayload = '';
 var iedit = "";
-var newinfo = document.getElementById('newinfo').value;	
-var url = '../api/EditContact.php';	
-	
+var newinfo = document.getElementById('newinfo').value;
+var url = '../api/EditContact.php';
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("UPDATE", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	
+
 	var d = document.getElementById("editType");
 	var editAtt = d.options[d.selectedIndex].text;
 	console.log("This is the attribute to search by: " + editAtt);
-	
+
 		switch (editAtt)
 {
   case "First Name":
@@ -262,7 +262,7 @@ var url = '../api/EditContact.php';
     jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "Email" : "' + newinfo + '"}';
     break;
 }
-	
+
 	try
    {
 	  	console.log("This is the payload: " + jsonPayload);
@@ -273,7 +273,7 @@ var url = '../api/EditContact.php';
 			{
 				var jsonObject = JSON.parse(xhr.responseText);
 				console.log("This is the result: " + JSON.stringify(jsonObject));
-	
+
 	if (jsonObject.error == "")
         {
           document.getElementById("editResult").innerHTML = "Succesfully edited";
@@ -283,9 +283,8 @@ var url = '../api/EditContact.php';
           document.getElementById("editResult").innerHTML = jsonObject.error;
 	  return;
         }
+			}
+		}
 
+	}
 }
-
-
-
-
