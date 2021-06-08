@@ -1,4 +1,4 @@
-var array;
+array = '';
 function doSearch()
 {
 	var jsonPayload = '';
