@@ -6,7 +6,7 @@ function doSearch()
 	var isearch = "";
 	// get search attritbute
 	var searchText = document.getElementById('search').value;
-	if(searchText = document.getElementById('search').value; == null){
+	if(searchText = document.getElementById('search').value == null){
 		document.getElementById("searchResult").innerHTML = "Start a search to ";
 		document.getElementById("searchList").innerHTML = "";
 		return;
