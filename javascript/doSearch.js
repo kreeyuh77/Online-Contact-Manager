@@ -189,12 +189,20 @@ function doDelete(contactID)
 	xhr.open("DELETE", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
-	{	document.getElementById("deleteResult").innerHTML = "Successfully deleted!";
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("deleteResult").innerHTML = " has been deleted!";
+				
+			} 			
+		}		
 		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		document.getElementById("deleteResult").innerHTML = err.message;
+		document.getElementById("addResult").innerHTML = err.message;
 	}
 	});
 	
