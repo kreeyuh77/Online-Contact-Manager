@@ -213,7 +213,7 @@ function doDelete(contactID)
 
 
 
-function doDelete(contactID){
+function doEdit(contactID){
 var jsonPayload = '';
 var iedit = "";
 var newinfo = document.getElementById('newinfo').value;
