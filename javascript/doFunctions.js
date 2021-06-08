@@ -8,6 +8,7 @@ function doSearch()
 	var searchText = document.getElementById('search').value;
 	if(searchText == ""){
 		document.getElementById("searchResult").innerHTML = "Start a search to view your contacts!";
+		document.getElementById("searchList").innerHTML = "";
 		return;
 	}
 
