@@ -215,22 +215,22 @@ function doDelete(contactID)
 function doEdit(contactID){
 	document.getElementById('editContact').style.display='block';
 	document.getElementById("editResult").innerHTML = "";
-	
+
 	document.getElementById("editButton").addEventListener("click", function() {
 		alert("button to edit has been clicked");
 		var jsonPayload = '';
 		var iedit = "";
 		var newinfo = document.getElementById('newinfo').value;
 		var url = '../api/EditContact.php';
-	
+
 		var xhr = new XMLHttpRequest();
 		xhr.open("UPDATE", url, true);
 		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	
+
 		var d = document.getElementById("editType");
 		var editAtt = d.options[d.selectedIndex].text;
 		console.log("This is the attribute to search by: " + editAtt);
-	
+
 			switch (editAtt)
 	{
 	  case "First Name":
@@ -266,7 +266,7 @@ function doEdit(contactID){
 	    jsonPayload =  '{"edit" : "' + iedit + '", "ID" : "' + userId  + '", "ContactID" : "' + contactID  + '", "Email" : "' + newinfo + '"}';
 	    break;
 	}
-	
+
 		try
 	   {
 		  	console.log("This is the payload: " + jsonPayload);
@@ -277,7 +277,7 @@ function doEdit(contactID){
 				{
 					var jsonObject = JSON.parse(xhr.responseText);
 					console.log("This is the result: " + JSON.stringify(jsonObject));
-	
+
 		if (jsonObject.error == "")
 	        {
 	          document.getElementById("editResult").innerHTML = "Succesfully edited";
@@ -289,12 +289,12 @@ function doEdit(contactID){
 	        }
 				}
 			}
-	
+
 		}
 		catch(err)
 		{
 			document.getElementById("addResult").innerHTML = err.message;
 		}
 
-};
+});
 }
