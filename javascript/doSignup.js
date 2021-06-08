@@ -1,5 +1,7 @@
 function doSignup()
 {
+	document.getElementById('signup').style.display='block';
+	
 	var firstName = document.getElementById("firstName").value;
 	var lastName = document.getElementById("lastName").value;
 	var login = document.getElementById("signupUsername").value;
@@ -17,6 +19,5 @@ function doSignup()
 	var jsonPayload = '{"FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "Login" : "' + login + '", "Password" : "' + hash + '"}';
 	xhr.send(jsonPayload);
 	
-	document.getElementById('signup').style.display='block';
 	
 }
