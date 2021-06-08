@@ -260,6 +260,7 @@ function doEdit(i){
 		var jsonPayload = '';
 		var iedit = "";
 		var newinfo = document.getElementById('newinfo').value;
+		console.log("info to add: " + newinfo);
 		var url = '../api/EditContact.php';
 
 		var xhr = new XMLHttpRequest();
