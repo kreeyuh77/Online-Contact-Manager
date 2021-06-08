@@ -1,103 +1,5 @@
 var array = '';
 
-
-function doOpenAll()
-{
-	var jsonPayload = '';
-
-	var url = '../api/SearchContact.php';
-
-	document.getElementById('searchResult').innerHTML = "";
-
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	//  payload
-	jsonPayload =  '{"search" : "' + "FirstName" + '", "ID" : "' + userId  + '", "FirstName" : "' + "" + '"}';
-   try
-   {
-	  	console.log("This is the payload: " + jsonPayload);
-		xhr.send(jsonPayload);
-		xhr.onreadystatechange = function()
-		{
-			if (this.readyState == 4 && this.status == 200)
-			{
-				var jsonObject = JSON.parse(xhr.responseText);
-				console.log("This is the result: " + JSON.stringify(jsonObject));
-
-	if (jsonObject.error == "")
-        {
-          document.getElementById("searchResult").innerHTML = "Contact(s) have been retrieved";
-        }
-        else
-        {
-          document.getElementById("searchResult").innerHTML = jsonObject.error;
-	  document.getElementById("searchList").innerHTML = "";
-	  return;
-        }
-
-       array = new Array(jsonObject.results.length);
-
-       // array = localArray;
-
-        for (var i = 0; i < array.length; i++)
-        {
-          array[i] = new Array(9);
-        }
-
-        for (var i = 0; i < jsonObject.results.length; i++)
-        {
-          for (var j = 0; j < 9; j++)
-          {
-            if (j == 0)
-            {
-              array[i][j] = jsonObject.results[i].FirstName;
-            }
-            if (j == 1)
-            {
-              array[i][j] = jsonObject.results[i].LastName;
-            }
-            if (j == 2)
-            {
-              array[i][j] = jsonObject.results[i].StreetAddress;
-            }
-            if (j == 3)
-            {
-              array[i][j] = jsonObject.results[i].City;
-            }
-            if (j == 4)
-            {
-              array[i][j] = jsonObject.results[i].State;
-            }
-						if (j == 5)
-			            {
-			              array[i][j] = jsonObject.results[i].ZipCode;
-			            }
-			            if (j == 6)
-			            {
-			              array[i][j] = jsonObject.results[i].PhoneNumber;
-			            }
-				    if (j == 7)
-			            {
-			              array[i][j] = jsonObject.results[i].Email;
-			            }
-				    if (j == 8)
-				    {
-			            array[i][j] = jsonObject.results[i].ContactID;
-				    }
-          }
-        }
-        createTable(array);
-			}
-		}	;
-  }
-  catch(err)
-  {
-	document.getElementById("searchResult").innerHTML = err.message;
-  }
-}
-
-
 function doSearch()
 {
 	var jsonPayload = '';
@@ -296,9 +198,7 @@ function doDelete(i)
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("deleteResult").innerHTML = fname + " " + lname + " has been deleted!";
-				doOpenAll();
-
-			}
+							}
 		}
 		xhr.send(jsonPayload);
 	}
@@ -422,7 +322,7 @@ function doEdit(i){
 		if (jsonObject.error == "")
 	        {
 	          document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
-			doOpenAll();
+	
 	        }
 	        else
 	        {
