@@ -287,4 +287,8 @@ var url = '../api/EditContact.php';
 		}
 
 	}
+	catch(err)
+	{
+		document.getElementById("addResult").innerHTML = err.message;
+	}
 }
