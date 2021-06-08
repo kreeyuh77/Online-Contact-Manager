@@ -120,7 +120,7 @@
 		<div class="container">
 			<h1 id='editName'>Edit Contact</h1>
       <hr>
-			<select name="editType"  id="editType" class= "dropBox" required>
+			<select name="editType"  id="editType" onchange="changePlaceholder()" class= "dropBox" required>
 				<option disabled selected value>Search by</option>
 				<option value="firstName">First Name</option>
 				<option value="lastName">Last Name</option>
@@ -193,6 +193,7 @@ window.onclick = function(event) {
 }
 
 // this is the new placeholder depending on dropdown
+	function changePlaceholder();
 	var e = document.getElementById("editType");
 	var editAtt = e.options[e.selectedIndex].text;
 	switch (editAtt)
