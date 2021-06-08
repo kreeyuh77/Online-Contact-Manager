@@ -302,3 +302,36 @@ function doEdit(i){
 
 });
 }
+
+// this is the new placeholder depending on dropdown
+	function changePlaceholder(i){
+	var e = document.getElementById("editType");
+	var editAtt = e.options[e.selectedIndex].text;
+	switch (editAtt)
+{
+  case "First Name":
+    document.getElementById("newinfo").placeholder = "Enter New First Name";
+		break;
+  case "Last Name":
+    document.getElementById("newinfo").placeholder = "Enter New Last Name";
+		break;
+  case "Address":
+    document.getElementById("newinfo").placeholder = "Enter New Address";
+		break;
+  case "City":
+    document.getElementById("newinfo").placeholder = "Enter New City";
+		break;
+  case "State":
+    document.getElementById("newinfo").placeholder = "Enter New State";
+		break;
+  case "Zip Code":
+    document.getElementById("newinfo").placeholder = "Enter New Zip Code";
+		break;
+  case  "Phone Number":
+    document.getElementById("newinfo").placeholder = "Enter New Phone Number";
+		break;
+  case  "Email":
+    document.getElementById("newinfo").placeholder = "Enter New Email";
+		break;
+}
+	}
