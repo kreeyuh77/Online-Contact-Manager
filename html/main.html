@@ -66,7 +66,7 @@
 		<!--this is the close X in the corner-->
 	<form class="modal-content animate">
 		<div class="imgcontainer">
-			<span onclick="document.getElementById('addResult').innerHTML="";document.getElementById('addContact').style.display='none'" class="close" title="Close Modal">&times;</span>
+			<span onclick="document.getElementById('addContact').style.display='none'" class="close" title="Close Modal">&times;</span>
 		</div>
 
 		 <!--input fields-->
@@ -103,7 +103,7 @@
 		</div>
 		 <!--close button-->
 		<div class="container" style="background-color:#f1f1f1">
-			<button type="button" onclick="document.getElementById('addResult').innerHTML="";document.getElementById('addContact').style.display='none'" class="cancelbtn">Cancel</button>
+			<button type="button" onclick="document.getElementById('addContact').style.display='none'" class="cancelbtn">Cancel</button>
 		</div>
 	</form>
 </div>
@@ -181,8 +181,7 @@ var modal3 = document.getElementById('deleteContact');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
-	    document.getElementById('addResult').innerHTML="";
+        modal.style.display = "none";"
     }
 		if (event.target == modal2) {
 				modal2.style.display = "none";
