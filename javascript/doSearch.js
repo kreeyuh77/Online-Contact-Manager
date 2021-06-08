@@ -1,3 +1,4 @@
+var array;
 function doSearch()
 {
 	var jsonPayload = '';
@@ -160,7 +161,7 @@ function createTable(array)
       {
           table+= "<td>" + array[i][j] + "</td>";
       }
-       	table +="<td style='word-wrap:break-word;'><span id='editContactButton' style='width:auto;height:30px;padding:10px' onclick='doEdit(" + array[i][8] + ")';><i class='fas fa-edit'></i></span><span id='deleteContactButton' style='width:auto;height:30px;padding:10px' onclick='doDelete(" + array[i][8] + ")';><i class='fas fa-trash-alt'></i></span></td>";
+       	table +="<td style='word-wrap:break-word;'><span id='editContactButton' style='width:auto;height:30px;padding:10px' onclick='doEdit(" + i + ")';><i class='fas fa-edit'></i></span><span id='deleteContactButton' style='width:auto;height:30px;padding:10px' onclick='doDelete(" + array[i][8] + ")';><i class='fas fa-trash-alt'></i></span></td>";
       table+="</tr>";
 
     }
@@ -170,14 +171,14 @@ function createTable(array)
 }
 
 
-function doDelete(contactID)
+function doDelete(i)
 {
 	document.getElementById('deleteContact').style.display='block';
 	document.getElementById("deleteResult").innerHTML = "";
 	
 	document.getElementById("deleteButton").addEventListener("click", function() {
 		document.getElementById("deleteName").innerHTML = "Are you sure you want to remove from your contact book?";
-		var jsonPayload = '{"ContactID" : "' + contactID + '"}';
+		var jsonPayload = '{"ContactID" : "' + array[i][8] + '"}';
 
 	//Need to edit the url based on the php files given to us
 	var url = '../api/RemoveContact.php';
@@ -191,7 +192,7 @@ function doDelete(contactID)
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("deleteResult").innerHTML = " has been deleted!";
+				document.getElementById("deleteResult").innerHTML = array[i][0] + "has been deleted!";
 
 			}
 		}
@@ -199,7 +200,7 @@ function doDelete(contactID)
 	}
 	catch(err)
 	{
-		document.getElementById("addResult").innerHTML = err.message;
+		document.getElementById("deleteResult").innerHTML = err.message;
 	}
 	});
 
