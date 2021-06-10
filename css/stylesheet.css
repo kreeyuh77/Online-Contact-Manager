@@ -217,6 +217,17 @@ h2 {text-align: center;}
   .cancelbtn {
      width: 100%;
   }
-
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+.button, .dropBox, .right {
+    width: 100%;
+  }
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .button, .dropBox, .box {
+    width: 100%;
+  }
+}
 
 }
