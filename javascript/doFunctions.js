@@ -336,10 +336,11 @@ function doDelete(i)
 				if (this.readyState == 4 && this.status == 200)
 				{
 					document.getElementById("deleteResult").innerHTML = fname + " " + lname + " has been deleted!";
-					updateTable(att, text);
+					
 				}
 			}
 			xhr.send(jsonPayload);
+			updateTable(att, text);
 		}
 		catch(err)
 		{
@@ -457,15 +458,17 @@ function doEdit(i){
 					if (jsonObject.error == "")
 	        	{
 	          	document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
-							updateTable(att, text);
+							
 						}
 		        else
 		        {
 		          document.getElementById("editResult").innerHTML = jsonObject.error;
 			  		return;
 		        }
+					
 				}
 			}
+		  updateTable(att, text);
 		}
 		catch(err)
 		{
