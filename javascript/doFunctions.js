@@ -445,7 +445,7 @@ function doEdit(i){
 		}
 		try
 	  {
-	 		console.log("This is the payload: " + jsonPayload);
+	 		console.log("This is the EDIT payload: " + jsonPayload);
 			xhr.send(jsonPayload);
 			xhr.onreadystatechange = function()
 			{
