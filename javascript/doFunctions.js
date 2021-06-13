@@ -340,7 +340,7 @@ function doDelete(i)
 				}
 			}
 			xhr.send(jsonPayload);
-			updateTable(att, text);
+			//updateTable(att, text);
 		}
 		catch(err)
 		{
@@ -468,7 +468,7 @@ function doEdit(i){
 					
 				}
 			}
-		  updateTable(att, text);
+		//  updateTable(att, text);
 		}
 		catch(err)
 		{
