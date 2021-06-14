@@ -81,9 +81,9 @@ function updateTable(searchAtt, searchText)
       }
 
 			array2 = new Array(jsonObject.results.length);
-			for (var i = 0; i < array.length; i++)
+			for (var i = 0; i < array2.length; i++)
 			{
-				array[i] = new Array(9);
+				array2[i] = new Array(9);
 			}
 			for (var i = 0; i < jsonObject.results.length; i++)
 			{
