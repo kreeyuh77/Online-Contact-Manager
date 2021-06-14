@@ -460,7 +460,7 @@ function doEdit(i){
 					if (jsonObject.error == "")
 	        	{
 	          	document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
-			table.rows[i].cells[0].innerHTML = 'Hello';
+			//table.rows[i].cells[0].innerHTML = 'Hello';
 							
 						}
 		        else
@@ -471,13 +471,13 @@ function doEdit(i){
 					
 				}
 			}
-		
+		updateTable(att, text);
 		}
 		catch(err)
 		{
 			document.getElementById("editResult").innerHTML = err.message;
 		}
-		//updateTable(att, text);
+		
 	});
 	
 }
