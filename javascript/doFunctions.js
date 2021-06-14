@@ -346,8 +346,9 @@ function doDelete(i)
 		{
 			document.getElementById("deleteResult").innerHTML = err.message;
 		}
+		updateTable(att, text);
 	});
-	updateTable(att, text);
+	
 }
 
 
@@ -475,8 +476,9 @@ function doEdit(i){
 		{
 			document.getElementById("editResult").innerHTML = err.message;
 		}
+		updateTable(att, text);
 	});
-	updateTable(att, text);
+	
 }
 
 function doAdd()
