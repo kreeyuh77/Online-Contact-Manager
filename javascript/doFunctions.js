@@ -1,7 +1,6 @@
 var array = '';
 var att = '';
 var text ='';
-var table= '';
 
 function updateTable(searchAtt, searchText)
 {
@@ -288,7 +287,7 @@ function createTable(array)
 {
 	//var table = document.createElement('table');
 	// string to create table in html
-	table = "<table><tr>";
+	var table = "<table><tr>";
 	table += "<th>" + "First Name" + "</th>";
 	table += "<th>" + "Last Name" + "</th>";
 	table += "<th>" + "Street Address" + "</th>";
@@ -462,8 +461,8 @@ function doEdit(i){
 					if (jsonObject.error == "")
 	        	{
 	          	document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
-				//updateTable(att, text);
-			table.rows[1].cells[1].innerHTML = 'Hello';
+				updateTable(att, text);
+			
 							
 						}
 		        else
