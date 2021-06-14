@@ -340,13 +340,14 @@ function doDelete(i)
 				}
 			}
 			xhr.send(jsonPayload);
-			updateTable(att, text);
+			
 		}
 		catch(err)
 		{
 			document.getElementById("deleteResult").innerHTML = err.message;
 		}
 	});
+	updateTable(att, text);
 }
 
 
@@ -468,13 +469,14 @@ function doEdit(i){
 					
 				}
 			}
-		updateTable(att, text);
+		
 		}
 		catch(err)
 		{
 			document.getElementById("editResult").innerHTML = err.message;
 		}
 	});
+	updateTable(att, text);
 }
 
 function doAdd()
