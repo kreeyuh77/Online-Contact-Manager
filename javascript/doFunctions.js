@@ -463,7 +463,7 @@ function doEdit(i){
 	        	{
 	          	document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
 				//updateTable(att, text);
-			table.rows[i].cells[1].innerHTML = 'Hello';
+			table.rows[1].cells[1].innerHTML = 'Hello';
 							
 						}
 		        else
