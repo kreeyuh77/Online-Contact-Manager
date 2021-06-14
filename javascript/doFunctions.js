@@ -1,6 +1,7 @@
 var array = '';
 var att = '';
 var text ='';
+var table= '';
 
 function updateTable(searchAtt, searchText)
 {
@@ -461,8 +462,8 @@ function doEdit(i){
 					if (jsonObject.error == "")
 	        	{
 	          	document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
-				updateTable(att, text);
-			//table.rows[i].cells[0].innerHTML = 'Hello';
+				//updateTable(att, text);
+			table.rows[i].cells[0].innerHTML = 'Hello';
 							
 						}
 		        else
