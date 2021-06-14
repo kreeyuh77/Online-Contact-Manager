@@ -288,7 +288,7 @@ function createTable(array)
 {
 	//var table = document.createElement('table');
 	// string to create table in html
-	var table = "<table><tr>";
+	table = "<table><tr>";
 	table += "<th>" + "First Name" + "</th>";
 	table += "<th>" + "Last Name" + "</th>";
 	table += "<th>" + "Street Address" + "</th>";
@@ -463,7 +463,7 @@ function doEdit(i){
 	        	{
 	          	document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
 				//updateTable(att, text);
-			table.rows[i].cells[0].innerHTML = 'Hello';
+			table.rows[i].cells[1].innerHTML = 'Hello';
 							
 						}
 		        else
