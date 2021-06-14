@@ -1,7 +1,7 @@
 var array = '';
 var att = '';
 var text ='';
-var array2 = '';
+
 
 function updateTable(searchAtt, searchText)
 {
@@ -80,10 +80,10 @@ function updateTable(searchAtt, searchText)
 	  		return;
       }
 
-			array2 = new Array(jsonObject.results.length);
-			for (var i = 0; i < array2.length; i++)
+			array = new Array(jsonObject.results.length);
+			for (var i = 0; i < array.length; i++)
 			{
-				array2[i] = new Array(9);
+				array[i] = new Array(9);
 			}
 			for (var i = 0; i < jsonObject.results.length; i++)
 			{
@@ -91,42 +91,42 @@ function updateTable(searchAtt, searchText)
 			  {
 			    if (j == 0)
 			    {
-			      array2[i][j] = jsonObject.results[i].FirstName;
+			      array[i][j] = jsonObject.results[i].FirstName;
 			    }
 			    if (j == 1)
 			    {
-			      array2[i][j] = jsonObject.results[i].LastName;
+			      array[i][j] = jsonObject.results[i].LastName;
 			    }
 			    if (j == 2)
 			    {
-			      array2[i][j] = jsonObject.results[i].StreetAddress;
+			      array[i][j] = jsonObject.results[i].StreetAddress;
 			    }
 			    if (j == 3)
 			    {
-			      array2[i][j] = jsonObject.results[i].City;
+			      array[i][j] = jsonObject.results[i].City;
 			    }
 			    if (j == 4)
 			    {
-			      array2[i][j] = jsonObject.results[i].State;
+			      array[i][j] = jsonObject.results[i].State;
 			    }
 			    if (j == 5)
 			    {
-				    array2[i][j] = jsonObject.results[i].ZipCode;}
+				    array[i][j] = jsonObject.results[i].ZipCode;}
           if (j == 6)
           {
-            array2[i][j] = jsonObject.results[i].PhoneNumber;
+            array[i][j] = jsonObject.results[i].PhoneNumber;
           }
 			    if (j == 7)
 			    {
-		        array2[i][j] = jsonObject.results[i].Email;
+		        array[i][j] = jsonObject.results[i].Email;
 		      }
 			    if (j == 8)
 			    {
-		      	array2[i][j] = jsonObject.results[i].ContactID;
+		      	array[i][j] = jsonObject.results[i].ContactID;
 			    }
 	       }
 	     }
-	     createTable(array2);
+	     createTable(array);
 			}
 		};
 	}
