@@ -346,7 +346,7 @@ function doDelete(i)
 		{
 			document.getElementById("deleteResult").innerHTML = err.message;
 		}
-		updateTable(att, text);
+		//updateTable(att, text);
 	});
 	
 }
@@ -460,6 +460,7 @@ function doEdit(i){
 					if (jsonObject.error == "")
 	        	{
 	          	document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
+			myTable.rows[i].cells[0].innerHTML = 'Hello';
 							
 						}
 		        else
@@ -476,7 +477,7 @@ function doEdit(i){
 		{
 			document.getElementById("editResult").innerHTML = err.message;
 		}
-		updateTable(att, text);
+		//updateTable(att, text);
 	});
 	
 }
