@@ -1,6 +1,7 @@
 var array = '';
 var att = '';
 var text ='';
+var array2 = '';
 
 function updateTable(searchAtt, searchText)
 {
@@ -79,7 +80,7 @@ function updateTable(searchAtt, searchText)
 	  		return;
       }
 
-			array = new Array(jsonObject.results.length);
+			array2 = new Array(jsonObject.results.length);
 			for (var i = 0; i < array.length; i++)
 			{
 				array[i] = new Array(9);
@@ -90,42 +91,42 @@ function updateTable(searchAtt, searchText)
 			  {
 			    if (j == 0)
 			    {
-			      array[i][j] = jsonObject.results[i].FirstName;
+			      array2[i][j] = jsonObject.results[i].FirstName;
 			    }
 			    if (j == 1)
 			    {
-			      array[i][j] = jsonObject.results[i].LastName;
+			      array2[i][j] = jsonObject.results[i].LastName;
 			    }
 			    if (j == 2)
 			    {
-			      array[i][j] = jsonObject.results[i].StreetAddress;
+			      array2[i][j] = jsonObject.results[i].StreetAddress;
 			    }
 			    if (j == 3)
 			    {
-			      array[i][j] = jsonObject.results[i].City;
+			      array2[i][j] = jsonObject.results[i].City;
 			    }
 			    if (j == 4)
 			    {
-			      array[i][j] = jsonObject.results[i].State;
+			      array2[i][j] = jsonObject.results[i].State;
 			    }
 			    if (j == 5)
 			    {
-				    array[i][j] = jsonObject.results[i].ZipCode;}
+				    array2[i][j] = jsonObject.results[i].ZipCode;}
           if (j == 6)
           {
-            array[i][j] = jsonObject.results[i].PhoneNumber;
+            array2[i][j] = jsonObject.results[i].PhoneNumber;
           }
 			    if (j == 7)
 			    {
-		        array[i][j] = jsonObject.results[i].Email;
+		        array2[i][j] = jsonObject.results[i].Email;
 		      }
 			    if (j == 8)
 			    {
-		      	array[i][j] = jsonObject.results[i].ContactID;
+		      	array2[i][j] = jsonObject.results[i].ContactID;
 			    }
 	       }
 	     }
-	     createTable(array);
+	     createTable(array2);
 			}
 		};
 	}
