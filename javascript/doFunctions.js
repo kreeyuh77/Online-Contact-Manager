@@ -460,7 +460,7 @@ function doEdit(i){
 					if (jsonObject.error == "")
 	        	{
 	          	document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
-			myTable.rows[i].cells[0].innerHTML = 'Hello';
+			table.rows[i].cells[0].innerHTML = 'Hello';
 							
 						}
 		        else
