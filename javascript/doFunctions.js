@@ -285,7 +285,7 @@ function doSearch()
 
 function createTable(array)
 {
-	var table = document.createElement('table');
+	//var table = document.createElement('table');
 	// string to create table in html
 	var table = "<table><tr>";
 	table += "<th>" + "First Name" + "</th>";
