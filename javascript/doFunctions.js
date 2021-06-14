@@ -460,6 +460,7 @@ function doEdit(i){
 					if (jsonObject.error == "")
 	        	{
 	          	document.getElementById("editResult").innerHTML =  fname + " " + lname + " was succesfully edited!";
+				updateTable(att, text);
 			//table.rows[i].cells[0].innerHTML = 'Hello';
 							
 						}
@@ -471,7 +472,7 @@ function doEdit(i){
 					
 				}
 			}
-		updateTable(att, text);
+		
 		}
 		catch(err)
 		{
