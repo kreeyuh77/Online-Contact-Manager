@@ -336,6 +336,7 @@ function doDelete(i)
 				if (this.readyState == 4 && this.status == 200)
 				{
 					document.getElementById("deleteResult").innerHTML = fname + " " + lname + " has been deleted!";
+					updateTable(att, text);
 					
 				}
 			}
@@ -346,7 +347,7 @@ function doDelete(i)
 		{
 			document.getElementById("deleteResult").innerHTML = err.message;
 		}
-		//updateTable(att, text);
+		
 	});
 	
 }
