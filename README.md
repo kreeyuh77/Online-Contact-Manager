@@ -4,6 +4,6 @@ This program is a personal contact manager wherein users can crate new contacts 
 **Tools**: HTML/CSS, REST API, JSON, MySQL, PHP, Digital Ocean, MobaXTerm, LAMP Stack, Visual Studio, GitHub, Windows OS
 
 **How To Run:**</br>
-_This website is not longer active_
+_This website is no longer active_
 
 
